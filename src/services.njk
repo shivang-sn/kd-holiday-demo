@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+title: "Services"
+description: "KD Holidayz services — international & domestic packages, MICE & group tours, spiritual tours, flights, hotels, visas and more."
+---
+{% import "macros/cards.njk" as cards %}
+{% import "partials/icons.njk" as icon %}
+{% import "partials/page-banner.njk" as banner %}
+
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Services"}], "🧳 What We Do", "Everything Your Trip Needs, Under One Consultant", "From the first idea to the flight home — core planning and every allied booking, coordinated in one place.") }}
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">🌍 Core Services</div>
+      <h2>Where We Specialize</h2>
+    </div>
+    <div class="grid grid--2">
+      {% for s in services.core %}
+      <div class="card" style="padding:32px;">
+        <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render(s.icon, 26) }}</div>
+        <h3>{{ s.name }}</h3>
+        <p class="text-muted" style="margin-top:8px;">{{ s.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">🛫 Allied Services</div>
+      <h2>Booked Alongside Every Trip</h2>
+    </div>
+    <div class="grid grid--5">
+      {% for s in services.allied %}
+      <div class="card" style="padding:24px; text-align:center;">
+        <div class="icon-badge icon-badge--sm" style="margin:0 auto 8px;">{{ icon.lottieRing("sunset") }}{{ icon.render(s.icon, 22) }}</div>
+        <div style="font-weight:700; font-size:0.9rem;">{{ s.name }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="margin-top:32px;">
+      <p class="text-muted" style="font-size:var(--fs-small);">Also available — confirm active list with KD Holidayz before publishing: {{ services.extended.items | join(", ") }}.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">🚀 How It Works</div>
+      <h2>From Enquiry to Departure</h2>
+    </div>
+    {{ cards.processSteps() }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2 style="color:var(--color-white);">Have Something Specific in Mind?</h2>
+      <p style="max-width:480px; margin-inline:auto; margin-top:16px; opacity:0.85;">Get a custom quote built around exactly what you need.</p>
+      <div style="margin-top:24px;">
+        <button class="btn btn--primary" data-drawer-open type="button">Get a Custom Quote</button>
+      </div>
+    </div>
+  </div>
+</section>

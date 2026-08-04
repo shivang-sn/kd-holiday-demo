@@ -1,0 +1,9 @@
+[
+  { "label": "Home", "url": "/" },
+  { "label": "About", "url": "/about/" },
+  { "label": "Services", "url": "/services/" },
+  { "label": "Destinations", "url": "/destinations/" },
+  { "label": "Custom Tour", "url": "/custom-tour/" },
+  { "label": "Gallery", "url": "/gallery/" },
+  { "label": "Contact", "url": "/contact/" }
+]

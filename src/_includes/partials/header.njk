@@ -1,0 +1,18 @@
+<header class="site-header" id="siteHeader">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__logo">
+      <img src="/images/brand/logo-header.png" alt="{{ company.name }}" height="40">
+    </a>
+    <nav class="site-nav" id="siteNav">
+      <ul class="site-nav__list">
+        {% for item in navigation %}
+        <li><a href="{{ item.url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      <button class="btn btn--primary btn--sm" data-drawer-open type="button">Plan Your Trip</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>

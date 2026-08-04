@@ -1,0 +1,143 @@
+---
+layout: layouts/base.njk
+title: "About Us"
+description: "About KD Holidayz — founded 2023, consulting on domestic and international travel from Jamnagar, India and Eldoret, Kenya."
+---
+{% import "macros/cards.njk" as cards %}
+{% import "partials/icons.njk" as icon %}
+{% import "partials/page-banner.njk" as banner %}
+
+{{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "A Dream Quest Explorers — Since 2023", "From a Jamnagar-based consultancy to a two-country operation — this is the story behind KD Holidayz.") }}
+
+<section class="section section--alt">
+  <div class="container grid grid--2">
+    <div class="card" style="padding:32px;">
+      <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render("compass", 26) }}</div>
+      <h3>Our Mission</h3>
+      {% if company.mission %}
+        <p class="text-muted" style="margin-top:12px;">{{ company.mission }}</p>
+      {% else %}
+        <p class="text-muted" style="margin-top:12px;">Pending — <span class="todo-flag">TODO: client to confirm mission statement</span></p>
+      {% endif %}
+    </div>
+    <div class="card" style="padding:32px;">
+      <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("gold") }}{{ icon.render("star", 26) }}</div>
+      <h3>Our Vision</h3>
+      {% if company.vision %}
+        <p class="text-muted" style="margin-top:12px;">{{ company.vision }}</p>
+      {% else %}
+        <p class="text-muted" style="margin-top:12px;">Pending — <span class="todo-flag">TODO: client to confirm vision statement</span></p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:center;">
+    <div>
+      <div class="eyebrow">📖 Our Story</div>
+      <h2>Consult. Plan. Deliver.</h2>
+      <p class="body-lg text-muted" style="margin-top:16px;">KD Holidayz was founded in {{ company.founded }} as a travel consulting firm specializing in thoughtfully planned domestic and international journeys. With an operational presence in Eldoret, Kenya alongside our India base in Jamnagar, we offer stronger destination coordination and dependable on-ground support.</p>
+      <p class="body-lg text-muted" style="margin-top:16px;">We go beyond selling packages — every trip is <strong>consulted</strong> around your needs, <strong>planned</strong> in detail, and <strong>delivered</strong> with on-trip support, building the kind of long-term client trust reflected in our testimonials.</p>
+    </div>
+    <div class="process-steps" style="grid-template-columns: 1fr; gap:24px;">
+      {% set philosophy = [
+        {"n": 1, "title": "Consult", "desc": "We start with a real conversation about what you want from the trip."},
+        {"n": 2, "title": "Plan", "desc": "A detailed itinerary is built around your budget, pace, and preferences."},
+        {"n": 3, "title": "Deliver", "desc": "On-ground support before, during, and after you travel."}
+      ] %}
+      {% for s in philosophy %}
+      <div class="flex flex--gap-4">
+        <div class="process-step__num" style="flex:none;">{{ s.n }}</div>
+        <div>
+          <div style="font-weight:700;">{{ s.title }}</div>
+          <div class="text-muted" style="font-size:var(--fs-small);">{{ s.desc }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">✅ Our Strengths</div>
+      <h2>Why Choose KD Holidayz</h2>
+    </div>
+    <div class="grid grid--3">
+      {% set pillars = [
+        {"icon": "compass", "title": "Personal Consultation", "desc": "Itineraries planned directly with our founder, not a call-center script."},
+        {"icon": "globe", "title": "Two-Country Presence", "desc": "On-ground coordination from our India and Kenya offices."},
+        {"icon": "coin", "title": "Transparent Pricing", "desc": "No hidden charges — clear inclusions and exclusions on every quote."},
+        {"icon": "suitcase", "title": "Fully Customized Trips", "desc": "Every package can be tailored to your budget, dates, and pace."},
+        {"icon": "shield", "title": "End-to-End Support", "desc": "Flights, hotels, visas, and insurance coordinated for you."},
+        {"icon": "star", "title": "Trusted by Travelers", "desc": "Real testimonials from Char Dham to Europe to Bali."}
+      ] %}
+      {% for p in pillars %}
+      <div class="card" style="padding:32px;">
+        <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render(p.icon, 26) }}</div>
+        <h3>{{ p.title }}</h3>
+        <p class="text-muted" style="margin-top:8px; font-size:var(--fs-small);">{{ p.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">👥 Our People</div>
+      <h2>Meet Our Team</h2>
+      <p class="body-lg text-muted">The people behind every KD Holidayz itinerary.</p>
+    </div>
+    <div class="grid grid--3">
+      {% for member in team %}
+        {{ cards.teamCard(member) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container grid grid--4">
+    {% for stat in company.stats %}
+      {{ cards.statTile(stat) }}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">🚀 How It Works</div>
+      <h2>5 Steps to Your Dream Trip</h2>
+      <p class="body-lg text-muted">Simple, transparent, and consultant-led from first enquiry to your return home.</p>
+    </div>
+    {{ cards.processSteps() }}
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">❓ FAQs</div>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    {{ cards.faqAccordion(faqs) }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2 style="color:var(--color-white);">Ready to Start Planning?</h2>
+      <p style="max-width:480px; margin-inline:auto; margin-top:16px; opacity:0.85;">Explore our destinations or talk to our team directly.</p>
+      <div class="flex flex--gap-4" style="justify-content:center; margin-top:24px; flex-wrap:wrap;">
+        <a href="/destinations/" class="btn btn--primary">Explore Destinations 🌍</a>
+        <a href="/contact/" class="btn btn--outline">Contact Our Team</a>
+      </div>
+    </div>
+  </div>
+</section>

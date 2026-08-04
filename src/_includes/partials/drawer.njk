@@ -1,0 +1,55 @@
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="quickDrawer" aria-hidden="true">
+  <button class="drawer__close" id="drawerClose" type="button" aria-label="Close">×</button>
+  <h3>Plan Your Journey ✈️</h3>
+  <div class="drawer__context" id="drawerContext" style="display:none;">
+    📍 Selected destination: <strong id="drawerDestination"></strong>
+  </div>
+  <form id="drawerForm" style="display:flex; flex-direction:column; gap:16px; margin-top:24px;">
+    <div class="form-field">
+      <label for="dName">Full Name *</label>
+      <input type="text" id="dName" name="name" placeholder="Your name" required>
+    </div>
+    <div class="form-field">
+      <label for="dPhone">Phone Number *</label>
+      <input type="tel" id="dPhone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+    </div>
+    <div class="form-field">
+      <label for="dEmail">Email Address</label>
+      <input type="email" id="dEmail" name="email" placeholder="you@email.com">
+    </div>
+    <div class="form-field">
+      <label for="dDate">Travel Date *</label>
+      <input type="date" id="dDate" name="date" required>
+    </div>
+    <div class="form-field">
+      <label for="dTravelers">No. of Travelers</label>
+      <select id="dTravelers" name="travelers">
+        <option>1 Person</option>
+        <option>2 People</option>
+        <option>3–5 People</option>
+        <option>6–10 People</option>
+        <option>10+ People</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="dBudget">Budget Range</label>
+      <select id="dBudget" name="budget">
+        <option>Under ₹25,000</option>
+        <option>₹25,000 – ₹50,000</option>
+        <option>₹50,000 – ₹1,00,000</option>
+        <option>₹1,00,000+</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="dNotes">Additional Notes</label>
+      <textarea id="dNotes" name="notes" rows="3" placeholder="Any special requirements..."></textarea>
+    </div>
+    <button type="submit" class="btn btn--primary btn--block">Submit Enquiry 🚀</button>
+    <p class="text-muted" style="font-size:var(--fs-small); text-align:center;">🔒 Your information is only used to plan your trip.</p>
+  </form>
+  <div class="drawer__success" id="drawerSuccess">
+    <h3>Enquiry Submitted!</h3>
+    <p class="text-muted">Thank you! Our consultant will reach out shortly.</p>
+  </div>
+</aside>

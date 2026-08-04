@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | {{ company.name }}</title>
+  <meta name="description" content="{{ description or (company.tagline + ' — Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+  {% include "partials/header.njk" %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include "partials/footer.njk" %}
+  {% include "partials/drawer.njk" %}
+  <a class="whatsapp-float" href="{{ company.whatsappNumber | whatsappLink('Hi KD Holidayz, I would like to plan a trip.') }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ripple" id="cursorRipple" aria-hidden="true"></div>
+  <script src="/js/vendor/lottie.min.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

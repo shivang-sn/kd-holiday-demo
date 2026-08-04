@@ -1,0 +1,49 @@
+{
+  "name": "KD Holidayz",
+  "legalName": "KD Holidayz",
+  "tagline": "A Dream Quest Explorers!",
+  "founded": 2023,
+  "website": "https://www.kdholidayz.in",
+  "email": "info@kdholidayz.in",
+  "whatsappNumber": "918000144333",
+  "primaryPhone": "+91 8000144333",
+  "offices": [
+    {
+      "id": "india",
+      "label": "Head Office",
+      "country": "India",
+      "city": "Jamnagar",
+      "address": "\"Hreehan Complex\", Patel Samaj, Jamnagar, Gujarat, India",
+      "phones": ["+91 8000144333", "+91 9429799355"],
+      "email": "info@kdholidayz.in",
+      "mapQuery": "Hreehan Complex, Patel Samaj, Jamnagar, Gujarat, India",
+      "businessHours": null
+    },
+    {
+      "id": "kenya",
+      "label": "Branch Office",
+      "country": "Kenya",
+      "city": "Eldoret",
+      "address": "Ronald Ngala Street, P.O. Box 4309-30100, Eldoret, Kenya",
+      "phones": ["+254 731062066", "+91 8660401151"],
+      "email": "maithri.shah@kdholidayz.in",
+      "mapQuery": "Ronald Ngala Street, Eldoret, Kenya",
+      "businessHours": null
+    }
+  ],
+  "socials": {
+    "instagram": "https://www.instagram.com/kdholidayz_jamnagar/",
+    "facebook": null,
+    "youtube": null,
+    "linkedin": null
+  },
+  "stats": [
+    { "label": "Happy Customers", "value": 100, "suffix": "+" },
+    { "label": "Destinations Covered", "value": 50, "suffix": "+" },
+    { "label": "Tours Completed", "value": 120, "suffix": "+" },
+    { "label": "Years of Experience", "value": 8, "suffix": "+" }
+  ],
+  "mission": null,
+  "vision": null,
+  "notes": "Fields set to null are confirmed gaps from the client requirement list (Section 5 of docs/website-build-brief.md) — do not invent numbers or copy here, wire the templates to show a TODO state instead."
+}

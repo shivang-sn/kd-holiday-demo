@@ -1,0 +1,9 @@
+[
+  { "label": "Family Tours", "icon": "person", "tag": "family" },
+  { "label": "Honeymoon", "icon": "heart", "tag": "honeymoon" },
+  { "label": "Group & Corporate", "icon": "suitcase", "tag": "group" },
+  { "label": "Spiritual & Pilgrimage", "icon": "temple", "tag": "spiritual" },
+  { "label": "Wellness", "icon": "leaf", "tag": "wellness" },
+  { "label": "Adventure", "icon": "mountain", "tag": "adventure" },
+  { "label": "Custom Tours", "icon": "star", "tag": "custom" }
+]

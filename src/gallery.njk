@@ -1,0 +1,85 @@
+---
+layout: layouts/base.njk
+title: "Gallery"
+description: "KD Holidayz travel gallery — office, team, tour groups, destinations, events, and customer photos."
+---
+{% import "macros/cards.njk" as cards %}
+{% import "partials/page-banner.njk" as banner %}
+
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Gallery"}], "📸 Moments", "Travel Gallery", "Real moments from KD Holidayz journeys. Photos pending from the client — placeholders shown below by category.") }}
+
+<section class="section">
+  <div class="container">
+    <div class="filter-chips" id="galleryFilters">
+      <button class="filter-chip is-active" data-gallery-filter="all" type="button">All</button>
+      <button class="filter-chip" data-gallery-filter="office" type="button">Office</button>
+      <button class="filter-chip" data-gallery-filter="team" type="button">Team</button>
+      <button class="filter-chip" data-gallery-filter="tour-groups" type="button">Tour Groups</button>
+      <button class="filter-chip" data-gallery-filter="destinations" type="button">Destinations</button>
+      <button class="filter-chip" data-gallery-filter="events" type="button">Events</button>
+      <button class="filter-chip" data-gallery-filter="customer-photos" type="button">Customer Photos</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      {% set categoryPhotos = {
+        "Office": [
+          "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=70",
+          "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&q=70",
+          "https://images.unsplash.com/photo-1552581234-26160f608093?w=600&q=70"
+        ],
+        "Team": [
+          "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=70",
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=70",
+          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=70"
+        ],
+        "Tour Groups": [
+          "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=600&q=70",
+          "https://images.unsplash.com/photo-1528543606781-2f6e6857f318?w=600&q=70",
+          "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=600&q=70"
+        ],
+        "Destinations": [
+          "/images/photos/kerala.jpg",
+          "/images/photos/dubai.jpg",
+          "/images/photos/africa.jpg"
+        ],
+        "Events": [
+          "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=70",
+          "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=70",
+          "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=70"
+        ],
+        "Customer Photos": [
+          "https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=600&q=70",
+          "https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=600&q=70",
+          "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=70"
+        ]
+      } %}
+      {% for cat, photos in categoryPhotos %}
+        {% for photo in photos %}
+        <div class="media-img gallery-item" style="--ph-ratio:1/1;" data-gallery-item="{{ cat | slugTag }}" data-lightbox-label="{{ cat }} {{ loop.index }}" data-lightbox-src="{{ photo }}">
+          <img src="{{ photo }}" alt="{{ cat }} {{ loop.index }}" loading="lazy">
+        </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="cta-band">
+      <h2 style="color:var(--color-white);">Been on a Trip With Us?</h2>
+      <p style="max-width:480px; margin-inline:auto; margin-top:16px; opacity:0.85;">Tag us in your photos and we'll feature them here.</p>
+      <div style="margin-top:24px;">
+        <a href="/contact/" class="btn btn--primary">Share Your Photos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close">×</button>
+  <div class="media-img lightbox__frame" id="lightboxFrame">
+    <img id="lightboxImg" src="" alt="">
+    <span id="lightboxLabel" class="sr-only"></span>
+  </div>
+</div>

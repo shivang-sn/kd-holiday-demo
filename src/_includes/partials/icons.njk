@@ -1,0 +1,43 @@
+{#
+  Line-icon set matching the KD Holidayz brand board's outlined icon style.
+  Usage: {{ icon.render("plane") }} or {{ icon.render("plane", 28) }}
+  Icons inherit color via `currentColor` — set `color` on the wrapping element to tint.
+#}
+{% macro render(name, size) %}
+{% set s = size or 24 %}
+{% set paths = {
+  "plane": '<path d="M2 12l19-7-7 19-2-8-8-2z"/>',
+  "hotel": '<rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 21v-4h6v4"/><path d="M8 7.5h1M8 11.5h1M15 7.5h1M15 11.5h1"/>',
+  "passport": '<rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="2.4"/><path d="M8.2 17c0-2 1.8-3 3.8-3s3.8 1 3.8 3"/>',
+  "pin": '<path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/>',
+  "suitcase": '<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8.5 8V6.2A2.2 2.2 0 0110.7 4h2.6a2.2 2.2 0 012.2 2.2V8"/><line x1="3" y1="13.5" x2="21" y2="13.5"/>',
+  "camera": '<path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="13" r="3.2"/>',
+  "ship": '<path d="M4 16h16l-1.6 4h-12.8z"/><path d="M12 4v8"/><path d="M12 4l4.2 3.8H7.8z"/>',
+  "shield": '<path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/>',
+  "compass": '<circle cx="12" cy="12" r="9"/><path d="M15.2 8.8l-2.1 5.5-5.5 2.1 2.1-5.5z"/>',
+  "person": '<circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/>',
+  "globe": '<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/>',
+  "mountain": '<path d="M3 19l6-10 4 6 2-3 6 7z"/>',
+  "car": '<path d="M4 16l1.5-5a2 2 0 012-1.4h9a2 2 0 012 1.4L20 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><circle cx="7.5" cy="20" r="1.3"/><circle cx="16.5" cy="20" r="1.3"/>',
+  "temple": '<path d="M12 3l3 4H9z"/><rect x="6" y="9" width="12" height="2"/><path d="M7 11v8M11 11v8M13 11v8M17 11v8"/><rect x="5" y="19" width="14" height="2"/>',
+  "heart": '<path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0112 6a5.5 5.5 0 019.5 6c-2.5 4.5-9.5 9-9.5 9z"/>',
+  "leaf": '<path d="M5 21c8 0 14-6 14-14V5h-2C9 5 3 11 3 19v2z"/><path d="M5 21c0-4 3-9 8-12"/>',
+  "star": '<path d="M12 3l2.5 6.5L21 11l-5 4 1.5 6.5L12 18l-5.5 3.5L8 15l-5-4 6.5-1.5z"/>',
+  "coin": '<circle cx="12" cy="12" r="9"/><path d="M9 8.8h4.3a1.9 1.9 0 010 3.8H9m0 0h4.3a1.9 1.9 0 010 3.8H9M12 6.5v2M12 15.7v2"/>',
+  "support": '<circle cx="12" cy="12" r="4"/><path d="M4.5 13v-1a7.5 7.5 0 0115 0v1"/><rect x="3" y="13" width="3" height="5" rx="1"/><rect x="18" y="13" width="3" height="5" rx="1"/>',
+  "phone": '<path d="M6.5 4h3l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5v3a2 2 0 01-2 2C11.5 20 4 12.5 4 6.5a2 2 0 012-2z"/>',
+  "mail": '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/>',
+  "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>'
+} %}
+<svg width="{{ s }}" height="{{ s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ (paths[name] or paths["star"]) | safe }}</svg>
+{% endmacro %}
+
+{#
+  Small original Lottie animation (hand-authored JSON, see scripts/generate-lottie-icons.js —
+  not a third-party asset, so no licensing concerns) — a ring that draws on and pops in
+  behind an icon glyph. Drop into any *fixed-size* circular icon container.
+  Usage: {{ icon.lottieRing("forest") }} placed before {{ icon.render(...) }} in the same badge.
+#}
+{% macro lottieRing(variant) %}
+<div class="lottie-ring" data-lottie="/images/lottie/ring-pulse-{{ variant or 'forest' }}.json" aria-hidden="true"></div>
+{% endmacro %}

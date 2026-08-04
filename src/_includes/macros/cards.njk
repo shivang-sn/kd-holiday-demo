@@ -1,0 +1,148 @@
+{% import "partials/icons.njk" as icon %}
+
+{% macro placeholderImg(label, ratio, extraClass) %}
+<div class="placeholder-img {{ extraClass }}" style="--ph-ratio:{{ ratio or '4/3' }};">
+  <span>{{ label }}</span>
+</div>
+{% endmacro %}
+
+{% macro mediaImg(label, imageSrc, ratio, extraClass) %}
+{% if imageSrc %}
+<div class="media-img {{ extraClass }}" style="--ph-ratio:{{ ratio or '4/3' }};">
+  <img src="{{ imageSrc }}" alt="{{ label }}" loading="lazy">
+</div>
+{% else %}
+{{ placeholderImg(label, ratio, extraClass) }}
+{% endif %}
+{% endmacro %}
+
+{% macro destinationCard(d, url) %}
+<article class="card dest-card" data-tags="{{ d.tags | join(',') }}" data-region="{{ d.region }}">
+  <div class="dest-card__media">
+    {{ mediaImg(d.title, d.heroImage, '5/4') }}
+    {% if d.bestSeller %}<span class="badge">Best Seller</span>{% endif %}
+    <button class="btn btn--primary btn--sm dest-card__quick-inquiry" data-drawer-open data-destination="{{ d.title }}"{% if d.pdfFile %} data-pdf="{{ d.pdfFile }}"{% endif %} type="button">Quick Inquiry</button>
+  </div>
+  <div class="dest-card__body">
+    <div class="dest-card__meta">
+      <span>{{ d.country }}</span><span>·</span><span>{{ d.durationNights }}N/{{ d.durationDays }}D</span>
+    </div>
+    <div class="dest-card__title">{{ d.title }}</div>
+    <div class="dest-card__sub">{{ d.subtitle }}</div>
+    {% if d.rating %}
+    <div class="dest-card__rating">
+      <span class="stars">★★★★★</span>
+      <span class="text-muted">{{ d.rating }} ({{ d.reviewCount }})</span>
+    </div>
+    {% endif %}
+    <div class="dest-card__footer">
+      <div class="dest-card__price">{{ d.startingPrice | currency }}<small> / Per Person</small></div>
+      <a href="{{ url }}" class="btn btn--ghost btn--sm">View</a>
+    </div>
+  </div>
+</article>
+{% endmacro %}
+
+{% macro offerCard(o) %}
+<div class="card offer-card">
+  <span class="pill pill--accent">{{ o.badge }}</span>
+  <h3 style="margin-top:16px;">{{ o.title }}</h3>
+  <p class="text-muted">{{ o.description }}</p>
+  <div class="offer-card__price-row">
+    {% if o.priceSingle %}
+      <span class="offer-card__price">{{ o.priceSingle | currency }}</span><span class="text-muted" style="font-size:var(--fs-small);">{{ o.priceNote }} (single occ.)</span>
+    {% elif o.startingPrice %}
+      <span class="offer-card__price">{{ o.startingPrice | currency }}</span><span class="text-muted" style="font-size:var(--fs-small);">onwards, {{ o.duration }}</span>
+    {% else %}
+      <span class="offer-card__price">Price on request</span><span class="text-muted" style="font-size:var(--fs-small);">{{ o.duration }}</span>
+    {% endif %}
+  </div>
+  {% if o.deadline %}
+  <div class="countdown" data-countdown="{{ o.deadline }}">
+    <div class="countdown__unit"><strong data-unit="days">--</strong><span>Days</span></div>
+    <div class="countdown__unit"><strong data-unit="hours">--</strong><span>Hrs</span></div>
+    <div class="countdown__unit"><strong data-unit="minutes">--</strong><span>Min</span></div>
+    <div class="countdown__unit"><strong data-unit="seconds">--</strong><span>Sec</span></div>
+  </div>
+  {% endif %}
+  <button class="btn btn--secondary btn--block" data-drawer-open data-destination="{{ o.title }}" type="button">Enquire Now</button>
+</div>
+{% endmacro %}
+
+{% macro testimonialCard(t) %}
+<div class="card testimonial-card">
+  <div class="testimonial-card__stars">★★★★★</div>
+  <p class="testimonial-card__quote">"{{ t.quote }}"</p>
+  <div class="testimonial-card__author">
+    <div class="testimonial-card__avatar">{{ t.name[0] }}</div>
+    <div>
+      <div style="font-weight:700;">{{ t.name }}</div>
+      <div class="text-muted" style="font-size:var(--fs-small);">{{ t.trip }}</div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro teamCard(m) %}
+<div class="card team-card">
+  {{ mediaImg(m.name, m.photo, '1/1', 'team-card__photo') }}
+  <div class="team-card__name">{{ m.name }}</div>
+  <div class="team-card__role">{{ m.role }}</div>
+  <p class="text-muted" style="font-size:var(--fs-small);">{{ m.bio }}</p>
+</div>
+{% endmacro %}
+
+{% macro statTile(s) %}
+<div class="stat-tile">
+  {% if s.value %}
+  <div class="stat-tile__value" data-countup="{{ s.value }}">0{{ s.suffix }}</div>
+  {% else %}
+  <div class="stat-tile__value">—</div>
+  <div class="stat-tile__todo">TODO: client to confirm</div>
+  {% endif %}
+  <div class="stat-tile__label">{{ s.label }}</div>
+</div>
+{% endmacro %}
+
+{% macro faqAccordion(items) %}
+<div class="accordion">
+  {% for item in items %}
+  <div class="accordion__item">
+    <button class="accordion__trigger" type="button">
+      <span>{{ item.question }}</span>
+      <span class="accordion__icon">+</span>
+    </button>
+    <div class="accordion__panel">
+      <div class="accordion__panel-inner">{{ item.answer }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro processSteps() %}
+{% set steps = [
+  {"n": 1, "title": "Enquire", "desc": "Tell us where you want to go"},
+  {"n": 2, "title": "Consult", "desc": "Talk to our travel consultant"},
+  {"n": 3, "title": "Customize", "desc": "We tailor the itinerary to you"},
+  {"n": 4, "title": "Confirm", "desc": "Book securely, flexible payments"},
+  {"n": 5, "title": "Travel", "desc": "Enjoy, with support throughout"}
+] %}
+<div class="process-steps">
+  {% for s in steps %}
+  <div class="process-step">
+    <div class="process-step__num">{{ s.n }}</div>
+    <div style="font-weight:700; margin-bottom:4px;">{{ s.title }}</div>
+    <div class="text-muted" style="font-size:var(--fs-small);">{{ s.desc }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro categoryTile(cat, count) %}
+<div class="card category-tile">
+  <div class="category-tile__icon">{{ icon.render(cat.icon, 30) }}</div>
+  <div class="category-tile__label">{{ cat.label }}</div>
+  <div class="category-tile__count">{{ count }} package{{ "s" if count != 1 else "" }}</div>
+</div>
+{% endmacro %}

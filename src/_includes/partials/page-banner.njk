@@ -1,0 +1,24 @@
+{#
+  Shared inner-page banner — breadcrumb + eyebrow + H1 + optional subtitle,
+  on a dark Ocean gradient. Sits directly under the fixed pill header, so it
+  supplies its own top clearance (matches the destination-detail breadcrumb's
+  old margin-top:112px).
+
+  Usage:
+  {% import "partials/page-banner.njk" as banner %}
+  {{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "About Us", "Optional lede copy") }}
+#}
+{% macro render(crumbs, eyebrow, title, subtitle) %}
+<section class="page-banner">
+  <div class="container">
+    <nav class="breadcrumb breadcrumb--on-dark">
+      {% for c in crumbs %}
+        {% if c.url and not loop.last %}<a href="{{ c.url }}">{{ c.label }}</a> <span class="breadcrumb__sep">/</span> {% else %}<span aria-current="page">{{ c.label }}</span>{% endif %}
+      {% endfor %}
+    </nav>
+    {% if eyebrow %}<div class="eyebrow page-banner__eyebrow">{{ eyebrow }}</div>{% endif %}
+    <h1 class="page-banner__title">{{ title }}</h1>
+    {% if subtitle %}<p class="body-lg page-banner__subtitle">{{ subtitle | safe }}</p>{% endif %}
+  </div>
+</section>
+{% endmacro %}

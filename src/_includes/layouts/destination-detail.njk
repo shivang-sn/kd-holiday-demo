@@ -1,0 +1,126 @@
+---
+layout: layouts/base.njk
+---
+{% import "macros/cards.njk" as cards %}
+
+<section class="page-banner">
+  <div class="container">
+    <nav class="breadcrumb breadcrumb--on-dark">
+      <a href="/">Home</a> <span class="breadcrumb__sep">/</span> <a href="/destinations/">Destinations</a> <span class="breadcrumb__sep">/</span> <span aria-current="page">{{ title }}</span>
+    </nav>
+    {% if sample %}<span class="todo-flag" style="margin-bottom:16px; display:inline-block;">Sample content — confirm final pricing, inclusions & copy with the client before publishing</span>{% endif %}
+    <div class="flex flex--gap-3" style="margin:16px 0; flex-wrap:wrap;">
+      <span class="pill pill--dark">{{ durationNights }}N / {{ durationDays }}D</span>
+      <span class="pill pill--dark">{{ groupType or "Group & Private" }}</span>
+    </div>
+    <h1 class="page-banner__title">{{ title }}</h1>
+    <p class="body-lg page-banner__subtitle">{{ subtitle }}</p>
+
+    <div class="flex flex--gap-3" style="margin-top:24px; flex-wrap:wrap;">
+      {% for tag in tagPills %}<span class="pill pill--accent">{{ tag }}</span>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="container" style="margin-top:40px;">
+  {{ cards.mediaImg(title, heroImage, "21/9") }}
+  {% if heroImageCredit %}<p class="text-muted" style="font-size:var(--fs-small); margin-top:8px;">{{ heroImageCredit }}</p>{% endif %}
+</section>
+
+<section class="container" style="margin-top:56px; display:grid; grid-template-columns: 2fr 1fr; gap:48px;" id="destinationMain">
+  <div>
+    <div class="eyebrow">📖 Overview</div>
+    <h2 style="margin-bottom:24px;">About This Package</h2>
+    <div class="body-lg text-muted">{{ content | safe }}</div>
+
+    <div class="eyebrow" style="margin-top:56px;">🎯 Activities Included</div>
+    <div class="grid grid--4">
+      {% for a in activities %}
+      <div class="card activity-card">
+        {{ cards.mediaImg(a.name, a.image, '1/1', 'activity-card__media') }}
+        <div class="activity-card__label">{{ a.name }}</div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="eyebrow" style="margin-top:56px;">📍 Top Places to Visit</div>
+    <div class="grid grid--2">
+      {% for p in topPlaces %}
+      <div class="card place-card">
+        {{ cards.mediaImg(p.name, p.image, '16/9', 'place-card__media') }}
+        <div class="place-card__body">
+          <h3>{{ p.name }}</h3>
+          <p class="text-muted">{{ p.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if localFood %}
+    <div class="eyebrow" style="margin-top:56px;">🍽️ Local Food to Try</div>
+    <div class="grid grid--3">
+      {% for f in localFood %}
+      <div class="card" style="padding:24px;">
+        <h3>{{ f.name }}</h3>
+        <p class="text-muted" style="font-size:var(--fs-small);">{{ f.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="eyebrow" style="margin-top:56px;">🗓️ Day-by-Day Itinerary</div>
+    <div>
+      {% for day in itinerary %}
+      <div class="itinerary-item">
+        <div class="itinerary-item__day">D{{ day.day }}</div>
+        <div>
+          <h3>{{ day.title }}</h3>
+          <p class="text-muted">{{ day.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <aside>
+    <div class="card booking-sidebar">
+      <div class="booking-sidebar__price-row">
+        <span style="font-size:1.75rem; font-weight:800; color:var(--color-primary);">{{ startingPrice | currency }}</span>
+        <span class="text-muted" style="font-size:var(--fs-small);">/ person</span>
+      </div>
+      <div class="booking-sidebar__chips">
+        <span class="pill">{{ durationDays }} Days</span>
+        <span class="pill">Best time: {{ bestTime }}</span>
+      </div>
+      <button class="btn btn--primary btn--block" data-drawer-open data-destination="{{ title }}"{% if pdfFile %} data-pdf="{{ pdfFile }}"{% endif %} type="button">Book Now 🚀</button>
+      <ul class="booking-sidebar__trust">
+        <li>🔒 Secure enquiry — no payment needed to ask</li>
+        <li>📞 Direct line to your consultant</li>
+        <li>🗺️ Fully customizable itinerary</li>
+      </ul>
+    </div>
+    <div class="card" style="padding:24px; margin-top:24px; text-align:center;">
+      <p style="font-weight:700;">Need help? Call us</p>
+      <a href="{{ company.offices[0].phones[0] | telLink }}" class="btn btn--secondary btn--block" style="margin-top:12px;">{{ company.offices[0].phones[0] }}</a>
+    </div>
+  </aside>
+</section>
+
+<section class="container section">
+  <div class="section-heading section-heading--center" style="margin-inline:auto;">
+    <div class="eyebrow" style="justify-content:center;">🗺️ Keep Exploring</div>
+    <h2>Explore More Destinations</h2>
+  </div>
+  <div class="grid grid--3">
+    {% for item in collections.destinations %}
+      {% if item.data.title != title %}
+        {{ cards.destinationCard(item.data, item.url) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<div class="sticky-mobile-bar is-active">
+  <a href="{{ company.offices[0].phones[0] | telLink }}" class="btn btn--outline" style="color:var(--color-primary); border-color:var(--color-primary);">📞 Call</a>
+  <button class="btn btn--primary" data-drawer-open data-destination="{{ title }}"{% if pdfFile %} data-pdf="{{ pdfFile }}"{% endif %} type="button">Book Now</button>
+</div>

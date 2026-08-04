@@ -1,0 +1,53 @@
+{% set india = company.offices[0] %}
+{% set kenya = company.offices[1] %}
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <div class="footer-logo"><img src="/images/brand/logo-footer.png" alt="{{ company.name }}" height="110"></div>
+        <p>{{ company.tagline }} Trusted travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.</p>
+        <div class="footer-social">
+          {% if company.socials.instagram %}<a href="{{ company.socials.instagram }}" aria-label="Instagram">IG</a>{% endif %}
+          {% if company.socials.facebook %}<a href="{{ company.socials.facebook }}" aria-label="Facebook">FB</a>{% endif %}
+          {% if company.socials.youtube %}<a href="{{ company.socials.youtube }}" aria-label="YouTube">YT</a>{% endif %}
+          {% if company.socials.linkedin %}<a href="{{ company.socials.linkedin }}" aria-label="LinkedIn">IN</a>{% endif %}
+          {% if not (company.socials.instagram or company.socials.facebook or company.socials.youtube or company.socials.linkedin) %}
+          <span class="todo-flag">TODO: social links</span>
+          {% endif %}
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul style="display:flex; flex-direction:column; gap:10px;">
+          {% for item in navigation %}<li><a href="{{ item.url }}">{{ item.label }}</a></li>{% endfor %}
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms-conditions/">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Head Office — India</h4>
+        <p>{{ india.address }}</p>
+        <p>
+          {% for phone in india.phones %}<a href="{{ phone | telLink }}">{{ phone }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}
+        </p>
+        <p><a href="mailto:{{ india.email }}">{{ india.email }}</a></p>
+      </div>
+      <div>
+        <h4>Branch — Kenya</h4>
+        <p>{{ kenya.address }}</p>
+        <p>
+          {% for phone in kenya.phones %}<a href="{{ phone | telLink }}">{{ phone }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}
+        </p>
+        <p><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></p>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© {% year %} {{ company.name }}. All rights reserved.</span>
+      <div style="display:flex; gap:16px;">
+        <a href="/privacy-policy/">Privacy</a>
+        <a href="/terms-conditions/">Terms</a>
+        <a href="/contact/">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>

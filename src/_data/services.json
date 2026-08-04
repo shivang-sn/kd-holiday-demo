@@ -1,0 +1,46 @@
+{
+  "core": [
+    {
+      "name": "International Packages",
+      "icon": "globe",
+      "description": "Curated journeys across Southeast Asia, Europe, the Middle East, and beyond — planned and consulted end to end."
+    },
+    {
+      "name": "Domestic Packages",
+      "icon": "pin",
+      "description": "The best of India's circuits, hill stations, backwaters, and heritage cities."
+    },
+    {
+      "name": "MICE & Group Tours",
+      "icon": "person",
+      "description": "Meetings, incentives, conferences, and corporate/school group travel handled with single-point coordination."
+    },
+    {
+      "name": "Spiritual & Pilgrimage Tours",
+      "icon": "temple",
+      "description": "Char Dham and other pilgrimage journeys, planned with on-ground support in remote locations."
+    }
+  ],
+  "allied": [
+    { "name": "Flights Ticketing", "icon": "plane" },
+    { "name": "Hotel Reservation", "icon": "hotel" },
+    { "name": "Transport / Cab Service", "icon": "car" },
+    { "name": "Visa Assistance", "icon": "passport" },
+    { "name": "Travel Insurance", "icon": "shield" }
+  ],
+  "extended": {
+    "note": "From the client requirement list — confirm with KD Holidayz which of these are currently active before publishing.",
+    "items": [
+      "Honeymoon Packages",
+      "Corporate Tours",
+      "School / College Trips",
+      "Bus Booking",
+      "Train Booking",
+      "Passport Assistance",
+      "Cruise Booking",
+      "Customized Holiday Packages",
+      "Wellness Packages",
+      "Hospitality Consultant"
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+---
+layout: layouts/base.njk
+title: "Custom Tour & Packages"
+description: "Design your own journey with KD Holidayz — fully customized itineraries built around your budget, dates, and preferences."
+---
+{% import "macros/cards.njk" as cards %}
+{% import "partials/page-banner.njk" as banner %}
+
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Custom Tour & Packages"}], "🎨 Build Your Own Trip", "Design Your Own Journey", "Tell us your destination, dates, and budget — we'll design an itinerary around it, not the other way round.") }}
+
+<section class="section section--alt">
+  <div class="container" style="max-width:720px;">
+    <form class="card" style="padding:40px;" id="customTourForm">
+      <div class="form-grid">
+        <div class="form-field form-field--full">
+          <label for="ctDestination">Destination</label>
+          <input type="text" id="ctDestination" name="destination" placeholder="Where do you want to go?">
+        </div>
+        <div class="form-field">
+          <label for="ctName">Full Name *</label>
+          <input type="text" id="ctName" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="ctPhone">Phone Number *</label>
+          <input type="tel" id="ctPhone" name="phone" required>
+        </div>
+        <div class="form-field">
+          <label for="ctDate">Travel Date</label>
+          <input type="date" id="ctDate" name="date">
+        </div>
+        <div class="form-field">
+          <label for="ctAdults">Adults</label>
+          <input type="number" id="ctAdults" name="adults" min="1" value="2">
+        </div>
+        <div class="form-field">
+          <label for="ctChildren">Children</label>
+          <input type="number" id="ctChildren" name="children" min="0" value="0">
+        </div>
+        <div class="form-field">
+          <label for="ctBudget">Budget Range</label>
+          <select id="ctBudget" name="budget">
+            <option>Under ₹25,000</option>
+            <option>₹25,000 – ₹50,000</option>
+            <option>₹50,000 – ₹1,00,000</option>
+            <option>₹1,00,000+</option>
+          </select>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="ctNotes">Special Requirements</label>
+          <textarea id="ctNotes" name="notes" rows="3" placeholder="Dietary needs, accessibility, preferred hotel type, anything else..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn--primary btn--block" style="margin-top:24px;">Submit Custom Request 🚀</button>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">🎯 Popular Themes</div>
+      <h2>Build Around What You're Celebrating</h2>
+    </div>
+    <div class="grid grid--4">
+      {% for cat in tourCategories %}
+        {{ cards.categoryTile(cat, collections.destinations | tagCount(cat.tag)) }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">✨ We Build Anything</div>
+      <h2>Specialized Packages We've Delivered</h2>
+    </div>
+    <div class="grid grid--2">
+      {% for offer in offers %}
+        {% if offer.title == "Canton Fair Sourcing Tour" or offer.title == "Rishikesh Wellness Retreat" %}
+          {{ cards.offerCard(offer) }}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2 style="color:var(--color-white);">Prefer to Just Chat It Through?</h2>
+      <p style="max-width:480px; margin-inline:auto; margin-top:16px; opacity:0.85;">Message us directly on WhatsApp for a fast, no-obligation quote.</p>
+      <div style="margin-top:24px;">
+        <a href="{{ company.whatsappNumber | whatsappLink('Hi KD Holidayz, I would like a custom tour quote.') }}" class="btn btn--primary" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
