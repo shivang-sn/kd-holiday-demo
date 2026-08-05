@@ -7,9 +7,9 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
 {% import "partials/icons.njk" as icon %}
 {% import "partials/page-banner.njk" as banner %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "A Dream Quest Explorers — Since 2023", "From a Jamnagar-based consultancy to a two-country operation — this is the story behind KD Holidayz.") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "A Dream Quest Explorers — Since 2023", "From a Jamnagar-based consultancy to a two-country operation — this is the story behind KD Holidayz.", "about") }}
 
-<section class="section section--alt">
+<section class="section section--alt about__mission-vision">
   <div class="container grid grid--2">
     <div class="card" style="padding:32px;">
       <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render("compass", 26) }}</div>
@@ -32,7 +32,7 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
   </div>
 </section>
 
-<section class="section">
+<section class="section about__story">
   <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:center;">
     <div>
       <div class="eyebrow">📖 Our Story</div>
@@ -59,7 +59,7 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt about__strengths">
   <div class="container">
     <div class="section-heading section-heading--center">
       <div class="eyebrow" style="justify-content:center;">✅ Our Strengths</div>
@@ -85,7 +85,7 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
   </div>
 </section>
 
-<section class="section">
+<section class="section about__team">
   <div class="container">
     <div class="section-heading section-heading--center">
       <div class="eyebrow" style="justify-content:center;">👥 Our People</div>
@@ -100,7 +100,7 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt about__stats">
   <div class="container grid grid--4">
     {% for stat in company.stats %}
       {{ cards.statTile(stat) }}
@@ -108,7 +108,7 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
   </div>
 </section>
 
-<section class="section">
+<section class="section about__process">
   <div class="container">
     <div class="section-heading section-heading--center">
       <div class="eyebrow" style="justify-content:center;">🚀 How It Works</div>
@@ -119,7 +119,7 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt about__faq">
   <div class="container">
     <div class="section-heading">
       <div class="eyebrow">❓ FAQs</div>
@@ -129,7 +129,7 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
   </div>
 </section>
 
-<section class="section">
+<section class="section about__cta">
   <div class="container">
     <div class="cta-band">
       <h2 style="color:var(--color-white);">Ready to Start Planning?</h2>

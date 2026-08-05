@@ -1,0 +1,4 @@
+{
+  "googleSheetsWebAppUrl": "https://script.google.com/macros/s/AKfycbzcTERmO8UqMAQFX4fyz5tOzTcmLVs0VhsacRVfhQjzJX0V7o3eJVTFr2PHquAWG-XW/exec",
+  "notes": "Set googleSheetsWebAppUrl to the deployed Google Apps Script Web App URL to have form submissions (Quick Enquiry, Custom Tour, Contact) appended as rows to a Google Sheet. Leave blank to disable — forms still validate and show a success message, they just won't be recorded anywhere."
+}

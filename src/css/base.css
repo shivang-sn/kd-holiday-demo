@@ -143,8 +143,8 @@ h3, .h3 {
   white-space: nowrap;
 }
 .btn--primary {
-  background: var(--color-ocean);
-  color: var(--color-white);
+  background: var(--color-gold);
+  color: var(--color-charcoal);
   box-shadow: var(--shadow-sm);
 }
 .btn--primary:hover { background: var(--color-accent); color: var(--color-white); transform: translateY(-2px); box-shadow: var(--shadow-md); }
@@ -153,13 +153,19 @@ h3, .h3 {
   color: var(--color-white);
   border: 1px solid transparent;
 }
-.btn--secondary:hover { background: var(--color-white); color:  var(--color-accent); transform: translateY(-2px); box-shadow: var(--shadow-md); border: 1px solid var(--color-accent);}
+.btn--secondary:hover { background: var(--color-gold); color:  var(--color-white); transform: translateY(-2px); box-shadow: var(--shadow-md); border: 1px solid var(--color-gold);}
 .btn--outline {
-  background: var(--color-white);
-  border: 2px solid var(--color-accent);
-  color: var(--color-accent);
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  color: var(--color-white);
 }
-.btn--outline:hover { background:var(--color-accent);color: var(--color-white); }
+.btn--outline:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-charcoal);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
 .btn--ghost {
   background: var(--color-white);
   color: var(--color-primary);

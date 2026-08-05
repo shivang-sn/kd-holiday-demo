@@ -225,6 +225,127 @@
     });
   }
 
+  /* ---------- Form validation + Google Sheets submission -----------
+     Shared by the quick-enquiry drawer, custom-tour form, and contact
+     form. Validates real formats (not just "required"), shows inline
+     errors, and — if window.KD_FORM_ENDPOINT is configured (a deployed
+     Google Apps Script Web App URL) — posts the submission so it lands
+     as a row in a Google Sheet. */
+  var FIELD_VALIDATORS = {
+    name: function (value) {
+      var v = value.trim();
+      if (!v) return "Name is required.";
+      if (v.length < 2) return "Name is too short.";
+      if (!/^[a-zA-ZÀ-ſ\s'.-]{2,60}$/.test(v)) return "Enter a valid name.";
+      return null;
+    },
+    phone: function (value) {
+      var v = value.trim();
+      if (!v) return "Phone number is required.";
+      var digits = v.replace(/\D/g, "");
+      if (digits.length < 7 || digits.length > 15) return "Enter a valid phone number.";
+      if (!/^[+]?[\d\s().-]{7,25}$/.test(v)) return "Enter a valid phone number.";
+      return null;
+    },
+    email: function (value, required) {
+      var v = value.trim();
+      if (!v) return required ? "Email is required." : null;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return "Enter a valid email address.";
+      return null;
+    },
+    date: function (value, required) {
+      if (!value) return required ? "Please select a date." : null;
+      var picked = new Date(value + "T00:00:00");
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (isNaN(picked.getTime())) return "Enter a valid date.";
+      if (picked < today) return "Please choose a future date.";
+      return null;
+    }
+  };
+
+  function clearFieldError(field) {
+    var wrap = field.closest(".form-field");
+    if (!wrap) return;
+    wrap.classList.remove("has-error");
+    var err = wrap.querySelector(".form-field__error");
+    if (err) err.remove();
+  }
+
+  function setFieldError(field, message) {
+    var wrap = field.closest(".form-field");
+    if (!wrap) return;
+    wrap.classList.add("has-error");
+    var err = wrap.querySelector(".form-field__error");
+    if (!err) {
+      err = document.createElement("span");
+      err.className = "form-field__error";
+      wrap.appendChild(err);
+    }
+    err.textContent = message;
+  }
+
+  function validateField(field) {
+    if (!field.name || field.type === "hidden" || field.type === "radio" || field.type === "checkbox") return true;
+    var validator = FIELD_VALIDATORS[field.name];
+    var required = field.hasAttribute("required");
+    var message = null;
+    if (validator) {
+      message = validator(field.value, required);
+    } else if (required && !field.value.trim()) {
+      message = "This field is required.";
+    }
+    if (message) {
+      setFieldError(field, message);
+      return false;
+    }
+    clearFieldError(field);
+    return true;
+  }
+
+  function validateForm(form) {
+    var valid = true;
+    var firstInvalid = null;
+    form.querySelectorAll("input[name], textarea[name], select[name]").forEach(function (field) {
+      if (!validateField(field) && !firstInvalid) firstInvalid = field;
+      if (field.closest(".form-field") && field.closest(".form-field").classList.contains("has-error")) valid = false;
+    });
+    if (firstInvalid) firstInvalid.focus();
+    return valid;
+  }
+
+  function wireLiveValidation(form) {
+    form.querySelectorAll("input[name], textarea[name], select[name]").forEach(function (field) {
+      if (field.type === "hidden" || field.type === "radio" || field.type === "checkbox") return;
+      field.addEventListener("blur", function () { validateField(field); });
+      field.addEventListener("input", function () {
+        if (field.closest(".form-field").classList.contains("has-error")) validateField(field);
+      });
+    });
+  }
+
+  function formToPayload(form, formType) {
+    var payload = { formType: formType, submittedAt: new Date().toISOString() };
+    new FormData(form).forEach(function (value, key) {
+      payload[key] = payload[key] ? payload[key] + ", " + value : value;
+    });
+    return payload;
+  }
+
+  function submitToSheet(payload) {
+    if (!window.KD_FORM_ENDPOINT) return;
+    fetch(window.KD_FORM_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).catch(function () {
+      /* no-cors gives an opaque response either way; a network-level
+         failure here just means the sheet doesn't get the row — the
+         on-page success state isn't blocked on it. */
+    });
+  }
+
   /* ---------- Quick-enquiry drawer ---------- */
   var drawer = document.getElementById("quickDrawer");
   var drawerOverlay = document.getElementById("drawerOverlay");
@@ -236,11 +357,17 @@
 
   function openDrawer(destination, pdfPath) {
     if (!drawer) return;
+    var destinationField = document.getElementById("dDestination");
     if (destination) {
       drawerDestination.textContent = destination;
       drawerContext.style.display = "block";
+      if (destinationField) {
+        destinationField.value = destination;
+        if (destinationField.value !== destination) destinationField.value = "Other";
+      }
     } else {
       drawerContext.style.display = "none";
+      if (destinationField) destinationField.value = "";
     }
     drawer.dataset.pdf = pdfPath || "";
     drawer.classList.add("is-open");
@@ -289,8 +416,11 @@
   });
 
   if (drawerForm) {
+    wireLiveValidation(drawerForm);
     drawerForm.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!validateForm(drawerForm)) return;
+      submitToSheet(formToPayload(drawerForm, "Quick Enquiry"));
       var pdfPath = drawer.dataset.pdf;
       drawerForm.style.display = "none";
       drawerSuccess.classList.add("is-visible");
@@ -311,11 +441,14 @@
   }
 
   /* ---------- Generic form success (Custom Tour / Contact) ---------- */
-  ["customTourForm", "contactForm"].forEach(function (id) {
-    var form = document.getElementById(id);
+  [{ id: "customTourForm", label: "Custom Tour" }, { id: "contactForm", label: "Contact" }].forEach(function (cfg) {
+    var form = document.getElementById(cfg.id);
     if (!form) return;
+    wireLiveValidation(form);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!validateForm(form)) return;
+      submitToSheet(formToPayload(form, cfg.label));
       var box = document.createElement("div");
       box.style.textAlign = "center";
       box.style.padding = "32px 0";
@@ -331,9 +464,12 @@
     var item = trigger.closest(".accordion__item");
     var wasOpen = item.classList.contains("is-open");
     item.parentElement.querySelectorAll(".accordion__item.is-open").forEach(function (openItem) {
-      if (openItem !== item) openItem.classList.remove("is-open");
+      if (openItem === item) return;
+      openItem.classList.remove("is-open");
+      openItem.querySelector(".accordion__trigger").setAttribute("aria-expanded", "false");
     });
     item.classList.toggle("is-open", !wasOpen);
+    trigger.setAttribute("aria-expanded", String(!wasOpen));
   });
 
   /* ---------- Tabs (Home: Domestic / International) ---------- */
@@ -502,4 +638,90 @@
   if (document.querySelector(".sticky-mobile-bar.is-active")) {
     document.body.classList.add("has-sticky-bar");
   }
+
+  /* ---------- Footer flight path — the exact route trail from the
+     inlined flight-doodle.svg (#flightTrail) is drawn in with GSAP
+     (stroke-dashoffset, no plugin needed) while a cloned copy of the
+     doodle's own plane glyph (#flightPlane) travels that very same
+     path element via getPointAtLength, so the two stay perfectly
+     in sync. The original plane stays in the markup (hidden via CSS)
+     so the source SVG file itself is never mutated at runtime. ---------- */
+  (function footerFlightPath() {
+    var svgNS = "http://www.w3.org/2000/svg";
+    var trail = document.getElementById("flightTrail");
+    var planeSource = document.getElementById("flightPlane");
+    var pathWrap = document.querySelector(".footer-route__path");
+    if (!trail || !planeSource || !pathWrap || !window.gsap) return;
+
+    var svgRoot = trail.ownerSVGElement;
+    if (!svgRoot) return;
+
+    var length = trail.getTotalLength();
+    var box = planeSource.getBBox();
+    var cx = box.x + box.width / 2;
+    var cy = box.y + box.height / 2;
+    var planeScale = 1.6;
+
+    var marker = document.createElementNS(svgNS, "g");
+    marker.setAttribute("id", "footerPlaneMarker");
+    marker.setAttribute("class", "footer-route__plane-marker");
+    var clone = planeSource.cloneNode(true);
+    clone.removeAttribute("id");
+    clone.setAttribute("class", "footer-route__plane-clone");
+    marker.appendChild(clone);
+    svgRoot.appendChild(marker);
+
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function placePlane(progress) {
+      var point = trail.getPointAtLength(progress * length);
+      var lookahead = trail.getPointAtLength(Math.min(progress + 0.002, 1) * length);
+      var angle = Math.atan2(lookahead.y - point.y, lookahead.x - point.x) * (180 / Math.PI);
+      marker.setAttribute(
+        "transform",
+        "translate(" + point.x + "," + point.y + ") rotate(" + angle + ") scale(" + planeScale + ") translate(" + -cx + "," + -cy + ")"
+      );
+    }
+
+    if (reduceMotion) {
+      trail.style.strokeDasharray = "none";
+      placePlane(1);
+      marker.style.opacity = "1";
+      return;
+    }
+
+    // Starts right at the trail's own first point (near the pin) and plays
+    // immediately on load — no scroll trigger.
+    trail.style.strokeDasharray = length;
+    trail.style.strokeDashoffset = length;
+    placePlane(0);
+    marker.style.opacity = "1";
+
+    // Draw the line in once, start-to-end; the line stays fully drawn after this.
+    var drawProgress = { value: 0 };
+    gsap.to(drawProgress, {
+      value: 1,
+      duration: 2.8,
+      ease: "power1.inOut",
+      onUpdate: function () {
+        trail.style.strokeDashoffset = String(length * (1 - drawProgress.value));
+        placePlane(drawProgress.value);
+      },
+      onComplete: function () {
+        // Then the plane keeps flying start-to-end and back, forever.
+        var flyProgress = { value: 1 };
+        gsap.to(flyProgress, {
+          value: 0,
+          duration: 2.6,
+          ease: "power1.inOut",
+          repeat: -1,
+          yoyo: true,
+          repeatDelay: 0.4,
+          onUpdate: function () {
+            placePlane(flyProgress.value);
+          },
+        });
+      },
+    });
+  })();
 })();

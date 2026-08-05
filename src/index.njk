@@ -6,7 +6,8 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
 {% import "macros/cards.njk" as cards %}
 {% import "partials/icons.njk" as icon %}
 
-<script src="/js/vendor/gsap.min.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/slick.min.js"></script>
 
 <div class="announcement" id="announcement">
   <div class="container">
@@ -15,7 +16,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   <button class="announcement__close" id="announcementClose" aria-label="Dismiss">×</button>
 </div>
 
-<section class="hero">
+<section class="hero home__hero">
   <div class="hero__slider" id="heroSlider">
     {% set slides = [
       {"src": "/images/photos/rajasthan.jpg", "alt": "Neemrana Fort, Rajasthan"},
@@ -56,7 +57,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
-<section class="section--sm section--alt">
+<section class="section--sm section--alt home__stats">
   <div class="container grid grid--4" data-reveal>
     {% for stat in company.stats %}
       {{ cards.statTile(stat) }}
@@ -64,7 +65,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
-<section class="section">
+<section class="section home__promise">
   <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:center;">
     <div data-reveal>
       <div class="eyebrow">✦ Our Promise</div>
@@ -94,7 +95,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
-<section class="section section--alt featured-destinations">
+<section class="section section--alt featured-destinations home__featured">
   <div class="featured-decor" id="featuredDecor" aria-hidden="true">
     <img src="/images/decor/flight-doodle.svg" alt="">
   </div>
@@ -120,7 +121,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
-<section class="section">
+<section class="section home__categories">
 
   <div class="container">
     <div class="section-heading section-heading--center">
@@ -136,19 +137,28 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt home__gallery">
   <div class="container">
     <div class="section-heading">
       <div class="eyebrow">📸 Moments</div>
       <h2>Travel Gallery</h2>
       <p class="body-lg text-muted">Real moments from KD Holidayz journeys — office, teams, and destinations.</p>
     </div>
-    <div class="gallery-grid" data-reveal>
-      {% set moments = ["Office", "Team", "Tour Groups", "Destinations", "Events", "Customer Photos", "Vehicles", "Hotels"] %}
+    <div class="gallery-grid--bento" data-reveal>
+      {% set moments = [
+        {"src": "/images/photos/rajasthan.jpg", "alt": "Rajasthan Heritage Forts", "area": "a"},
+        {"src": "/images/photos/kerala.jpg", "alt": "Kerala Backwaters", "area": "b"},
+        {"src": "/images/photos/dubai.jpg", "alt": "Dubai Skyline", "area": "c"},
+        {"src": "/images/photos/africa.jpg", "alt": "Kenya Safari", "area": "d"},
+        {"src": "/images/photos/kedarnath.jpg", "alt": "Kedarnath Pilgrimage", "area": "e"},
+        {"src": "/images/photos/switzerland.jpg", "alt": "Switzerland Alps", "area": "f"},
+        {"src": "/images/photos/bali.jpg", "alt": "Bali Escape", "area": "g"}
+      ] %}
       {% for m in moments %}
-        {% if loop.index <= 8 %}
-        <div class="placeholder-img gallery-item" style="--ph-ratio:1/1;"><span>{{ m }}</span></div>
-        {% endif %}
+      <div class="bento-item" style="grid-area:{{ m.area }};" data-lightbox-label="{{ m.alt }}">
+        <img src="{{ m.src }}" alt="{{ m.alt }}" loading="lazy">
+        <span class="bento-item__label">{{ m.alt }}</span>
+      </div>
       {% endfor %}
     </div>
     <div style="text-align:center; margin-top:48px;">
@@ -157,7 +167,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
-<section class="section">
+<section class="section home__offers">
   <div class="container">
     <div class="section-heading section-heading--center">
       <div class="eyebrow" style="justify-content:center;">🔥 Don't Miss Out</div>
@@ -172,28 +182,22 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt overflow-hidden home__testimonials">
   <div class="container">
     <div class="section-heading">
       <div class="eyebrow">💬 Testimonials</div>
       <h2>What Our Travelers Say</h2>
       <p class="body-lg text-muted">Real reviews from real trips planned by KD Holidayz.</p>
     </div>
-    <div class="carousel">
-      <div class="carousel__track" id="testimonialTrack">
-        {% for t in testimonials %}
-          {{ cards.testimonialCard(t) }}
-        {% endfor %}
-      </div>
-      <div class="carousel__controls">
-        <button class="carousel__btn" data-carousel-prev="testimonialTrack" aria-label="Previous">←</button>
-        <button class="carousel__btn" data-carousel-next="testimonialTrack" aria-label="Next">→</button>
-      </div>
+    <div class="testimonial-slick">
+      {% for t in testimonials %}
+        <div class="testimonial-slick__slide">{{ cards.testimonialCard(t) }}</div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section home__team">
   <div class="container">
     <div class="section-heading section-heading--center">
       <div class="eyebrow" style="justify-content:center;">👥 Meet The Consultants</div>
@@ -210,7 +214,36 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section overflow-hidden home__reels">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">🎬 Watch</div>
+      <h2>Reels From Our Instagram</h2>
+      <p class="body-lg text-muted">Follow <a href="{{ company.socials.instagram }}" target="_blank" rel="noopener" style="color:var(--color-accent); font-weight:600;">@kdholidayz_jamnagar</a> for more reels from recent trips.</p>
+    </div>
+    <div class="instagram-slick">
+      {% set reelA = {"img": "/images/instagram/insta-1-reel-a.jpg", "video": "/images/instagram/reel-1.mp4", "url": "https://www.instagram.com/kdholidayz_jamnagar/reel/DblJCYotrKQ/"} %}
+      {% set reelB = {"img": "/images/instagram/insta-7-reel-b.jpg", "video": "/images/instagram/reel-2.mp4", "url": "https://www.instagram.com/kdholidayz_jamnagar/reel/DX33l0oMWXU/"} %}
+      {% set posts = [reelA, reelB, reelA, reelB, reelA, reelB, reelA, reelB, reelA, reelB] %}
+      {% for post in posts %}
+      <div class="instagram-slick__slide">
+        <a class="instagram-card" href="{{ post.url }}" target="_blank" rel="noopener" aria-label="View on Instagram">
+          <div class="instagram-card__media">
+            <img src="{{ post.img }}" alt="KD Holidayz Instagram reel" loading="lazy">
+            <video src="{{ post.video }}" muted loop playsinline preload="metadata" poster="{{ post.img }}"></video>
+          </div>
+          <span class="instagram-card__play">▶</span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="{{ company.socials.instagram }}" class="btn btn--secondary" target="_blank" rel="noopener">📸 Follow @kdholidayz_jamnagar</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt home__cta">
   <div class="container">
     <div class="cta-band">
       <h2 style="color:var(--color-white);">Ready to Explore?</h2>
@@ -222,3 +255,56 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
     </div>
   </div>
 </section>
+
+<script>
+  jQuery(function ($) {
+    $(".testimonial-slick").slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      arrows: true,
+      dots: false,
+      infinite: true,
+      speed: 700,
+      easing: "ease-in-out",
+      cssEase: "cubic-bezier(0.4, 0, 0.2, 1)",
+      responsive: [
+        { breakpoint: 900, settings: { slidesToShow: 2 } },
+        { breakpoint: 640, settings: { slidesToShow: 1, arrows: false } }
+      ]
+    });
+
+    $(".instagram-slick").slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2200,
+      pauseOnHover: true,
+      arrows: true,
+      dots: true,
+      infinite: true,
+      speed: 700,
+      easing: "ease-in-out",
+      cssEase: "cubic-bezier(0.4, 0, 0.2, 1)",
+      responsive: [
+        { breakpoint: 992, settings: { slidesToShow: 3 } },
+        { breakpoint: 640, settings: { slidesToShow: 2 } },
+        { breakpoint: 420, settings: { slidesToShow: 1.4 } }
+      ]
+    });
+
+    document.querySelectorAll(".instagram-card").forEach(function (card) {
+      var video = card.querySelector("video");
+      if (!video) return;
+      card.addEventListener("mouseenter", function () {
+        video.currentTime = 0;
+        video.play();
+      });
+      card.addEventListener("mouseleave", function () {
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+  });
+</script>

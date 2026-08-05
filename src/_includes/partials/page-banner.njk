@@ -8,8 +8,8 @@
   {% import "partials/page-banner.njk" as banner %}
   {{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "About Us", "Optional lede copy") }}
 #}
-{% macro render(crumbs, eyebrow, title, subtitle) %}
-<section class="page-banner">
+{% macro render(crumbs, eyebrow, title, subtitle, blockClass) %}
+<section class="page-banner{% if blockClass %} {{ blockClass }}__banner{% endif %}">
   <div class="container">
     <nav class="breadcrumb breadcrumb--on-dark">
       {% for c in crumbs %}

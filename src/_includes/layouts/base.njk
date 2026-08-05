@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/vendor/slick.css">
 </head>
 <body>
   {% include "partials/header.njk" %}
@@ -22,6 +23,8 @@
   <a class="whatsapp-float" href="{{ company.whatsappNumber | whatsappLink('Hi KD Holidayz, I would like to plan a trip.') }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ripple" id="cursorRipple" aria-hidden="true"></div>
+  <script>window.KD_FORM_ENDPOINT = {{ formConfig.googleSheetsWebAppUrl | json | safe }};</script>
+  <script src="/js/vendor/gsap.min.js" defer></script>
   <script src="/js/vendor/lottie.min.js" defer></script>
   <script src="/js/main.js" defer></script>
 </body>

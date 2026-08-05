@@ -6,9 +6,9 @@ description: "KD Holidayz travel gallery — office, team, tour groups, destinat
 {% import "macros/cards.njk" as cards %}
 {% import "partials/page-banner.njk" as banner %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Gallery"}], "📸 Moments", "Travel Gallery", "Real moments from KD Holidayz journeys. Photos pending from the client — placeholders shown below by category.") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Gallery"}], "📸 Moments", "Travel Gallery", "Real moments from KD Holidayz journeys. Photos pending from the client — placeholders shown below by category.", "gallery") }}
 
-<section class="section">
+<section class="section gallery__listing">
   <div class="container">
     <div class="filter-chips" id="galleryFilters">
       <button class="filter-chip is-active" data-gallery-filter="all" type="button">All</button>
@@ -57,6 +57,7 @@ description: "KD Holidayz travel gallery — office, team, tour groups, destinat
         {% for photo in photos %}
         <div class="media-img gallery-item" style="--ph-ratio:1/1;" data-gallery-item="{{ cat | slugTag }}" data-lightbox-label="{{ cat }} {{ loop.index }}" data-lightbox-src="{{ photo }}">
           <img src="{{ photo }}" alt="{{ cat }} {{ loop.index }}" loading="lazy">
+          <span class="gallery-item__label">{{ cat }}</span>
         </div>
         {% endfor %}
       {% endfor %}
@@ -64,7 +65,7 @@ description: "KD Holidayz travel gallery — office, team, tour groups, destinat
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt gallery__cta">
   <div class="container">
     <div class="cta-band">
       <h2 style="color:var(--color-white);">Been on a Trip With Us?</h2>

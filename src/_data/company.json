@@ -33,9 +33,9 @@
   ],
   "socials": {
     "instagram": "https://www.instagram.com/kdholidayz_jamnagar/",
-    "facebook": null,
-    "youtube": null,
-    "linkedin": null
+    "facebook": "https://www.instagram.com/kdholidayz_jamnagar/",
+    "youtube": "https://www.instagram.com/kdholidayz_jamnagar/",
+    "linkedin": "https://www.instagram.com/kdholidayz_jamnagar/"
   },
   "stats": [
     { "label": "Happy Customers", "value": 100, "suffix": "+" },

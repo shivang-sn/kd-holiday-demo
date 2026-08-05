@@ -1,9 +1,19 @@
+const fs = require("fs");
+const path = require("path");
+
 module.exports = function (eleventyConfig) {
   // Static passthrough
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/pdfs");
+
+  // Inlines an SVG file's raw markup at build time (relative to src/), so
+  // its paths can be targeted by id/class and animated with JS — unlike
+  // an <img src="...">, which renders in an isolated, unreachable document.
+  eleventyConfig.addShortcode("inlineSvg", function (relPath) {
+    return fs.readFileSync(path.join(__dirname, "src", relPath), "utf8");
+  });
 
   // Currency filter — renders a clear TODO instead of guessing a number
   eleventyConfig.addFilter("currency", function (value) {

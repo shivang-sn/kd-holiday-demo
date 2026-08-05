@@ -1,52 +1,92 @@
+{% import "partials/icons.njk" as icon %}
 {% set india = company.offices[0] %}
 {% set kenya = company.offices[1] %}
 <footer class="site-footer">
   <div class="container">
-    <div class="site-footer__grid">
-      <div>
-        <div class="footer-logo"><img src="/images/brand/logo-footer.png" alt="{{ company.name }}" height="110"></div>
-        <p>{{ company.tagline }} Trusted travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.</p>
-        <div class="footer-social">
-          {% if company.socials.instagram %}<a href="{{ company.socials.instagram }}" aria-label="Instagram">IG</a>{% endif %}
-          {% if company.socials.facebook %}<a href="{{ company.socials.facebook }}" aria-label="Facebook">FB</a>{% endif %}
-          {% if company.socials.youtube %}<a href="{{ company.socials.youtube }}" aria-label="YouTube">YT</a>{% endif %}
-          {% if company.socials.linkedin %}<a href="{{ company.socials.linkedin }}" aria-label="LinkedIn">IN</a>{% endif %}
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand__top">
+          <div class="footer-logo"><img src="/images/brand/logo-footer.png" alt="{{ company.name }}" height="110"></div>
+          <div class="footer-social-group">
+          <h4 class="footer-heading">Follow Us</h4>
+          <div class="footer-social" aria-label="Follow us on social media">
+          {% if company.socials.instagram %}
+          <a href="{{ company.socials.instagram }}" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          {% endif %}
+          {% if company.socials.facebook %}
+          <a href="{{ company.socials.facebook }}" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8.5h2V5h-2c-2.2 0-4 1.8-4 4v2H9v3h2v6.5h3V14h2.2l.8-3H14v-1.5c0-.6.4-1 1-1z"/></svg></a>
+          {% endif %}
+          {% if company.socials.youtube %}
+          <a href="{{ company.socials.youtube }}" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10.5 9.8v4.4l4-2.2z" fill="currentColor" stroke="none"/></svg></a>
+          {% endif %}
+          {% if company.socials.linkedin %}
+          <a href="{{ company.socials.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.5" y1="10.5" x2="7.5" y2="16.5"/><circle cx="7.5" cy="7.3" r="0.9" fill="currentColor" stroke="none"/><path d="M11.5 16.5v-4c0-1.2 1-2.2 2.2-2.2s2 .8 2 2.2v4"/></svg></a>
+          {% endif %}
           {% if not (company.socials.instagram or company.socials.facebook or company.socials.youtube or company.socials.linkedin) %}
           <span class="todo-flag">TODO: social links</span>
           {% endif %}
+          </div>
+          </div>
         </div>
+        <p>{{ company.tagline }} Trusted travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.</p>
       </div>
-      <div>
-        <h4>Quick Links</h4>
-        <ul style="display:flex; flex-direction:column; gap:10px;">
-          {% for item in navigation %}<li><a href="{{ item.url }}">{{ item.label }}</a></li>{% endfor %}
-          <li><a href="/privacy-policy/">Privacy Policy</a></li>
-          <li><a href="/terms-conditions/">Terms & Conditions</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Head Office — India</h4>
-        <p>{{ india.address }}</p>
-        <p>
-          {% for phone in india.phones %}<a href="{{ phone | telLink }}">{{ phone }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}
-        </p>
-        <p><a href="mailto:{{ india.email }}">{{ india.email }}</a></p>
-      </div>
-      <div>
-        <h4>Branch — Kenya</h4>
-        <p>{{ kenya.address }}</p>
-        <p>
-          {% for phone in kenya.phones %}<a href="{{ phone | telLink }}">{{ phone }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}
-        </p>
-        <p><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></p>
+      <div class="footer-nav">
+        <h4 class="footer-heading">Quick Links</h4>
+        <nav class="footer-pills" aria-label="Footer navigation">
+          {% for item in navigation %}<a href="{{ item.url }}">{{ item.label }}</a>{% endfor %}
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms-conditions/">Terms &amp; Conditions</a>
+        </nav>
       </div>
     </div>
+
+    <div class="footer-route">
+      <div class="ticket-card">
+        <div class="ticket-card__top">
+          <span class="ticket-card__badge">{{ icon.render("pin", 16) }}</span>
+          <div>
+            <span class="ticket-card__eyebrow">Head Office</span>
+            <h4>India — Jamnagar</h4>
+          </div>
+          <span class="ticket-card__code">JAM</span>
+        </div>
+        <div class="ticket-card__divider"></div>
+        <div class="footer-contact-row">{{ icon.render("pin", 15) }}<span>{{ india.address }}</span></div>
+        <div class="footer-contact-row">
+          {{ icon.render("phone", 15) }}
+          <span>{% for phone in india.phones %}<a href="{{ phone | telLink }}">{{ phone }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}</span>
+        </div>
+        <div class="footer-contact-row">{{ icon.render("mail", 15) }}<a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
+      </div>
+
+      <div class="footer-route__path" aria-hidden="true">
+        {% inlineSvg "images/decor/flight-doodle.svg" %}
+      </div>
+
+      <div class="ticket-card">
+        <div class="ticket-card__top">
+          <span class="ticket-card__badge">{{ icon.render("pin", 16) }}</span>
+          <div>
+            <span class="ticket-card__eyebrow">Branch Office</span>
+            <h4>Kenya — Eldoret</h4>
+          </div>
+          <span class="ticket-card__code">ELD</span>
+        </div>
+        <div class="ticket-card__divider"></div>
+        <div class="footer-contact-row">{{ icon.render("pin", 15) }}<span>{{ kenya.address }}</span></div>
+        <div class="footer-contact-row">
+          {{ icon.render("phone", 15) }}
+          <span>{% for phone in kenya.phones %}<a href="{{ phone | telLink }}">{{ phone }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}</span>
+        </div>
+        <div class="footer-contact-row">{{ icon.render("mail", 15) }}<a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
+      </div>
+    </div>
+
     <div class="site-footer__bottom">
       <span>© {% year %} {{ company.name }}. All rights reserved.</span>
-      <div style="display:flex; gap:16px;">
-        <a href="/privacy-policy/">Privacy</a>
-        <a href="/terms-conditions/">Terms</a>
-        <a href="/contact/">Support</a>
+      <div class="site-footer__credit">
+        <a href="https://www.neetrick.com/" target="_blank" rel="noopener">Design and Developed by <strong>Neetrick</strong></a>
       </div>
     </div>
   </div>

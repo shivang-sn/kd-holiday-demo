@@ -69,9 +69,17 @@
 </div>
 {% endmacro %}
 
+{% macro starRating(rating, size) %}
+{% set pct = ((rating or 0) / 5 * 100) | round(1) %}
+<div class="star-rating{% if size %} star-rating--{{ size }}{% endif %}" style="--star-fill:{{ pct }}%;" role="img" aria-label="{{ rating }} out of 5 stars">
+  <span class="star-rating__base" aria-hidden="true">★★★★★</span>
+  <span class="star-rating__fill" aria-hidden="true">★★★★★</span>
+</div>
+{% endmacro %}
+
 {% macro testimonialCard(t) %}
 <div class="card testimonial-card">
-  <div class="testimonial-card__stars">★★★★★</div>
+  {{ starRating(t.rating or 5) }}
   <p class="testimonial-card__quote">"{{ t.quote }}"</p>
   <div class="testimonial-card__author">
     <div class="testimonial-card__avatar">{{ t.name[0] }}</div>
@@ -107,10 +115,10 @@
 {% macro faqAccordion(items) %}
 <div class="accordion">
   {% for item in items %}
-  <div class="accordion__item">
-    <button class="accordion__trigger" type="button">
-      <span>{{ item.question }}</span>
-      <span class="accordion__icon">+</span>
+  <div class="accordion__item{% if loop.first %} is-open{% endif %}">
+    <button class="accordion__trigger" type="button" aria-expanded="{{ 'true' if loop.first else 'false' }}">
+      <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+      <span class="accordion__question">{{ item.question }}</span>
     </button>
     <div class="accordion__panel">
       <div class="accordion__panel-inner">{{ item.answer }}</div>

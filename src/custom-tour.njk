@@ -6,15 +6,28 @@ description: "Design your own journey with KD Holidayz — fully customized itin
 {% import "macros/cards.njk" as cards %}
 {% import "partials/page-banner.njk" as banner %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Custom Tour & Packages"}], "🎨 Build Your Own Trip", "Design Your Own Journey", "Tell us your destination, dates, and budget — we'll design an itinerary around it, not the other way round.") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Custom Tour & Packages"}], "🎨 Build Your Own Trip", "Design Your Own Journey", "Tell us your destination, dates, and budget — we'll design an itinerary around it, not the other way round.", "custom-tour") }}
 
-<section class="section section--alt">
+<section class="section section--alt custom-tour__form">
   <div class="container" style="max-width:720px;">
-    <form class="card" style="padding:40px;" id="customTourForm">
+    <form class="card" style="padding:40px;" id="customTourForm" novalidate>
       <div class="form-grid">
         <div class="form-field form-field--full">
           <label for="ctDestination">Destination</label>
-          <input type="text" id="ctDestination" name="destination" placeholder="Where do you want to go?">
+          <select id="ctDestination" name="destination">
+            <option value="">Select a destination</option>
+            <optgroup label="Destinations">
+              {% for dest in collections.destinations %}
+              <option value="{{ dest.data.title }}">{{ dest.data.title }}</option>
+              {% endfor %}
+            </optgroup>
+            <optgroup label="Offers">
+              {% for offer in offers %}
+              <option value="{{ offer.title }}">{{ offer.title }}</option>
+              {% endfor %}
+            </optgroup>
+            <option value="Other">Other / Not sure yet</option>
+          </select>
         </div>
         <div class="form-field">
           <label for="ctName">Full Name *</label>
@@ -37,6 +50,15 @@ description: "Design your own journey with KD Holidayz — fully customized itin
           <input type="number" id="ctChildren" name="children" min="0" value="0">
         </div>
         <div class="form-field">
+          <label for="ctTripType">Trip Type</label>
+          <select id="ctTripType" name="tripType">
+            <option value="">Select trip type</option>
+            {% for cat in tourCategories %}
+            <option value="{{ cat.label }}">{{ cat.label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-field">
           <label for="ctBudget">Budget Range</label>
           <select id="ctBudget" name="budget">
             <option>Under ₹25,000</option>
@@ -55,7 +77,7 @@ description: "Design your own journey with KD Holidayz — fully customized itin
   </div>
 </section>
 
-<section class="section">
+<section class="section custom-tour__themes">
   <div class="container">
     <div class="section-heading section-heading--center">
       <div class="eyebrow" style="justify-content:center;">🎯 Popular Themes</div>
@@ -69,7 +91,7 @@ description: "Design your own journey with KD Holidayz — fully customized itin
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt custom-tour__packages">
   <div class="container">
     <div class="section-heading">
       <div class="eyebrow">✨ We Build Anything</div>
@@ -85,7 +107,7 @@ description: "Design your own journey with KD Holidayz — fully customized itin
   </div>
 </section>
 
-<section class="section">
+<section class="section custom-tour__cta">
   <div class="container">
     <div class="cta-band">
       <h2 style="color:var(--color-white);">Prefer to Just Chat It Through?</h2>

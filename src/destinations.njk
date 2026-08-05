@@ -6,9 +6,9 @@ description: "Explore KD Holidayz's domestic and international destinations — 
 {% import "macros/cards.njk" as cards %}
 {% import "partials/page-banner.njk" as banner %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Destinations"}], "🌏 Explore", "Our Destinations", 'From Himalayan pilgrimages to island honeymoons — browse KD Holidayz\'s curated destinations, or <a href="/custom-tour/" style="color:var(--color-gold-accent); font-weight:700;">build your own</a>.') }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Destinations"}], "🌏 Explore", "Our Destinations", 'From Himalayan pilgrimages to island honeymoons — browse KD Holidayz\'s curated destinations, or <a href="/custom-tour/" style="color:var(--color-gold-accent); font-weight:700;">build your own</a>.', "destinations") }}
 
-<section class="container" style="margin-top:40px;">
+<section class="container destinations__listing" style="margin-top:40px;">
   <div class="filter-chips" id="destFilters">
     <button class="filter-chip is-active" data-filter="all" type="button">All</button>
     <button class="filter-chip" data-filter="domestic" type="button">🇮🇳 Domestic</button>
@@ -28,7 +28,7 @@ description: "Explore KD Holidayz's domestic and international destinations — 
   <p class="text-muted" id="destEmpty" style="display:none; text-align:center; padding:48px 0;">No destinations match that filter yet — <a href="/custom-tour/" style="color:var(--color-primary); font-weight:700;">tell us what you have in mind</a>.</p>
 </section>
 
-<section class="container section">
+<section class="container section destinations__cta">
   <div class="cta-band">
     <h2 style="color:var(--color-white);">Can't Find Your Dream Destination?</h2>
     <p style="max-width:520px; margin-inline:auto; margin-top:16px; opacity:0.85;">We specialize in building custom itineraries from scratch — tell us where you want to go and we'll design the plan.</p>

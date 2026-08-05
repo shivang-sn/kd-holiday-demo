@@ -5,7 +5,24 @@
   <div class="drawer__context" id="drawerContext" style="display:none;">
     📍 Selected destination: <strong id="drawerDestination"></strong>
   </div>
-  <form id="drawerForm" style="display:flex; flex-direction:column; gap:16px; margin-top:24px;">
+  <form id="drawerForm" novalidate style="display:flex; flex-direction:column; gap:16px; margin-top:24px;">
+    <div class="form-field">
+      <label for="dDestination">Destination</label>
+      <select id="dDestination" name="destination">
+        <option value="">Select a destination</option>
+        <optgroup label="Destinations">
+          {% for dest in collections.destinations %}
+          <option value="{{ dest.data.title }}">{{ dest.data.title }}</option>
+          {% endfor %}
+        </optgroup>
+        <optgroup label="Offers">
+          {% for offer in offers %}
+          <option value="{{ offer.title }}">{{ offer.title }}</option>
+          {% endfor %}
+        </optgroup>
+        <option value="Other">Other / Not sure yet</option>
+      </select>
+    </div>
     <div class="form-field">
       <label for="dName">Full Name *</label>
       <input type="text" id="dName" name="name" placeholder="Your name" required>
@@ -30,6 +47,19 @@
         <option>3–5 People</option>
         <option>6–10 People</option>
         <option>10+ People</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="dChildren">Children</label>
+      <input type="number" id="dChildren" name="children" min="0" value="0">
+    </div>
+    <div class="form-field">
+      <label for="dTripType">Trip Type</label>
+      <select id="dTripType" name="tripType">
+        <option value="">Select trip type</option>
+        {% for cat in tourCategories %}
+        <option value="{{ cat.label }}">{{ cat.label }}</option>
+        {% endfor %}
       </select>
     </div>
     <div class="form-field">
