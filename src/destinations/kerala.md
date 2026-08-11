@@ -38,6 +38,16 @@ topPlaces:
   - name: "Kovalam"
     description: "Laid-back beach town to close out the trip."
     image: "https://images.unsplash.com/photo-1701793035486-c6b4368aa842?w=500&q=70"
+localFood:
+  - name: "Kerala Sadya"
+    description: "Traditional vegetarian feast served on a banana leaf."
+    image: "https://images.unsplash.com/photo-1742281257687-092746ad6021?w=500&q=70"
+  - name: "Appam & Stew"
+    description: "Soft rice pancakes paired with a mild coconut vegetable or meat stew."
+    image: "https://images.unsplash.com/photo-1738986586839-93af00b40dd8?w=500&q=70"
+  - name: "Karimeen Fish Fry"
+    description: "Alleppey's signature pearl-spot fish, marinated and pan-fried."
+    image: "https://images.unsplash.com/photo-1620894580123-466ad3a0ca06?w=500&q=70"
 itinerary:
   - day: 1
     title: "Arrival in Kochi"

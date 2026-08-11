@@ -253,16 +253,32 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return "Enter a valid email address.";
       return null;
     },
-    date: function (value, required) {
-      if (!value) return required ? "Please select a date." : null;
-      var picked = new Date(value + "T00:00:00");
-      var today = new Date();
-      today.setHours(0, 0, 0, 0);
-      if (isNaN(picked.getTime())) return "Enter a valid date.";
-      if (picked < today) return "Please choose a future date.";
+    dateFrom: function (value, required) { return dateValidator(value, required); },
+    dateTo: function (value, required) { return dateValidator(value, required); },
+    adults: function (value, required) {
+      var v = value.trim();
+      if (!v) return required ? "Number of adults is required." : null;
+      var n = Number(v);
+      if (!Number.isInteger(n) || n < 1) return "Enter at least 1 adult.";
+      return null;
+    },
+    departureCity: function (value, required) {
+      var v = value.trim();
+      if (!v) return required ? "Departure city is required." : null;
+      if (v.length < 2) return "Enter a valid city name.";
       return null;
     }
   };
+
+  function dateValidator(value, required) {
+    if (!value) return required ? "Please select a date." : null;
+    var picked = new Date(value + "T00:00:00");
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (isNaN(picked.getTime())) return "Enter a valid date.";
+    if (picked < today) return "Please choose a future date.";
+    return null;
+  }
 
   function clearFieldError(field) {
     var wrap = field.closest(".form-field");
@@ -281,6 +297,25 @@
       err = document.createElement("span");
       err.className = "form-field__error";
       wrap.appendChild(err);
+    }
+    err.textContent = message;
+  }
+
+  function clearGroupError(container) {
+    if (!container) return;
+    container.classList.remove("has-error");
+    var err = container.querySelector(".form-field__error");
+    if (err) err.remove();
+  }
+
+  function setGroupError(container, message) {
+    if (!container) return;
+    container.classList.add("has-error");
+    var err = container.querySelector(".form-field__error");
+    if (!err) {
+      err = document.createElement("span");
+      err.className = "form-field__error";
+      container.appendChild(err);
     }
     err.textContent = message;
   }
@@ -307,11 +342,86 @@
     var valid = true;
     var firstInvalid = null;
     form.querySelectorAll("input[name], textarea[name], select[name]").forEach(function (field) {
+      if (field.type === "radio" || field.type === "checkbox") return;
       if (!validateField(field) && !firstInvalid) firstInvalid = field;
       if (field.closest(".form-field") && field.closest(".form-field").classList.contains("has-error")) valid = false;
     });
+
+    /* Preferred Package — required radio group. */
+    var packageRadios = form.querySelectorAll('input[name="preferredPackage"]');
+    if (packageRadios.length) {
+      var packageContainer = packageRadios[0].closest(".form-field");
+      var packageChecked = Array.prototype.some.call(packageRadios, function (r) { return r.checked; });
+      if (!packageChecked) {
+        setGroupError(packageContainer, "Please select a preferred package.");
+        valid = false;
+        if (!firstInvalid) firstInvalid = packageRadios[0];
+      } else {
+        clearGroupError(packageContainer);
+      }
+    }
+
+    /* Special Requirements — "Other" requires the free-text detail. */
+    var otherCheckbox = form.querySelector('input[name="specialRequirements"][data-other-toggle]');
+    var otherText = form.querySelector('[data-other-field]');
+    if (otherCheckbox && otherText) {
+      if (otherCheckbox.checked && !otherText.value.trim()) {
+        setFieldError(otherText, "Please specify your other requirement.");
+        valid = false;
+        if (!firstInvalid) firstInvalid = otherText;
+      } else {
+        clearFieldError(otherText);
+      }
+    }
+
+    /* Travel dates — "To" can't be before "From". */
+    var dateFrom = form.querySelector('[name="dateFrom"]');
+    var dateTo = form.querySelector('[name="dateTo"]');
+    if (dateFrom && dateTo && dateFrom.value && dateTo.value && dateTo.value < dateFrom.value) {
+      setFieldError(dateTo, "Return date can't be before the start date.");
+      valid = false;
+      if (!firstInvalid) firstInvalid = dateTo;
+    }
+
     if (firstInvalid) firstInvalid.focus();
     return valid;
+  }
+
+  function wireChildrenAgesToggle(form) {
+    var childrenInput = form.querySelector('[name="children"]');
+    var agesField = form.querySelector('[data-children-ages-field]');
+    if (!childrenInput || !agesField) return;
+    var agesInput = agesField.querySelector("input");
+    function sync() {
+      var count = Number(childrenInput.value) || 0;
+      if (count > 0) {
+        agesField.style.display = "";
+        if (agesInput) agesInput.setAttribute("required", "required");
+      } else {
+        agesField.style.display = "none";
+        if (agesInput) {
+          agesInput.removeAttribute("required");
+          clearFieldError(agesInput);
+        }
+      }
+    }
+    childrenInput.addEventListener("input", sync);
+    sync();
+  }
+
+  function wireSpecialRequirementsOther(form) {
+    var otherCheckbox = form.querySelector('input[name="specialRequirements"][data-other-toggle]');
+    var otherText = form.querySelector('[data-other-field]');
+    if (!otherCheckbox || !otherText) return;
+    function sync() {
+      otherText.style.display = otherCheckbox.checked ? "" : "none";
+      if (!otherCheckbox.checked) {
+        otherText.value = "";
+        clearFieldError(otherText);
+      }
+    }
+    otherCheckbox.addEventListener("change", sync);
+    sync();
   }
 
   function wireLiveValidation(form) {
@@ -322,6 +432,11 @@
         if (field.closest(".form-field").classList.contains("has-error")) validateField(field);
       });
     });
+    form.querySelectorAll('input[name="preferredPackage"]').forEach(function (radio) {
+      radio.addEventListener("change", function () { clearGroupError(radio.closest(".form-field")); });
+    });
+    wireChildrenAgesToggle(form);
+    wireSpecialRequirementsOther(form);
   }
 
   function formToPayload(form, formType) {
@@ -330,6 +445,54 @@
       payload[key] = payload[key] ? payload[key] + ", " + value : value;
     });
     return payload;
+  }
+
+  /* ---------- Google reCAPTCHA (shared by all three forms) -----------
+     Rendered explicitly (render=explicit in the api.js query string) so
+     each form gets its own widget id, since the drawer form is present
+     on every page alongside whichever page-specific form is loaded. */
+  var RECAPTCHA_WIDGETS = {};
+  window.onRecaptchaLoad = function () {
+    if (!window.grecaptcha) return;
+    [
+      { elId: "recaptchaDrawer", key: "drawer" },
+      { elId: "recaptchaCustomTour", key: "customTour" },
+      { elId: "recaptchaContact", key: "contact" }
+    ].forEach(function (cfg) {
+      var el = document.getElementById(cfg.elId);
+      if (!el) return;
+      RECAPTCHA_WIDGETS[cfg.key] = grecaptcha.render(el, { sitekey: window.KD_RECAPTCHA_SITE_KEY });
+    });
+  };
+
+  function getRecaptchaToken(key) {
+    if (!window.grecaptcha || RECAPTCHA_WIDGETS[key] === undefined) return "";
+    return grecaptcha.getResponse(RECAPTCHA_WIDGETS[key]);
+  }
+
+  function validateRecaptcha(key, form) {
+    if (!window.KD_RECAPTCHA_SITE_KEY) return true;
+    var container = form.querySelector(".g-recaptcha-container");
+    var token = getRecaptchaToken(key);
+    if (!token) {
+      if (container) {
+        container.classList.add("has-error");
+        var err = container.querySelector(".form-field__error");
+        if (!err) {
+          err = document.createElement("span");
+          err.className = "form-field__error";
+          container.appendChild(err);
+        }
+        err.textContent = "Please verify you're not a robot.";
+      }
+      return false;
+    }
+    if (container) container.classList.remove("has-error");
+    return true;
+  }
+
+  function resetRecaptcha(key) {
+    if (window.grecaptcha && RECAPTCHA_WIDGETS[key] !== undefined) grecaptcha.reset(RECAPTCHA_WIDGETS[key]);
   }
 
   function submitToSheet(payload) {
@@ -420,7 +583,10 @@
     drawerForm.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!validateForm(drawerForm)) return;
-      submitToSheet(formToPayload(drawerForm, "Quick Enquiry"));
+      if (!validateRecaptcha("drawer", drawerForm)) return;
+      var drawerPayload = formToPayload(drawerForm, "Quick Enquiry");
+      drawerPayload.recaptchaToken = getRecaptchaToken("drawer");
+      submitToSheet(drawerPayload);
       var pdfPath = drawer.dataset.pdf;
       drawerForm.style.display = "none";
       drawerSuccess.classList.add("is-visible");
@@ -434,6 +600,7 @@
       setTimeout(function () {
         closeDrawer();
         drawerForm.reset();
+        resetRecaptcha("drawer");
         drawerForm.style.display = "flex";
         drawerSuccess.classList.remove("is-visible");
       }, 3500);
@@ -441,14 +608,20 @@
   }
 
   /* ---------- Generic form success (Custom Tour / Contact) ---------- */
-  [{ id: "customTourForm", label: "Custom Tour" }, { id: "contactForm", label: "Contact" }].forEach(function (cfg) {
+  [
+    { id: "customTourForm", label: "Custom Tour", recaptchaKey: "customTour" },
+    { id: "contactForm", label: "Contact", recaptchaKey: "contact" }
+  ].forEach(function (cfg) {
     var form = document.getElementById(cfg.id);
     if (!form) return;
     wireLiveValidation(form);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!validateForm(form)) return;
-      submitToSheet(formToPayload(form, cfg.label));
+      if (!validateRecaptcha(cfg.recaptchaKey, form)) return;
+      var payload = formToPayload(form, cfg.label);
+      payload.recaptchaToken = getRecaptchaToken(cfg.recaptchaKey);
+      submitToSheet(payload);
       var box = document.createElement("div");
       box.style.textAlign = "center";
       box.style.padding = "32px 0";

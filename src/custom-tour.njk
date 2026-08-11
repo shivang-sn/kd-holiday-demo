@@ -4,6 +4,7 @@ title: "Custom Tour & Packages"
 description: "Design your own journey with KD Holidayz — fully customized itineraries built around your budget, dates, and preferences."
 ---
 {% import "macros/cards.njk" as cards %}
+{% import "macros/forms.njk" as forms %}
 {% import "partials/page-banner.njk" as banner %}
 
 {{ banner.render([{"label":"Home","url":"/"},{"label":"Custom Tour & Packages"}], "🎨 Build Your Own Trip", "Design Your Own Journey", "Tell us your destination, dates, and budget — we'll design an itinerary around it, not the other way round.", "custom-tour") }}
@@ -12,65 +13,12 @@ description: "Design your own journey with KD Holidayz — fully customized itin
   <div class="container" style="max-width:720px;">
     <form class="card" style="padding:40px;" id="customTourForm" novalidate>
       <div class="form-grid">
-        <div class="form-field form-field--full">
-          <label for="ctDestination">Destination</label>
-          <select id="ctDestination" name="destination">
-            <option value="">Select a destination</option>
-            <optgroup label="Destinations">
-              {% for dest in collections.destinations %}
-              <option value="{{ dest.data.title }}">{{ dest.data.title }}</option>
-              {% endfor %}
-            </optgroup>
-            <optgroup label="Offers">
-              {% for offer in offers %}
-              <option value="{{ offer.title }}">{{ offer.title }}</option>
-              {% endfor %}
-            </optgroup>
-            <option value="Other">Other / Not sure yet</option>
-          </select>
+        {{ forms.tourInquiryFields("ct", collections.destinations, offers) }}
+        {% if formConfig.recaptchaSiteKey %}
+        <div class="form-field form-field--full g-recaptcha-container">
+          <div id="recaptchaCustomTour"></div>
         </div>
-        <div class="form-field">
-          <label for="ctName">Full Name *</label>
-          <input type="text" id="ctName" name="name" required>
-        </div>
-        <div class="form-field">
-          <label for="ctPhone">Phone Number *</label>
-          <input type="tel" id="ctPhone" name="phone" required>
-        </div>
-        <div class="form-field">
-          <label for="ctDate">Travel Date</label>
-          <input type="date" id="ctDate" name="date">
-        </div>
-        <div class="form-field">
-          <label for="ctAdults">Adults</label>
-          <input type="number" id="ctAdults" name="adults" min="1" value="2">
-        </div>
-        <div class="form-field">
-          <label for="ctChildren">Children</label>
-          <input type="number" id="ctChildren" name="children" min="0" value="0">
-        </div>
-        <div class="form-field">
-          <label for="ctTripType">Trip Type</label>
-          <select id="ctTripType" name="tripType">
-            <option value="">Select trip type</option>
-            {% for cat in tourCategories %}
-            <option value="{{ cat.label }}">{{ cat.label }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="ctBudget">Budget Range</label>
-          <select id="ctBudget" name="budget">
-            <option>Under ₹25,000</option>
-            <option>₹25,000 – ₹50,000</option>
-            <option>₹50,000 – ₹1,00,000</option>
-            <option>₹1,00,000+</option>
-          </select>
-        </div>
-        <div class="form-field form-field--full">
-          <label for="ctNotes">Special Requirements</label>
-          <textarea id="ctNotes" name="notes" rows="3" placeholder="Dietary needs, accessibility, preferred hotel type, anything else..."></textarea>
-        </div>
+        {% endif %}
       </div>
       <button type="submit" class="btn btn--primary btn--block" style="margin-top:24px;">Submit Custom Request 🚀</button>
     </form>

@@ -5,8 +5,8 @@
   "founded": 2023,
   "website": "https://www.kdholidayz.in",
   "email": "info@kdholidayz.in",
-  "whatsappNumber": "918000144333",
-  "primaryPhone": "+91 8000144333",
+  "whatsappNumber": "+91 94297 99355",
+  "primaryPhone": "+91 94297 99355",
   "offices": [
     {
       "id": "india",
@@ -14,7 +14,7 @@
       "country": "India",
       "city": "Jamnagar",
       "address": "\"Hreehan Complex\", Patel Samaj, Jamnagar, Gujarat, India",
-      "phones": ["+91 8000144333", "+91 9429799355"],
+      "phones": ["+91 9429799355"],
       "email": "info@kdholidayz.in",
       "mapQuery": "Hreehan Complex, Patel Samaj, Jamnagar, Gujarat, India",
       "businessHours": null
@@ -34,8 +34,8 @@
   "socials": {
     "instagram": "https://www.instagram.com/kdholidayz_jamnagar/",
     "facebook": "https://www.instagram.com/kdholidayz_jamnagar/",
-    "youtube": "https://www.instagram.com/kdholidayz_jamnagar/",
-    "linkedin": "https://www.instagram.com/kdholidayz_jamnagar/"
+    "youtube": "",
+    "linkedin": ""
   },
   "stats": [
     { "label": "Happy Customers", "value": 100, "suffix": "+" },

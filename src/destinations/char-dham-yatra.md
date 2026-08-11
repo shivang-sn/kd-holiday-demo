@@ -39,6 +39,16 @@ topPlaces:
   - name: "Badrinath"
     description: "Dedicated to Lord Vishnu, the final and most revered stop of the yatra."
     image: "https://images.unsplash.com/photo-1620734630836-4fa8203b924e?w=500&q=70"
+localFood:
+  - name: "Garhwali Thali"
+    description: "A regional spread of mandua, jhangora, and seasonal mountain vegetables."
+    image: "https://images.unsplash.com/photo-1727018953313-403d17215a1b?w=500&q=70"
+  - name: "Mandua ki Roti"
+    description: "Nutritious finger-millet flatbread, a Garhwal Himalayan staple."
+    image: "https://images.unsplash.com/photo-1697155406014-04dc649b0953?w=500&q=70"
+  - name: "Bal Mithai"
+    description: "Kumaoni chocolate-fudge sweet coated in sugar pearls."
+    image: "https://images.unsplash.com/photo-1649140041688-0f75446e707e?w=500&q=70"
 itinerary:
   - day: 1
     title: "Arrival in Dehradun / Haridwar"

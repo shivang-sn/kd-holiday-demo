@@ -257,19 +257,27 @@ body.nav-open { overflow: hidden; }
 .section--dark .icon-badge { background: rgba(255,255,255,0.14); color: var(--color-gold-accent); }
 .icon-badge > svg { position: relative; z-index: 1; }
 
-/* Mission/Vision — same hover feel as the homepage Tour Categories icons:
-   the badge tints gold and the glyph gives a playful vibrate. */
-.about__mission-vision .card { transition: var(--transition); }
-.about__mission-vision .card:hover .icon-badge {
+/* Mission/Vision & Services cards — same hover feel as the homepage Tour
+   Categories icons: the badge tints gold and the glyph gives a playful vibrate. */
+.about__mission-vision .card,
+.services__core .card,
+.services__allied .card { transition: var(--transition); }
+.about__mission-vision .card:hover .icon-badge,
+.services__core .card:hover .icon-badge,
+.services__allied .card:hover .icon-badge {
   background: rgba(224, 164, 0, 0.18);
   color: var(--color-gold);
   transition: background 0.3s ease, color 0.3s ease;
 }
-.about__mission-vision .card:hover .icon-badge > svg {
+.about__mission-vision .card:hover .icon-badge > svg,
+.services__core .card:hover .icon-badge > svg,
+.services__allied .card:hover .icon-badge > svg {
   animation: iconVibrate 0.5s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .about__mission-vision .card:hover .icon-badge > svg { animation: none; }
+  .about__mission-vision .card:hover .icon-badge > svg,
+  .services__core .card:hover .icon-badge > svg,
+  .services__allied .card:hover .icon-badge > svg { animation: none; }
 }
 
 .lottie-ring { position: absolute; inset: 0; pointer-events: none; }
@@ -775,26 +783,60 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
 .form-field { display: flex; flex-direction: column; gap: 6px; }
 .form-field--full { grid-column: 1 / -1; }
-.form-field label { font-weight: 600; font-size: var(--fs-small); }
+.form-field label {
+  display: flex; align-items: center; gap: 7px;
+  font-weight: 600; font-size: var(--fs-small);
+}
+.form-field__icon {
+  display: inline-flex; flex-shrink: 0;
+  color: var(--color-primary);
+}
+.form-field__icon svg { display: block; }
+.form-field.has-error .form-field__icon { color: var(--color-accent-dark); }
 .form-field input, .form-field select, .form-field textarea {
   border: 1.5px solid var(--color-border); border-radius: var(--radius-sm);
   padding: 12px 14px; font-family: inherit; font-size: 0.95rem; transition: var(--transition-fast);
-  background: var(--color-white);
+  background: var(--color-white); color: var(--color-text);
 }
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--color-text-muted); opacity: 0.75; }
+.form-field input:hover, .form-field textarea:hover { border-color: var(--color-primary-light); }
 .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
   outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(var(--shadow-rgb),0.12);
 }
 .form-field.has-error input, .form-field.has-error select, .form-field.has-error textarea {
   border-color: var(--color-accent-dark);
 }
+.form-field.has-error input:hover, .form-field.has-error textarea:hover {
+  border-color: var(--color-accent-dark);
+}
 .form-field.has-error input:focus, .form-field.has-error select:focus, .form-field.has-error textarea:focus {
   box-shadow: 0 0 0 3px rgba(197, 58, 8, 0.14);
+}
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 40px;
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 15px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+.form-field select::-ms-expand { display: none; }
+.form-field select:hover { border-color: var(--color-primary-light); }
+.form-field select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23204d82' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+.form-field.has-error select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c53a08' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
 }
 .form-field__error {
   color: var(--color-accent-dark);
   font-size: var(--fs-small);
   font-weight: 600;
 }
+.g-recaptcha-container { grid-column: 1 / -1; }
 .chip-group { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .chip-option {
   border: 1.5px solid var(--color-border); border-radius: var(--radius-pill);
@@ -802,6 +844,7 @@ body.nav-open { overflow: hidden; }
 }
 .chip-option input { display: none; }
 .chip-option:has(input:checked) { background: var(--color-primary); color: var(--color-white); border-color: var(--color-primary); }
+.form-field.has-error .chip-option { border-color: var(--color-accent-dark); }
 
 /* ===== Quick-enquiry drawer ===== */
 .drawer-overlay {
@@ -833,6 +876,10 @@ body.nav-open { overflow: hidden; }
 .place-card__media { border-radius: 0; margin-bottom: 0; }
 .place-card__body { padding: var(--space-5); }
 .place-card__body h3 { margin-bottom: 6px; }
+.food-card { padding: 0; overflow: hidden; }
+.food-card__media { border-radius: 0; margin-bottom: 0; }
+.food-card__body { padding: var(--space-5); }
+.food-card__body h3 { margin-bottom: 6px; }
 
 /* ===== Sticky booking sidebar (destination detail) ===== */
 .booking-sidebar { position: sticky; top: calc(var(--header-height) + var(--space-5)); padding: var(--space-6); }
@@ -1282,4 +1329,67 @@ color: var(--color-primary-dark);
 
 .overflow-hidden{
 overflow: hidden;
+}
+
+.contact__offices .media-img.office-card__map {
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+.contact__offices .card.office-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media only screen and (max-width:1024px) {
+  .contact__form-section > .container {
+    grid-template-columns: 6fr !important;
+}
+.contact__form-section form#contactForm {
+    padding: 20px !important;
+}
+}
+
+@media only screen and (max-width:780px) {
+  .footer-route__path {
+    z-index: -1;
+    position: absolute;
+    width: 300px;
+    height: 140px;
+    color: var(--color-gold);
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0px auto;
+  }
+  .footer-route {
+    gap: 100px;
+  }
+  .footer-route__path svg {
+    transform: rotate(0deg);
+  }
+  .site-footer__bottom {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width:640px) {
+  .contact__form-section > .container {
+    grid-template-columns: 12fr !important;
+}
+.contact__form-section form#contactForm {
+    padding: 20px !important;
+}
+.footer-top p {
+    text-align: center;
+}
+.footer-nav {
+    align-items: center;
+}
+.footer-heading::after {
+    width: 100%;
+}
+.footer-pills {
+    justify-content: center;
+}
 }

@@ -23,9 +23,15 @@
   <a class="whatsapp-float" href="{{ company.whatsappNumber | whatsappLink('Hi KD Holidayz, I would like to plan a trip.') }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ripple" id="cursorRipple" aria-hidden="true"></div>
-  <script>window.KD_FORM_ENDPOINT = {{ formConfig.googleSheetsWebAppUrl | json | safe }};</script>
+  <script>
+    window.KD_FORM_ENDPOINT = {{ formConfig.googleSheetsWebAppUrl | json | safe }};
+    window.KD_RECAPTCHA_SITE_KEY = {{ formConfig.recaptchaSiteKey | json | safe }};
+  </script>
   <script src="/js/vendor/gsap.min.js" defer></script>
   <script src="/js/vendor/lottie.min.js" defer></script>
+  {% if formConfig.recaptchaSiteKey %}
+  <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
+  {% endif %}
   <script src="/js/main.js" defer></script>
 </body>
 </html>

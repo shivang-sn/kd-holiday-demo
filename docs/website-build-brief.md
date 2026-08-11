@@ -7,7 +7,7 @@ Prepared by Neetrick · Source docs: Project Quotation (₹25,000 estimation), C
 ## 0. What we actually know (extracted, not invented)
 
 **Company:** KD Holidayz — "A Dream Quest Explorers!" · Travel consulting firm, founded 2023
-**Offices:** Head Office — "Hreehan Complex," Patel Samaj, Jamnagar, Gujarat, India · +91 8000144333 / +91 9429799355
+**Offices:** Head Office — "Hreehan Complex," Patel Samaj, Jamnagar, Gujarat, India · / +91 9429799355
 **Branch:** Ronald Ngala Street, P.O. Box 4309-30100, Eldoret, Kenya · +254 731062066 / +91 8660401151 · maithri.shah@kdholidayz.in
 **Global:** info@kdholidayz.in · www.kdholidayz.in
 

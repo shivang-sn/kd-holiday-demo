@@ -138,7 +138,7 @@ function buildPdf(dest) {
     .font("Helvetica")
     .fontSize(11)
     .text("Head Office: \"Hreehan Complex\", Patel Samaj, Jamnagar, Gujarat, India", { lineGap: 3 })
-    .text("Phone: +91 8000144333 / +91 9429799355")
+    .text("Phone: +91 9429799355")
     .text("Email: info@kdholidayz.in")
     .text("Website: www.kdholidayz.in");
 

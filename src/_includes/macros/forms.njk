@@ -1,0 +1,126 @@
+{#
+  Shared "Tour Inquiry" field set — used by the quick-enquiry drawer, the
+  Custom Tour form, and the Contact form so all three collect the same
+  fields (and so submissions land as consistent columns in the Google
+  Sheet). `prefix` namespaces element ids per form (e.g. "d", "c", "ct").
+#}
+{% import "partials/icons.njk" as icon %}
+
+{% macro fieldIcon(name) %}<span class="form-field__icon">{{ icon.render(name, 16) }}</span>{% endmacro %}
+
+{% macro tourInquiryFields(prefix, destinations, offers) %}
+<div class="form-field form-field--full">
+  <label for="{{ prefix }}Name">{{ fieldIcon("person") }}Full Name *</label>
+  <input type="text" id="{{ prefix }}Name" name="name" placeholder="Your name" required>
+</div>
+
+<div class="form-field form-field--full">
+  <label for="{{ prefix }}Destination">{{ fieldIcon("pin") }}Destination</label>
+  <select id="{{ prefix }}Destination" name="destination">
+    <option value="">Select a destination</option>
+    <optgroup label="Destinations">
+      {% for dest in destinations %}
+      <option value="{{ dest.data.title }}">{{ dest.data.title }}</option>
+      {% endfor %}
+    </optgroup>
+    <optgroup label="Offers">
+      {% for offer in offers %}
+      <option value="{{ offer.title }}">{{ offer.title }}</option>
+      {% endfor %}
+    </optgroup>
+    <option value="Other">Other / Not sure yet</option>
+  </select>
+</div>
+
+<div class="form-field">
+  <label for="{{ prefix }}DateFrom">{{ fieldIcon("calendar") }}Travel Date — From *</label>
+  <input type="date" id="{{ prefix }}DateFrom" name="dateFrom" required>
+</div>
+<div class="form-field">
+  <label for="{{ prefix }}DateTo">{{ fieldIcon("calendar") }}Travel Date — To</label>
+  <input type="date" id="{{ prefix }}DateTo" name="dateTo">
+</div>
+
+<div class="form-field">
+  <label for="{{ prefix }}Adults">{{ fieldIcon("family") }}No. of Adults *</label>
+  <input type="number" id="{{ prefix }}Adults" name="adults" min="1" value="2" required>
+</div>
+<div class="form-field">
+  <label for="{{ prefix }}Children">{{ fieldIcon("child") }}No. of Children</label>
+  <input type="number" id="{{ prefix }}Children" name="children" min="0" value="0">
+</div>
+<div class="form-field" data-children-ages-field style="display:none;">
+  <label for="{{ prefix }}ChildrenAges">{{ fieldIcon("child") }}Children's Age(s)</label>
+  <input type="text" id="{{ prefix }}ChildrenAges" name="childrenAges" placeholder="e.g. 5, 8">
+</div>
+
+<div class="form-field">
+  <label for="{{ prefix }}DepartureCity">{{ fieldIcon("plane") }}Departure City *</label>
+  <input type="text" id="{{ prefix }}DepartureCity" name="departureCity" placeholder="e.g. Mumbai" required>
+</div>
+<div class="form-field">
+  <label for="{{ prefix }}Hotel">{{ fieldIcon("hotel") }}Hotel Preference</label>
+  <select id="{{ prefix }}Hotel" name="hotelPreference">
+    <option value="">No preference</option>
+    <option value="3★">3★</option>
+    <option value="4★">4★</option>
+    <option value="5★">5★</option>
+    <option value="Luxury">Luxury</option>
+  </select>
+</div>
+
+<div class="form-field">
+  <label for="{{ prefix }}Budget">{{ fieldIcon("coin") }}Approx. Budget</label>
+  <input type="text" id="{{ prefix }}Budget" name="budget" placeholder="e.g. ₹50,000">
+</div>
+<div class="form-field">
+  <label for="{{ prefix }}BudgetType">{{ fieldIcon("tag") }}Budget Applies To</label>
+  <select id="{{ prefix }}BudgetType" name="budgetType">
+    <option value="Per Person">Per Person</option>
+    <option value="Total">Total</option>
+  </select>
+</div>
+
+<div class="form-field form-field--full">
+  <label>{{ fieldIcon("suitcase") }}Preferred Package *</label>
+  <div class="chip-group">
+    {% for opt in ["Flight + Hotel", "Hotel Only", "Complete Tour", "Custom Tour"] %}
+    <label class="chip-option">
+      <input type="radio" name="preferredPackage" value="{{ opt }}" required>
+      {{ opt }}
+    </label>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="form-field form-field--full">
+  <label>{{ fieldIcon("star") }}Special Requirements</label>
+  <div class="chip-group">
+    {% for opt in ["Honeymoon", "Family", "Senior Citizens", "Adventure", "Vegetarian Meals", "VISA Assistance"] %}
+    <label class="chip-option">
+      <input type="checkbox" name="specialRequirements" value="{{ opt }}">
+      {{ opt }}
+    </label>
+    {% endfor %}
+    <label class="chip-option">
+      <input type="checkbox" name="specialRequirements" value="Other" data-other-toggle>
+      Other
+    </label>
+  </div>
+  <input type="text" name="specialRequirementsOther" placeholder="Please specify..." data-other-field style="display:none; margin-top:8px;">
+</div>
+
+<div class="form-field">
+  <label for="{{ prefix }}Phone">{{ fieldIcon("phone") }}Contact Number *</label>
+  <input type="tel" id="{{ prefix }}Phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+</div>
+<div class="form-field">
+  <label for="{{ prefix }}Email">{{ fieldIcon("mail") }}Email Address</label>
+  <input type="email" id="{{ prefix }}Email" name="email" placeholder="you@email.com">
+</div>
+
+<div class="form-field form-field--full">
+  <label for="{{ prefix }}Notes">{{ fieldIcon("note") }}Any Other Requirements</label>
+  <textarea id="{{ prefix }}Notes" name="notes" rows="3" placeholder="Anything else we should know..."></textarea>
+</div>
+{% endmacro %}

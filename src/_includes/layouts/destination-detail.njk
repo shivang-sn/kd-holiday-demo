@@ -24,7 +24,7 @@ layout: layouts/base.njk
 
 <section class="container destination-detail__hero-image" style="margin-top:40px;">
   {{ cards.mediaImg(title, heroImage, "21/9") }}
-  {% if heroImageCredit %}<p class="text-muted" style="font-size:var(--fs-small); margin-top:8px;">{{ heroImageCredit }}</p>{% endif %}
+  
 </section>
 
 <section class="container destination-detail__main" style="margin-top:56px; display:grid; grid-template-columns: 2fr 1fr; gap:48px;" id="destinationMain">
@@ -60,9 +60,12 @@ layout: layouts/base.njk
     <div class="eyebrow" style="margin-top:56px;">🍽️ Local Food to Try</div>
     <div class="grid grid--3">
       {% for f in localFood %}
-      <div class="card" style="padding:24px;">
-        <h3>{{ f.name }}</h3>
-        <p class="text-muted" style="font-size:var(--fs-small);">{{ f.description }}</p>
+      <div class="card food-card">
+        {{ cards.mediaImg(f.name, f.image, '4/3', 'food-card__media') }}
+        <div class="food-card__body">
+          <h3>{{ f.name }}</h3>
+          <p class="text-muted" style="font-size:var(--fs-small);">{{ f.description }}</p>
+        </div>
       </div>
       {% endfor %}
     </div>

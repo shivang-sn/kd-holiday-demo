@@ -42,10 +42,13 @@ topPlaces:
 localFood:
   - name: "Nasi Goreng"
     description: "Indonesian fried rice, a Bali staple."
+    image: "https://images.unsplash.com/photo-1680674774705-90b4904b3a7f?w=500&q=70"
   - name: "Babi Guling"
     description: "Balinese spit-roasted suckling pig."
+    image: "https://images.unsplash.com/photo-1709166796947-e852daf748c9?w=500&q=70"
   - name: "Fresh Seafood"
     description: "Grilled catch-of-the-day at Jimbaran beach."
+    image: "https://images.unsplash.com/photo-1600175074394-f2f4c500f7ea?w=500&q=70"
 itinerary:
   - day: 1
     title: "Arrival in Bali"

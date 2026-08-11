@@ -38,6 +38,16 @@ topPlaces:
   - name: "Paris"
     description: "Eiffel Tower, the Louvre, and the Seine — the classic Paris icons."
     image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500&q=70"
+localFood:
+  - name: "Swiss Cheese Fondue"
+    description: "Melted Gruyère and Emmental, shared communally with crusty bread."
+    image: "https://images.unsplash.com/photo-1512594282804-b5f400408c9d?w=500&q=70"
+  - name: "Rösti"
+    description: "Crisp, pan-fried Swiss potato cake, often served with a hearty topping."
+    image: "https://images.unsplash.com/photo-1773739685390-129701c842fb?w=500&q=70"
+  - name: "French Croissant"
+    description: "Buttery, flaky pastry best enjoyed fresh at a Parisian café."
+    image: "https://images.unsplash.com/photo-1498099916438-d96f52d0c7ff?w=500&q=70"
 itinerary:
   - day: 1
     title: "Arrival in Zurich"
