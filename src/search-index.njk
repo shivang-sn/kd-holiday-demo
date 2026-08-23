@@ -1,0 +1,17 @@
+---
+permalink: /search-index.json
+eleventyExcludeFromCollections: true
+---
+[
+{% for d in collections.destinations %}
+  {
+    "title": {{ d.data.title | dump | safe }},
+    "subtitle": {{ d.data.subtitle | dump | safe }},
+    "country": {{ d.data.country | dump | safe }},
+    "region": {{ d.data.region | dump | safe }},
+    "image": {{ d.data.heroImage | dump | safe }},
+    "tags": {{ d.data.tags | dump | safe }},
+    "url": {{ d.url | dump | safe }}
+  }{% if not loop.last %},{% endif %}
+{% endfor %}
+]

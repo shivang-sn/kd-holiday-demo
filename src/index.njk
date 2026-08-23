@@ -39,10 +39,13 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
         <a href="/destinations/" class="btn btn--primary">🌍 Explore Destinations</a>
         <button class="btn btn--outline" data-drawer-open type="button">🎨 Customize My Trip</button>
       </div>
-      <form class="hero__search" onsubmit="event.preventDefault(); window.location='/destinations/';">
-        <input type="text" placeholder="Where do you want to go?" aria-label="Search destinations">
-        <button class="btn btn--primary" type="submit">Search</button>
-      </form>
+      <div class="hero__search-wrap">
+        <form class="hero__search" autocomplete="off">
+          <input type="text" placeholder="Where do you want to go?" aria-label="Search destinations">
+          <button class="btn btn--primary" type="submit">Search</button>
+        </form>
+        <div class="hero-search__dropdown" id="heroSearchDropdown"></div>
+      </div>
       <div class="hero__rating">
         <span>Head Office: Jamnagar, India</span>
         <span>·</span>
@@ -57,6 +60,20 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
   </div>
 </section>
 
+<div class="no-match-modal" id="noMatchModal">
+  <div class="no-match-modal__box">
+    <button class="no-match-modal__close" id="noMatchClose" type="button" aria-label="Close">×</button>
+    <div class="eyebrow">🎨 Let's Build It Together</div>
+    <h3>We don't have a ready-made package for "<span id="noMatchQuery"></span>" yet</h3>
+    <p class="text-muted" style="margin-top:8px;">But that's exactly what we're built for — tell us where you want to go and our consultants will design a custom itinerary and package around it.</p>
+    <button class="btn btn--primary" id="noMatchRequestBtn" type="button" style="margin-top:20px;">Request Custom Package 🚀</button>
+    <div class="no-match-modal__explore">
+      <p class="text-muted" style="font-size:var(--fs-small); text-transform:uppercase; letter-spacing:0.04em;">Or explore these destinations instead</p>
+      <div class="explore-slick" id="exploreSlickTrack"></div>
+    </div>
+  </div>
+</div>
+
 <section class="section--sm section--alt home__stats">
   <div class="container grid grid--4" data-reveal>
     {% for stat in company.stats %}
@@ -66,7 +83,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
 </section>
 
 <section class="section home__promise">
-  <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:center;">
+  <div class="container home__promise__grid">
     <div data-reveal>
       <div class="eyebrow">✦ Our Promise</div>
       <h2>Why Travelers Choose KD Holidayz</h2>
@@ -222,15 +239,12 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
       <p class="body-lg text-muted">Follow <a href="{{ company.socials.instagram }}" target="_blank" rel="noopener" style="color:var(--color-accent); font-weight:600;">@kdholidayz_jamnagar</a> for more reels from recent trips.</p>
     </div>
     <div class="instagram-slick">
-      {% set reelA = {"img": "/images/instagram/insta-1-reel-a.jpg", "video": "/images/instagram/reel-1.mp4", "url": "https://www.instagram.com/kdholidayz_jamnagar/reel/DblJCYotrKQ/"} %}
-      {% set reelB = {"img": "/images/instagram/insta-7-reel-b.jpg", "video": "/images/instagram/reel-2.mp4", "url": "https://www.instagram.com/kdholidayz_jamnagar/reel/DX33l0oMWXU/"} %}
-      {% set posts = [reelA, reelB, reelA, reelB, reelA, reelB, reelA, reelB, reelA, reelB] %}
-      {% for post in posts %}
+      {% for reel in instagramReels %}
       <div class="instagram-slick__slide">
-        <a class="instagram-card" href="{{ post.url }}" target="_blank" rel="noopener" aria-label="View on Instagram">
+        <a class="instagram-card" href="{{ reel.url }}" target="_blank" rel="noopener" aria-label="View on Instagram">
           <div class="instagram-card__media">
-            <img src="{{ post.img }}" alt="KD Holidayz Instagram reel" loading="lazy">
-            <video src="{{ post.video }}" muted loop playsinline preload="metadata" poster="{{ post.img }}"></video>
+            <img src="{{ reel.thumb }}" alt="KD Holidayz Instagram reel" loading="lazy">
+            <video src="{{ reel.video }}" loop playsinline preload="metadata" poster="{{ reel.thumb }}"></video>
           </div>
           <span class="instagram-card__play">▶</span>
         </a>
@@ -255,6 +269,12 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
     </div>
   </div>
 </section>
+
+<div class="sticky-mobile-bar is-active">
+  <a href="{{ company.offices[0].phones[0] | telLink }}" class="btn btn--outline" style="color:var(--color-primary); border-color:var(--color-primary);">📞 Call</a>
+  <a href="{{ company.whatsappNumber | whatsappLink('Hi KD Holidayz, I would like to plan a trip.') }}" class="btn btn--outline" style="color:var(--color-primary); border-color:var(--color-primary);" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <button class="btn btn--primary" data-drawer-open type="button">Enquire</button>
+</div>
 
 <script>
   jQuery(function ($) {
@@ -299,7 +319,14 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
       if (!video) return;
       card.addEventListener("mouseenter", function () {
         video.currentTime = 0;
-        video.play();
+        video.muted = false;
+        var playPromise = video.play();
+        if (playPromise && playPromise.catch) {
+          playPromise.catch(function () {
+            video.muted = true;
+            video.play();
+          });
+        }
       });
       card.addEventListener("mouseleave", function () {
         video.pause();

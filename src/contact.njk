@@ -102,7 +102,9 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
         <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ india.address }}</span></div>
         {% for phone in india.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
         <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
-        {{ cards.mediaImg("Map — " ~ india.mapQuery, "https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=700&q=70", '16/9', 'office-card__map') }}
+        <div class="media-img office-card__map" style="--ph-ratio:16/9;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117985.12528992281!2d69.91198054335936!3d22.465312799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39576ab69ae4df15%3A0x63383070b357c436!2sKD%20HOLIDAYZ!5e0!3m2!1sen!2sus!4v1787501783068!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
         <a href="{{ company.whatsappNumber | whatsappLink('Hi, I would like to visit the Jamnagar office.') }}" class="btn btn--secondary btn--block" style="margin-top:20px;" target="_blank" rel="noopener">Chat on WhatsApp</a>
       </div>
       <div class="card office-card">
@@ -111,7 +113,9 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
         <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ kenya.address }}</span></div>
         {% for phone in kenya.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
         <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
-        {{ cards.mediaImg("Map — " ~ kenya.mapQuery, "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=700&q=70", '16/9', 'office-card__map') }}
+        <div class="media-img office-card__map" style="--ph-ratio:16/9;">
+          <iframe src="https://www.google.com/maps?q={{ kenya.mapQuery | urlencode }}&output=embed" title="Map — {{ kenya.mapQuery }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
         <a href="{{ company.whatsappNumber | whatsappLink('Hi, I would like to visit the Eldoret office.') }}" class="btn btn--secondary btn--block" style="margin-top:20px;" target="_blank" rel="noopener">Chat on WhatsApp</a>
       </div>
     </div>
@@ -127,3 +131,9 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
     {{ cards.faqAccordion(faqs) }}
   </div>
 </section>
+
+<div class="sticky-mobile-bar is-active">
+  <a href="{{ india.phones[0] | telLink }}" class="btn btn--outline" style="color:var(--color-primary); border-color:var(--color-primary);">📞 Call</a>
+  <a href="{{ company.whatsappNumber | whatsappLink('Hi KD Holidayz, I would like to plan a trip.') }}" class="btn btn--outline" style="color:var(--color-primary); border-color:var(--color-primary);" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <button class="btn btn--primary" data-drawer-open type="button">Enquire</button>
+</div>

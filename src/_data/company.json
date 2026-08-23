@@ -17,7 +17,7 @@
       "phones": ["+91 9429799355"],
       "email": "info@kdholidayz.in",
       "mapQuery": "Hreehan Complex, Patel Samaj, Jamnagar, Gujarat, India",
-      "businessHours": null
+      "businessHours": "9:00 AM - 6:00 PM"
     },
     {
       "id": "kenya",
@@ -28,7 +28,7 @@
       "phones": ["+254 731062066", "+91 8660401151"],
       "email": "maithri.shah@kdholidayz.in",
       "mapQuery": "Ronald Ngala Street, Eldoret, Kenya",
-      "businessHours": null
+      "businessHours": "9:00 AM - 6:00 PM"
     }
   ],
   "socials": {
@@ -43,7 +43,7 @@
     { "label": "Tours Completed", "value": 120, "suffix": "+" },
     { "label": "Years of Experience", "value": 8, "suffix": "+" }
   ],
-  "mission": null,
-  "vision": null,
+  "mission": "To turn travel dreams into seamless, personalized journeys with thoughtful planning, transparent service, and support every step of the way.",
+  "vision": "To be a trusted global travel partner, creating meaningful journeys and unforgettable experiences for every traveler.",
   "notes": "Fields set to null are confirmed gaps from the client requirement list (Section 5 of docs/website-build-brief.md) — do not invent numbers or copy here, wire the templates to show a TODO state instead."
 }

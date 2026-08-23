@@ -100,6 +100,33 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
   </div>
 </section>
 
+<section class="section about__certifications">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">🏅 Recognized & Trusted</div>
+      <h2>Certifications & Recognitions</h2>
+      <p class="body-lg text-muted">Registered and recognized by the bodies that matter for safe, reliable travel planning.</p>
+    </div>
+    <div class="grid grid--3">
+      {% for cert in certifications %}
+      <div class="card cert-card">
+        {% if cert.image %}
+          <img src="{{ cert.image }}" alt="{{ cert.name }}" class="cert-card__image">
+        {% else %}
+          <div class="cert-card__placeholder">
+            <div class="icon-badge icon-badge--gold" style="width:64px; height:64px;">{{ icon.render("shield", 30) }}</div>
+          </div>
+        {% endif %}
+        <h3 style="margin-top:16px;">{{ cert.name }}</h3>
+        {% if not cert.image %}
+          <p class="text-muted" style="margin-top:8px; font-size:var(--fs-small);"><span class="todo-flag">TODO: client</span> {{ cert.note }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt about__stats">
   <div class="container grid grid--4">
     {% for stat in company.stats %}

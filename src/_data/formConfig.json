@@ -1,5 +1,5 @@
 {
-  "googleSheetsWebAppUrl": "https://script.google.com/macros/s/AKfycbxquZwyZGF7VDE62a3VsdbDR1tmyeO3t0w76jBmXmlU0SC6nj__c84wsx2UEE-W86vT/exec",
+  "googleSheetsWebAppUrl": "https://script.google.com/macros/s/AKfycbyBAlgFj6kAas1ycLfsygX3D5OG4pJy86VIckhrvttHEjr7MkqPG8U5HjQWcVp9WAA/exec",
   "recaptchaSiteKey": "",
   "notes": "Set googleSheetsWebAppUrl to the deployed Google Apps Script Web App URL to have form submissions (Quick Enquiry, Custom Tour, Contact) appended as rows to a Google Sheet. Leave blank to disable — forms still validate and show a success message, they just won't be recorded anywhere. Set recaptchaSiteKey to a Google reCAPTCHA v2 ('I'm not a robot' checkbox) site key from https://www.google.com/recaptcha/admin to require verification on all three forms before they can be submitted. Leave blank to disable the captcha. The token is included as recaptchaToken in the payload sent to the Apps Script endpoint — verify it server-side there (via the matching secret key against https://www.google.com/recaptcha/api/siteverify) if you want a hard guarantee, since client-side checks alone can be bypassed."
 }

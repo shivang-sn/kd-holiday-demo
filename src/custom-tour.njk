@@ -66,3 +66,9 @@ description: "Design your own journey with KD Holidayz — fully customized itin
     </div>
   </div>
 </section>
+
+<div class="sticky-mobile-bar is-active">
+  <a href="{{ company.offices[0].phones[0] | telLink }}" class="btn btn--outline" style="color:var(--color-primary); border-color:var(--color-primary);">📞 Call</a>
+  <a href="{{ company.whatsappNumber | whatsappLink('Hi KD Holidayz, I would like a custom tour quote.') }}" class="btn btn--outline" style="color:var(--color-primary); border-color:var(--color-primary);" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <button class="btn btn--primary" data-drawer-open type="button">Enquire</button>
+</div>
