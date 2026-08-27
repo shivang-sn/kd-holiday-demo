@@ -2,12 +2,13 @@
 layout: layouts/base.njk
 title: "Home"
 description: "KD Holidayz — A Dream Quest Explorers. Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya."
+preloadImage: "/images/photos/rajasthan.jpg"
 ---
 {% import "macros/cards.njk" as cards %}
 {% import "partials/icons.njk" as icon %}
 
-<script src="/js/vendor/jquery.min.js"></script>
-<script src="/js/vendor/slick.min.js"></script>
+<script src="/js/vendor/jquery.min.js" defer></script>
+<script src="/js/vendor/slick.min.js" defer></script>
 
 <div class="announcement" id="announcement">
   <div class="container">
@@ -26,7 +27,11 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
       {"src": "/images/photos/kedarnath.jpg", "alt": "Kedarnath Temple, Himalayas"}
     ] %}
     {% for slide in slides %}
-    <div class="hero__slide{% if loop.first %} is-active{% endif %}" style="background-image:url('{{ slide.src }}');" role="img" aria-label="{{ slide.alt }}"></div>
+    {% if loop.first %}
+    <div class="hero__slide is-active" style="background-image:url('{{ slide.src }}');" role="img" aria-label="{{ slide.alt }}"></div>
+    {% else %}
+    <div class="hero__slide" data-bg="{{ slide.src }}" role="img" aria-label="{{ slide.alt }}"></div>
+    {% endif %}
     {% endfor %}
   </div>
   <div class="hero__overlay"></div>
@@ -114,7 +119,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
 
 <section class="section section--alt featured-destinations home__featured">
   <div class="featured-decor" id="featuredDecor" aria-hidden="true">
-    <img src="/images/decor/flight-doodle.svg" alt="">
+    <img src="/images/decor/flight-doodle.svg" alt="" loading="lazy">
   </div>
   <div class="container">
     <div class="section-heading">
@@ -244,7 +249,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
         <a class="instagram-card" href="{{ reel.url }}" target="_blank" rel="noopener" aria-label="View on Instagram">
           <div class="instagram-card__media">
             <img src="{{ reel.thumb }}" alt="KD Holidayz Instagram reel" loading="lazy">
-            <video src="{{ reel.video }}" loop playsinline preload="metadata" poster="{{ reel.thumb }}"></video>
+            <video src="{{ reel.video }}" loop playsinline preload="none" poster="{{ reel.thumb }}"></video>
           </div>
           <span class="instagram-card__play">▶</span>
         </a>
@@ -277,6 +282,7 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
   jQuery(function ($) {
     $(".testimonial-slick").slick({
       slidesToShow: 3,
@@ -334,4 +340,5 @@ description: "KD Holidayz — A Dream Quest Explorers. Domestic and internationa
       });
     });
   });
+});
 </script>

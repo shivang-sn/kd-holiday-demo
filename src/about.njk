@@ -5,7 +5,7 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
 ---
 {% import "macros/cards.njk" as cards %}
 {% import "partials/icons.njk" as icon %}
-{% import "partials/page-banner.njk" as banner %}
+{% import "partials/page-banner.njk" as banner with context %}
 
 {{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "A Dream Quest Explorers — Since 2023", "From a Jamnagar-based consultancy to a two-country operation — this is the story behind KD Holidayz.", "about") }}
 
@@ -16,8 +16,6 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
       <h3>Our Mission</h3>
       {% if company.mission %}
         <p class="text-muted" style="margin-top:12px;">{{ company.mission }}</p>
-      {% else %}
-        <p class="text-muted" style="margin-top:12px;">Pending — <span class="todo-flag">TODO: client to confirm mission statement</span></p>
       {% endif %}
     </div>
     <div class="card" style="padding:32px;">
@@ -25,8 +23,6 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
       <h3>Our Vision</h3>
       {% if company.vision %}
         <p class="text-muted" style="margin-top:12px;">{{ company.vision }}</p>
-      {% else %}
-        <p class="text-muted" style="margin-top:12px;">Pending — <span class="todo-flag">TODO: client to confirm vision statement</span></p>
       {% endif %}
     </div>
   </div>
@@ -111,15 +107,15 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
       {% for cert in certifications %}
       <div class="card cert-card">
         {% if cert.image %}
-          <img src="{{ cert.image }}" alt="{{ cert.name }}" class="cert-card__image">
+          <img src="{{ cert.image }}" alt="{{ cert.name }}" class="cert-card__image" loading="lazy">
         {% else %}
           <div class="cert-card__placeholder">
             <div class="icon-badge icon-badge--gold" style="width:64px; height:64px;">{{ icon.render("shield", 30) }}</div>
           </div>
         {% endif %}
         <h3 style="margin-top:16px;">{{ cert.name }}</h3>
-        {% if not cert.image %}
-          <p class="text-muted" style="margin-top:8px; font-size:var(--fs-small);"><span class="todo-flag">TODO: client</span> {{ cert.note }}</p>
+        {% if not cert.image and cert.note %}
+          <p class="text-muted" style="margin-top:8px; font-size:var(--fs-small);">{{ cert.note }}</p>
         {% endif %}
       </div>
       {% endfor %}

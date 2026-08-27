@@ -49,6 +49,9 @@ localFood:
   - name: "Fresh Seafood"
     description: "Grilled catch-of-the-day at Jimbaran beach."
     image: "https://images.unsplash.com/photo-1600175074394-f2f4c500f7ea?w=500&q=70"
+  - name: "Urap (Vegetarian)"
+    description: "Balinese vegetable salad tossed in spiced grated coconut."
+    image: "https://images.unsplash.com/photo-1530912585210-7916cd026e59?w=500&q=70"
 itinerary:
   - day: 1
     title: "Arrival in Bali"

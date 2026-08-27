@@ -261,16 +261,6 @@ h3, .h3 {
   display: block;
 }
 
-.todo-flag {
-  display: inline-block;
-  font-size: var(--fs-small);
-  font-weight: 700;
-  color: var(--color-terracotta);
-  background: rgba(192, 57, 43, 0.08);
-  border-radius: var(--radius-sm);
-  padding: 4px 10px;
-}
-
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;

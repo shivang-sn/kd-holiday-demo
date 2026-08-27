@@ -6,10 +6,14 @@
 </div>
 {% endmacro %}
 
-{% macro mediaImg(label, imageSrc, ratio, extraClass) %}
+{% macro mediaImg(label, imageSrc, ratio, extraClass, priority) %}
 {% if imageSrc %}
 <div class="media-img {{ extraClass }}" style="--ph-ratio:{{ ratio or '4/3' }};">
+  {% if priority %}
+  <img src="{{ imageSrc }}" alt="{{ label }}" loading="eager" fetchpriority="high">
+  {% else %}
   <img src="{{ imageSrc }}" alt="{{ label }}" loading="lazy">
+  {% endif %}
 </div>
 {% else %}
 {{ placeholderImg(label, ratio, extraClass) }}

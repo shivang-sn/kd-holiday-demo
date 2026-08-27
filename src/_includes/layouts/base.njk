@@ -3,8 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} | {{ company.name }}</title>
-  <meta name="description" content="{{ description or (company.tagline + ' — Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.') }}">
+  {% set siteUrl = company.website %}
+  {% set pageTitle = title + " | " + company.name %}
+  {% set pageDescription = description or (company.tagline + " — Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.") %}
+  {% set canonicalUrl = siteUrl + page.url %}
+  {% set resolvedOgImage = ogImage or heroImage or "/images/brand/logo-full.png" %}
+  {% set ogImageUrl = siteUrl + resolvedOgImage %}
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ canonicalUrl }}">
+
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:site_name" content="{{ company.name }}">
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  <meta property="og:image" content="{{ ogImageUrl }}">
+  <meta property="og:locale" content="en_IN">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ pageTitle }}">
+  <meta name="twitter:description" content="{{ pageDescription }}">
+  <meta name="twitter:image" content="{{ ogImageUrl }}">
+
   <link rel="icon" href="/images/brand/kd-icon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/brand/favicon-16x16.png">
@@ -14,10 +36,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {% if preloadImage %}<link rel="preload" as="image" href="{{ preloadImage }}" fetchpriority="high">{% endif %}
   <link rel="stylesheet" href="/css/tokens.css">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/vendor/slick.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": {{ company.name | json | safe }},
+    "legalName": {{ company.legalName | json | safe }},
+    "url": {{ siteUrl | json | safe }},
+    "logo": {{ (siteUrl + "/images/brand/logo-full.png") | json | safe }},
+    "image": {{ (siteUrl + "/images/brand/logo-full.png") | json | safe }},
+    "description": {{ company.tagline | json | safe }},
+    "email": {{ company.email | json | safe }},
+    "telephone": {{ company.primaryPhone | json | safe }},
+    "foundingDate": "{{ company.founded }}",
+    "address": [
+      {% for office in company.offices %}
+      {
+        "@type": "PostalAddress",
+        "streetAddress": {{ office.address | json | safe }},
+        "addressLocality": {{ office.city | json | safe }},
+        "addressCountry": {{ office.country | json | safe }}
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ],
+    "sameAs": [
+      {% if company.socials.instagram %}{{ company.socials.instagram | json | safe }}{% endif %}
+      {% if company.socials.facebook and company.socials.facebook != company.socials.instagram %},{{ company.socials.facebook | json | safe }}{% endif %}
+      {% if company.socials.youtube %},{{ company.socials.youtube | json | safe }}{% endif %}
+      {% if company.socials.linkedin %},{{ company.socials.linkedin | json | safe }}{% endif %}
+    ]
+  }
+  </script>
 </head>
 <body>
   {% include "partials/header.njk" %}

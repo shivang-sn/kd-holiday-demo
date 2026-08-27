@@ -6,9 +6,8 @@ layout: layouts/base.njk
 <section class="page-banner destination-detail__banner">
   <div class="container">
     <nav class="breadcrumb breadcrumb--on-dark">
-      <a href="/">Home</a> <span class="breadcrumb__sep">/</span> <a href="/destinations/">Destinations</a> <span class="breadcrumb__sep">/</span> <span aria-current="page">{{ title }}</span>
+      <a href="/">Home</a><span class="breadcrumb__sep">›</span><a href="/destinations/">Destinations</a><span class="breadcrumb__sep">›</span><span aria-current="page">{{ title }}</span>
     </nav>
-    {% if sample %}<span class="todo-flag" style="margin-bottom:16px; display:inline-block;">Sample content — confirm final pricing, inclusions & copy with the client before publishing</span>{% endif %}
     <div class="flex flex--gap-3" style="margin:16px 0; flex-wrap:wrap;">
       <span class="pill pill--dark">{{ durationNights }}N / {{ durationDays }}D</span>
       <span class="pill pill--dark">{{ groupType or "Group & Private" }}</span>
@@ -22,8 +21,42 @@ layout: layouts/base.njk
   </div>
 </section>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ (company.website + "/") | json | safe }} },
+    { "@type": "ListItem", "position": 2, "name": "Destinations", "item": {{ (company.website + "/destinations/") | json | safe }} },
+    { "@type": "ListItem", "position": 3, "name": {{ title | json | safe }} }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": {{ title | json | safe }},
+  "description": {{ (description or subtitle) | json | safe }},
+  "image": {{ (company.website + heroImage) | json | safe }},
+  "brand": { "@type": "Brand", "name": {{ company.name | json | safe }} },
+  "offers": {
+    "@type": "Offer",
+    "url": {{ (company.website + page.url) | json | safe }},
+    "priceCurrency": "INR",
+    "price": {{ startingPrice | json | safe }},
+    "availability": "https://schema.org/InStock"
+  }{% if rating and reviewCount %},
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ rating | json | safe }},
+    "reviewCount": {{ reviewCount | json | safe }}
+  }{% endif %}
+}
+</script>
+
 <section class="container destination-detail__hero-image" style="margin-top:40px;">
-  {{ cards.mediaImg(title, heroImage, "21/9") }}
+  {{ cards.mediaImg(title, heroImage, "21/9", "", true) }}
   
 </section>
 
@@ -101,22 +134,23 @@ layout: layouts/base.njk
         <li>📞 Direct line to your consultant</li>
         <li>🗺️ Fully customizable itinerary</li>
       </ul>
-    </div>
-    <div class="card" style="padding:24px; margin-top:24px; text-align:center;">
+       <div class="card" style="padding:24px; margin-top:24px; text-align:center;">
       <p style="font-weight:700;">Need help? Call us</p>
       <a href="{{ company.offices[0].phones[0] | telLink }}" class="btn btn--secondary btn--block" style="margin-top:12px;">{{ company.offices[0].phones[0] }}</a>
     </div>
+    </div>
+   
   </aside>
 </section>
 
 <section class="container section destination-detail__related">
   <div class="section-heading section-heading--center" style="margin-inline:auto;">
     <div class="eyebrow" style="justify-content:center;">🗺️ Keep Exploring</div>
-    <h2>Explore More Destinations</h2>
+    <h2>{% if region == "international" %}Explore More International Destinations{% else %}Explore More Destinations{% endif %}</h2>
   </div>
   <div class="grid grid--3">
     {% for item in collections.destinations %}
-      {% if item.data.title != title %}
+      {% if item.data.title != title and (region != "international" or item.data.region == "international") %}
         {{ cards.destinationCard(item.data, item.url) }}
       {% endif %}
     {% endfor %}

@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/pdfs");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   // Inlines an SVG file's raw markup at build time (relative to src/), so
   // its paths can be targeted by id/class and animated with JS — unlike

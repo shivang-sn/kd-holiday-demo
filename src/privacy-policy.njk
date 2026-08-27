@@ -3,13 +3,11 @@ layout: layouts/base.njk
 title: "Privacy Policy"
 description: "KD Holidayz privacy policy."
 ---
-{% import "partials/page-banner.njk" as banner %}
+{% import "partials/page-banner.njk" as banner with context %}
 
 {{ banner.render([{"label":"Home","url":"/"},{"label":"Privacy Policy"}], null, "Privacy Policy", null, "privacy-policy") }}
 
 <section class="container privacy-policy__content" style="padding-top:56px; padding-bottom:56px; max-width:800px;">
-  <p class="text-muted">Last updated: <span class="todo-flag">TODO: set date on publish</span></p>
-
   <div class="card checklist-card" style="margin-top:32px;">
     <p class="text-muted" style="margin-bottom:20px;">
       <strong style="color:var(--color-text);">This page is a placeholder.</strong>

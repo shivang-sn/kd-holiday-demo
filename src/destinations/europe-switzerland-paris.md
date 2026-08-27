@@ -39,7 +39,7 @@ topPlaces:
     description: "Eiffel Tower, the Louvre, and the Seine — the classic Paris icons."
     image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500&q=70"
 localFood:
-  - name: "Swiss Cheese Fondue"
+  - name: "Swiss Cheese Fondue (Vegetarian)"
     description: "Melted Gruyère and Emmental, shared communally with crusty bread."
     image: "https://images.unsplash.com/photo-1512594282804-b5f400408c9d?w=500&q=70"
   - name: "Rösti"

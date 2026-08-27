@@ -84,7 +84,13 @@
       slides[currentSlide].classList.remove("is-active");
       if (dots[currentSlide]) dots[currentSlide].classList.remove("is-active");
       currentSlide = (index + slides.length) % slides.length;
-      slides[currentSlide].classList.add("is-active");
+      var next = slides[currentSlide];
+      var bg = next.getAttribute("data-bg");
+      if (bg) {
+        next.style.backgroundImage = "url('" + bg + "')";
+        next.removeAttribute("data-bg");
+      }
+      next.classList.add("is-active");
       if (dots[currentSlide]) dots[currentSlide].classList.add("is-active");
     }
 
@@ -104,6 +110,17 @@
     });
 
     if (slides.length > 1) startSlider();
+
+    /* Warm the browser cache for the remaining slides once the page has
+       settled, so rotation never stalls on a cold fetch — without
+       competing with critical resources for initial bandwidth. */
+    var prefetchIdle = window.requestIdleCallback || function (fn) { setTimeout(fn, 2000); };
+    prefetchIdle(function () {
+      slides.forEach(function (slide) {
+        var bg = slide.getAttribute("data-bg");
+        if (bg) new Image().src = bg;
+      });
+    });
   }
 
   /* ---------- Cursor follower: instant dot + smoothly-lagging ring -----------
@@ -552,7 +569,8 @@
     drawer.dataset.pdf = pdfPath || "";
     drawer.classList.add("is-open");
     drawerOverlay.classList.add("is-open");
-    drawer.setAttribute("aria-hidden", "false");
+    drawer.removeAttribute("aria-hidden");
+    drawer.removeAttribute("inert");
     document.body.style.overflow = "hidden";
   }
 
@@ -561,6 +579,7 @@
     drawer.classList.remove("is-open");
     drawerOverlay.classList.remove("is-open");
     drawer.setAttribute("aria-hidden", "true");
+    drawer.setAttribute("inert", "");
     document.body.style.overflow = "";
   }
 

@@ -39,6 +39,62 @@ const destinations = [
     duration: "8 Nights / 9 Days",
     price: "Starting Rs. 1,65,000 per person",
   },
+  {
+    file: "dubai.pdf",
+    title: "Dubai",
+    subtitle: "Premium desert safari, city icons & an Abu Dhabi day trip — the complete UAE experience",
+    duration: "5 Nights / 6 Days",
+    price: "Starting Rs. 64,999 per person",
+  },
+  {
+    file: "dubai-affordable.pdf",
+    title: "Dubai Affordable",
+    subtitle: "Budget-friendly desert safari, Burj Khalifa & Dubai Frame — the essential UAE experience",
+    duration: "5 Nights / 6 Days",
+    price: "Starting Rs. 46,500 per person",
+  },
+  {
+    file: "dubai-deluxe.pdf",
+    title: "Dubai Deluxe",
+    subtitle: "Premium desert safari, Miracle Garden & Global Village — the fuller Dubai experience",
+    duration: "5 Nights / 6 Days",
+    price: "Starting Rs. 52,000 per person",
+  },
+  {
+    file: "bali-honey.pdf",
+    title: "Bali Honey",
+    subtitle: "Kuta, Ubud & the Gili Islands — beaches, culture and island-hopping in one trip",
+    duration: "7 Nights / 8 Days",
+    price: "Starting Rs. 47,000 per person",
+  },
+  {
+    file: "bali-dreams.pdf",
+    title: "Bali Dreams",
+    subtitle: "Kuta beaches & an Ubud private pool villa — a relaxed, culture-rich escape",
+    duration: "6 Nights / 7 Days",
+    price: "Starting Rs. 42,000 per person",
+  },
+  {
+    file: "bali-delight.pdf",
+    title: "Bali Delight",
+    subtitle: "Nusa Penida, Tanah Lot & the Handara Gate — Bali's icons on a value itinerary",
+    duration: "6 Nights / 7 Days",
+    price: "Starting Rs. 35,500 per person",
+  },
+  {
+    file: "gujarat.pdf",
+    title: "Gujarat",
+    subtitle: "Statue of Unity, Saputara, Gir's lions & Beyt Dwarka — heritage, hills and coast in one circuit",
+    duration: "7 Nights / 8 Days",
+    price: "Starting Rs. 24,999 per person",
+  },
+  {
+    file: "rajasthan.pdf",
+    title: "Rajasthan",
+    subtitle: "Amber Fort, Pushkar, Mount Abu & the Thar Desert — royal Rajasthan across six cities",
+    duration: "8 Nights / 9 Days",
+    price: "Starting Rs. 24,999 per person",
+  },
 ];
 
 function buildPdf(dest) {

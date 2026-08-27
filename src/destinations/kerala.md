@@ -39,7 +39,7 @@ topPlaces:
     description: "Laid-back beach town to close out the trip."
     image: "https://images.unsplash.com/photo-1701793035486-c6b4368aa842?w=500&q=70"
 localFood:
-  - name: "Kerala Sadya"
+  - name: "Kerala Sadya (Vegetarian)"
     description: "Traditional vegetarian feast served on a banana leaf."
     image: "https://images.unsplash.com/photo-1742281257687-092746ad6021?w=500&q=70"
   - name: "Appam & Stew"

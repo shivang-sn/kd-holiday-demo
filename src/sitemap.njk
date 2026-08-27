@@ -1,0 +1,30 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% set staticPages = [
+  { "url": "/", "priority": "1.0" },
+  { "url": "/about/", "priority": "0.8" },
+  { "url": "/destinations/", "priority": "0.9" },
+  { "url": "/services/", "priority": "0.7" },
+  { "url": "/custom-tour/", "priority": "0.7" },
+  { "url": "/gallery/", "priority": "0.6" },
+  { "url": "/contact/", "priority": "0.7" },
+  { "url": "/privacy-policy/", "priority": "0.3" },
+  { "url": "/terms-conditions/", "priority": "0.3" }
+] %}
+{% for p in staticPages %}
+  <url>
+    <loc>{{ company.website }}{{ p.url }}</loc>
+    <priority>{{ p.priority }}</priority>
+  </url>
+{% endfor %}
+{% for dest in collections.destinations %}
+  <url>
+    <loc>{{ company.website }}{{ dest.url }}</loc>
+    <priority>0.9</priority>
+  </url>
+{% endfor %}
+</urlset>

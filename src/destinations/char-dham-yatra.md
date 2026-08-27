@@ -40,7 +40,7 @@ topPlaces:
     description: "Dedicated to Lord Vishnu, the final and most revered stop of the yatra."
     image: "https://images.unsplash.com/photo-1620734630836-4fa8203b924e?w=500&q=70"
 localFood:
-  - name: "Garhwali Thali"
+  - name: "Garhwali Thali (Vegetarian)"
     description: "A regional spread of mandua, jhangora, and seasonal mountain vegetables."
     image: "https://images.unsplash.com/photo-1727018953313-403d17215a1b?w=500&q=70"
   - name: "Mandua ki Roti"

@@ -6,7 +6,7 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
 {% import "macros/cards.njk" as cards %}
 {% import "macros/forms.njk" as forms %}
 {% import "partials/icons.njk" as icon %}
-{% import "partials/page-banner.njk" as banner %}
+{% import "partials/page-banner.njk" as banner with context %}
 {% set india = company.offices[0] %}
 {% set kenya = company.offices[1] %}
 
@@ -37,7 +37,7 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
     <div class="card info-card">
       <div class="icon-badge info-card__icon">{{ icon.lottieRing("forest") }}{{ icon.render("clock", 22) }}</div>
       <div style="font-weight:700;">Business Hours</div>
-      <div class="text-muted" style="font-size:var(--fs-small);">{% if india.businessHours %}{{ india.businessHours }}{% else %}<span class="todo-flag">TODO: client</span>{% endif %}</div>
+      <div class="text-muted" style="font-size:var(--fs-small);">{{ india.businessHours }}</div>
     </div>
   </div>
 </section>

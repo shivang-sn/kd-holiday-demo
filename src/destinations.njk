@@ -4,7 +4,7 @@ title: "Destinations"
 description: "Explore KD Holidayz's domestic and international destinations — spiritual, honeymoon, family, and adventure tours."
 ---
 {% import "macros/cards.njk" as cards %}
-{% import "partials/page-banner.njk" as banner %}
+{% import "partials/page-banner.njk" as banner with context %}
 
 {{ banner.render([{"label":"Home","url":"/"},{"label":"Destinations"}], "🌏 Explore", "Our Destinations", 'From Himalayan pilgrimages to island honeymoons — browse KD Holidayz\'s curated destinations, or <a href="/custom-tour/" style="color:var(--color-gold-accent); font-weight:700;">build your own</a>.', "destinations") }}
 

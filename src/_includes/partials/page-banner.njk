@@ -13,7 +13,7 @@
   <div class="container">
     <nav class="breadcrumb breadcrumb--on-dark">
       {% for c in crumbs %}
-        {% if c.url and not loop.last %}<a href="{{ c.url }}">{{ c.label }}</a> <span class="breadcrumb__sep">/</span> {% else %}<span aria-current="page">{{ c.label }}</span>{% endif %}
+        {% if c.url and not loop.last %}<a href="{{ c.url }}">{{ c.label }}</a><span class="breadcrumb__sep">›</span>{% else %}<span aria-current="page">{{ c.label }}</span>{% endif %}
       {% endfor %}
     </nav>
     {% if eyebrow %}<div class="eyebrow page-banner__eyebrow">{{ eyebrow }}</div>{% endif %}
@@ -21,4 +21,21 @@
     {% if subtitle %}<p class="body-lg page-banner__subtitle">{{ subtitle | safe }}</p>{% endif %}
   </div>
 </section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for c in crumbs %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": {{ c.label | json | safe }}{% if c.url or not loop.last %},
+      "item": {{ (company.website + (c.url or page.url)) | json | safe }}{% endif %}
+
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
 {% endmacro %}
