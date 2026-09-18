@@ -994,11 +994,6 @@
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
-  /* ---------- Sticky mobile bar body padding ---------- */
-  if (document.querySelector(".sticky-mobile-bar.is-active")) {
-    document.body.classList.add("has-sticky-bar");
-  }
-
   /* ---------- Footer flight path — the exact route trail from the
      inlined flight-doodle.svg (#flightTrail) is drawn in with GSAP
      (stroke-dashoffset, no plugin needed) while a cloned copy of the

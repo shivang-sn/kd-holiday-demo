@@ -156,8 +156,3 @@ layout: layouts/base.njk
     {% endfor %}
   </div>
 </section>
-
-<div class="sticky-mobile-bar is-active">
-  <a href="{{ company.offices[0].phones[0] | telLink }}" class="btn btn--outline" style="color:var(--color-primary); border-color:var(--color-primary);">📞 Call</a>
-  <button class="btn btn--primary" data-drawer-open data-destination="{{ title }}"{% if pdfFile %} data-pdf="{{ pdfFile }}"{% endif %} type="button">Book Now</button>
-</div>

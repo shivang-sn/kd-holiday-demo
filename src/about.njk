@@ -1,7 +1,8 @@
 ---
 layout: layouts/base.njk
-title: "About Us"
+title: "About Us — Travel Consultants in Jamnagar & Eldoret"
 description: "About KD Holidayz — founded 2023, consulting on domestic and international travel from Jamnagar, India and Eldoret, Kenya."
+ogImage: "/images/brand/Profile-Dhaval-KD.png"
 ---
 {% import "macros/cards.njk" as cards %}
 {% import "partials/icons.njk" as icon %}
@@ -9,7 +10,32 @@ description: "About KD Holidayz — founded 2023, consulting on domestic and int
 
 {{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "A Dream Quest Explorers — Since 2023", "From a Jamnagar-based consultancy to a two-country operation — this is the story behind KD Holidayz.", "about") }}
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in faqs %}
+    {
+      "@type": "Question",
+      "name": {{ item.question | json | safe }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.answer | json | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
 <section class="section section--alt about__mission-vision">
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">🎯 What Drives Us</div>
+      <h2>Our Mission &amp; Vision</h2>
+    </div>
+  </div>
   <div class="container grid grid--2">
     <div class="card" style="padding:32px;">
       <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render("compass", 26) }}</div>

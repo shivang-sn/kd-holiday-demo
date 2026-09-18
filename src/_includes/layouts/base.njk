@@ -55,6 +55,14 @@
     "email": {{ company.email | json | safe }},
     "telephone": {{ company.primaryPhone | json | safe }},
     "foundingDate": "{{ company.founded }}",
+    {% if team and team.length %}
+    "founder": {
+      "@type": "Person",
+      "name": {{ team[0].name | json | safe }},
+      "jobTitle": {{ team[0].role | json | safe }},
+      "image": {{ (siteUrl + team[0].photo) | json | safe }}
+    },
+    {% endif %}
     "address": [
       {% for office in company.offices %}
       {

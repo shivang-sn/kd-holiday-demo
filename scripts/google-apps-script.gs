@@ -180,7 +180,7 @@ function sendAdminNotification(payload, headers, row) {
 
   var htmlBody =
     '<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:0 auto;">' +
-    '<h2 style="color:#0b3d5c;margin-bottom:4px;">📩 New Website Enquiry</h2>' +
+    '<h2 style="color:#0b3d5c;margin-bottom:4px;">📩 New Customer Enquiry</h2>' +
     '<p style="color:#555;margin-top:0;">A visitor submitted the <strong>' + escapeHtml_(formType) + '</strong> form on kdholidayz.com.</p>' +
     (payload.email ? '' : '<p style="color:#b02a2a;font-weight:600;">⚠️ No email address was provided — follow up by phone.</p>') +
     '<table style="border-collapse:collapse;width:100%;margin-top:12px;">' + rowsHtml + '</table>' +

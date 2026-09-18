@@ -7,7 +7,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-brand__top">
-          <div class="footer-logo"><img src="/images/brand/logo-footer.png" alt="{{ company.name }}" height="110" loading="lazy"></div>
+          <div class="footer-logo"><img src="/images/brand/logo-footer.webp" width="131" height="110" alt="{{ company.name }}" loading="lazy"></div>
           <div class="footer-social-group">
           <h3 class="footer-heading">Follow Us</h3>
           <div class="footer-social" aria-label="Follow us on social media">
@@ -52,7 +52,7 @@
         <div class="footer-contact-row">{{ icon.render("pin", 15) }}<span>{{ india.address }}</span></div>
         <div class="footer-contact-row">
           {{ icon.render("phone", 15) }}
-          <span>{% for phone in india.phones %}<a href="{{ phone | telLink }}">{{ phone }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}</span>
+          <span>{% for phone in india.phones %}<a class="footer-phone-link" href="{{ phone | telLink }}">{{ phone }}</a>{% endfor %}</span>
         </div>
         <div class="footer-contact-row">{{ icon.render("mail", 15) }}<a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
       </div>
@@ -74,7 +74,7 @@
         <div class="footer-contact-row">{{ icon.render("pin", 15) }}<span>{{ kenya.address }}</span></div>
         <div class="footer-contact-row">
           {{ icon.render("phone", 15) }}
-          <span>{% for phone in kenya.phones %}<a href="{{ phone | telLink }}">{{ phone }}</a>{% if not loop.last %}<br>{% endif %}{% endfor %}</span>
+          <span>{% for phone in kenya.phones %}<a class="footer-phone-link" href="{{ phone | telLink }}">{{ phone }}</a>{% endfor %}</span>
         </div>
         <div class="footer-contact-row">{{ icon.render("mail", 15) }}<a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
       </div>

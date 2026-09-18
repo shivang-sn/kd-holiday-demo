@@ -29,10 +29,8 @@
 .announcement__close:hover { opacity: 1; }
 .announcement.is-hidden { display: none; }
 
-/* Push bottom-fixed siblings (WhatsApp float, sticky mobile bar) up out of the
-   announcement bar's way while it's showing. */
+/* Push the WhatsApp float up out of the announcement bar's way while it's showing. */
 body.has-announcement .whatsapp-float { bottom: calc(var(--space-6) + 52px); }
-body.has-announcement .sticky-mobile-bar { bottom: 52px; }
 body.has-announcement { padding-bottom: 52px; }
 
 /* ===== Header / nav — transparent wrapper, floating white pill capsule =====
@@ -342,7 +340,10 @@ body.nav-open { overflow: hidden; }
 .stat-tile__value {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: var(--color-sky-accent);
+  /* Sky accent fails WCAG contrast on the light/alt background these tiles
+     normally sit on (~2.2:1, needs 3:1+ for large text) — ocean blue is the
+     same brand-primary used elsewhere and clears it comfortably (~7.9:1). */
+  color: var(--color-primary);
 }
 .stat-tile__label { color: var(--color-text-muted); font-weight: 600; font-size: var(--fs-small); margin-top: var(--space-2); }
 .section--dark .stat-tile__value { color: var(--color-accent); }
@@ -1030,19 +1031,6 @@ body.nav-open { overflow: hidden; }
 .booking-sidebar__trust { margin-top: var(--space-5); font-size: var(--fs-small); color: var(--color-text-muted); }
 .booking-sidebar__trust li { display: flex; gap: var(--space-2); align-items: center; margin-bottom: var(--space-2); }
 
-.sticky-mobile-bar {
-  display: none;
-  position: fixed; bottom: 0; left: 0; right: 0;
-  background: var(--color-white); box-shadow: var(--shadow-lg);
-  padding: var(--space-3) var(--space-4); z-index: 90;
-  gap: var(--space-3);
-}
-@media (max-width: 900px) {
-  .sticky-mobile-bar.is-active { display: flex; }
-  body.has-sticky-bar { padding-bottom: 76px; }
-}
-.sticky-mobile-bar a, .sticky-mobile-bar button { flex: 1; text-align: center; }
-
 /* ===== Breadcrumb ===== */
 .breadcrumb {
   display: flex;
@@ -1321,6 +1309,9 @@ body.nav-open { overflow: hidden; }
 .footer-contact-row svg { flex: none; margin-top: 3px; color: var(--color-sky); }
 .footer-contact-row a { color: inherit; }
 .footer-contact-row a:hover { color: var(--color-gold); }
+/* Each phone number gets its own block + padding — stacked inline links with
+   just a <br> between them leave tap targets too small/close on mobile. */
+.footer-phone-link { display: block; padding: 4px 0; }
 
 .site-footer__bottom {
   position: relative;
@@ -1425,7 +1416,7 @@ body.nav-open { overflow: hidden; }
 .cta-band {
   position: relative;
   isolation: isolate;
-  background: var(--gradient-tropical) center / cover no-repeat, url("/images/photos/kerala.jpg") center / cover no-repeat;
+  background: var(--gradient-tropical) center / cover no-repeat, url("/images/photos/cta-band-bg.webp") center / cover no-repeat;
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   color: var(--color-white);
