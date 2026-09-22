@@ -23,6 +23,7 @@
     "gsap": "^3.15.0",
     "jquery": "^3.4.1",
     "lottie-web": "^5.13.0",
+    "pdf-lib": "^1.17.1",
     "pdfkit": "^0.19.1",
     "sharp": "^0.35.3",
     "slick-carousel": "^1.8.1",

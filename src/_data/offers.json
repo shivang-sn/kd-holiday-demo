@@ -6,7 +6,7 @@
     "priceDouble": 45000,
     "priceNote": "per person",
     "badge": "Wellness",
-    "deadline": "2026-08-28"
+    "deadline": "2026-10-07"
   },
   {
     "title": "Chardham Yatra by Helicopter",
@@ -14,7 +14,7 @@
     "startingPrice": null,
     "duration": "5N/6D",
     "badge": "Helicopter",
-    "deadline": "2026-09-15"
+    "deadline": "2026-10-07"
   },
   {
     "title": "Chardham Yatra by Land",
@@ -22,18 +22,10 @@
     "startingPrice": 30000,
     "duration": "9N/10D or 11N/12D",
     "badge": "Best Value",
-    "deadline": "2026-09-20"
+    "deadline": "2026-10-07"
   },
   {
     "title": "Canton Fair Sourcing Tour",
-    "description": "Guangzhou (Foshan) & Hong Kong — B2B sourcing trip for Indian traders, Indian meals included.",
-    "startingPrice": 71999,
-    "duration": "6N/7D",
-    "badge": "Corporate / B2B",
-    "deadline": "2026-10-15"
-  }, 
-  {
-    "title": "copy Canton Fair Sourcing Tour",
     "description": "Guangzhou (Foshan) & Hong Kong — B2B sourcing trip for Indian traders, Indian meals included.",
     "startingPrice": 71999,
     "duration": "6N/7D",

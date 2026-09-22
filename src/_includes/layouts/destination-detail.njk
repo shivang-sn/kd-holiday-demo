@@ -60,7 +60,7 @@ layout: layouts/base.njk
   
 </section>
 
-<section class="container destination-detail__main" style="margin-top:56px; display:grid; grid-template-columns: 2fr 1fr; gap:48px;" id="destinationMain">
+<section class="container destination-detail__main" id="destinationMain">
   <div>
     <div class="eyebrow">📖 Overview</div>
     <h2 style="margin-bottom:24px;">About This Package</h2>
@@ -128,7 +128,7 @@ layout: layouts/base.njk
         <span class="pill">{{ durationDays }} Days</span>
         <span class="pill">Best time: {{ bestTime }}</span>
       </div>
-      <button class="btn btn--primary btn--block" data-drawer-open data-destination="{{ title }}"{% if pdfFile %} data-pdf="{{ pdfFile }}"{% endif %} type="button">Book Now 🚀</button>
+      <button class="btn btn--primary btn--block" data-drawer-open data-destination="{{ title }}"{% if pdfFile %} data-pdf="{{ pdfFile }}"{% endif %} type="button">Send Inquiry Now 🚀</button>
       <ul class="booking-sidebar__trust">
         <li>🔒 Secure enquiry — no payment needed to ask</li>
         <li>📞 Direct line to your consultant</li>

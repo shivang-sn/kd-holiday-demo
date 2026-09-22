@@ -590,14 +590,101 @@
     }
   });
 
-  function downloadPdf(pdfPath) {
-    if (!pdfPath) return;
+  function downloadPdfFile(url, filename) {
     var link = document.createElement("a");
-    link.href = pdfPath;
-    link.download = pdfPath.split("/").pop();
+    link.href = url;
+    link.download = filename;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  }
+
+  var pdfLibLoadPromise = null;
+  function loadPdfLib() {
+    if (window.PDFLib) return Promise.resolve(window.PDFLib);
+    if (!pdfLibLoadPromise) {
+      pdfLibLoadPromise = new Promise(function (resolve, reject) {
+        var script = document.createElement("script");
+        script.src = "/js/vendor/pdf-lib.min.js";
+        script.onload = function () { resolve(window.PDFLib); };
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+    return pdfLibLoadPromise;
+  }
+
+  /* The itinerary PDFs are static files baked at build time (see
+     scripts/generate-itinerary-pdfs.js) — the "generated on" date printed
+     in their header is whatever day the build ran, not today, and only
+     gets stale further with every day that passes before the next deploy.
+     Re-stamp it with the real, live date right here in the browser at the
+     moment of download: mask the old date with a white box in the exact
+     header slot the generator draws it in, then draw today's date over
+     it, on every page (the header repeats per page). Coordinates below
+     mirror generate-itinerary-pdfs.js's PAGE_WIDTH/MARGIN/drawHeader
+     exactly, so the replacement sits pixel-for-pixel where the original was. */
+  function stampLiveDate(PDFLib, pdfBytes) {
+    return PDFLib.PDFDocument.load(pdfBytes).then(function (pdfDoc) {
+      var PAGE_WIDTH = 595.28;
+      var MARGIN_RIGHT = 50;
+      var HEADER_TOP = 26;
+      // The date box pdfkit lays out is 200pt wide, but right-aligned text
+      // inside it only ever inks the rightmost ~60-80pt (the widest real
+      // "D Month YYYY" string, e.g. "30 September 2026", measures ~79pt at
+      // this font/size) — the rest is empty space in the box. Masking the
+      // full 200pt would reach left of x≈345 and clip the centered tagline
+      // ("A Dream Quest Explorers!") sitting on the same header line, whose
+      // own right edge lands around x≈366. Masking just the actual ink
+      // footprint (with margin) stays clear of it.
+      var MASK_WIDTH = 110;
+      var rightEdge = PAGE_WIDTH - MARGIN_RIGHT;
+      var dateStr = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+
+      return pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica).then(function (font) {
+        var fontSize = 9;
+        var textWidth = font.widthOfTextAtSize(dateStr, fontSize);
+        pdfDoc.getPages().forEach(function (page) {
+          var pageHeight = page.getHeight();
+          page.drawRectangle({
+            x: rightEdge - MASK_WIDTH,
+            y: pageHeight - (HEADER_TOP + 15 + 20),
+            width: MASK_WIDTH + 5,
+            height: 24,
+            color: PDFLib.rgb(1, 1, 1),
+          });
+          page.drawText(dateStr, {
+            x: rightEdge - textWidth,
+            y: pageHeight - (HEADER_TOP + 15 + 7.2),
+            size: fontSize,
+            font: font,
+            color: PDFLib.rgb(107 / 255, 107 / 255, 107 / 255),
+          });
+        });
+        return pdfDoc.save();
+      });
+    });
+  }
+
+  function downloadPdf(pdfPath) {
+    if (!pdfPath) return;
+    var filename = pdfPath.split("/").pop();
+
+    Promise.all([loadPdfLib(), fetch(pdfPath).then(function (r) { return r.arrayBuffer(); })])
+      .then(function (results) {
+        return stampLiveDate(results[0], results[1]);
+      })
+      .then(function (stampedBytes) {
+        var blobUrl = URL.createObjectURL(new Blob([stampedBytes], { type: "application/pdf" }));
+        downloadPdfFile(blobUrl, filename);
+        setTimeout(function () { URL.revokeObjectURL(blobUrl); }, 10000);
+      })
+      .catch(function () {
+        // pdf-lib failed to load, or the PDF couldn't be fetched/stamped —
+        // fall back to the plain static file so the download never breaks,
+        // it just keeps the build-time date in that rare case.
+        downloadPdfFile(pdfPath, filename);
+      });
   }
 
   if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
@@ -981,6 +1068,13 @@
   /* ---------- Reveal on scroll ---------- */
   var revealEls = document.querySelectorAll("[data-reveal]");
   if (revealEls.length && "IntersectionObserver" in window) {
+    // A 0.15 threshold means "15% of the target's own height must be
+    // visible" — fine for a short card, but a tall single-column grid on
+    // mobile (e.g. #featuredGrid, 12 stacked cards) can be taller than
+    // 1/0.15 viewport heights, so that ratio is *never reachable* at any
+    // scroll position and the element stays at opacity:0 forever (the
+    // "destinations all hidden on mobile" bug). A near-zero threshold
+    // reveals as soon as any of it enters view, regardless of target height.
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -988,95 +1082,10 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.01 });
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
-  /* ---------- Footer flight path — the exact route trail from the
-     inlined flight-doodle.svg (#flightTrail) is drawn in with GSAP
-     (stroke-dashoffset, no plugin needed) while a cloned copy of the
-     doodle's own plane glyph (#flightPlane) travels that very same
-     path element via getPointAtLength, so the two stay perfectly
-     in sync. The original plane stays in the markup (hidden via CSS)
-     so the source SVG file itself is never mutated at runtime. ---------- */
-  (function footerFlightPath() {
-    var svgNS = "http://www.w3.org/2000/svg";
-    var trail = document.getElementById("flightTrail");
-    var planeSource = document.getElementById("flightPlane");
-    var pathWrap = document.querySelector(".footer-route__path");
-    if (!trail || !planeSource || !pathWrap || !window.gsap) return;
-
-    var svgRoot = trail.ownerSVGElement;
-    if (!svgRoot) return;
-
-    var length = trail.getTotalLength();
-    var box = planeSource.getBBox();
-    var cx = box.x + box.width / 2;
-    var cy = box.y + box.height / 2;
-    var planeScale = 1.6;
-
-    var marker = document.createElementNS(svgNS, "g");
-    marker.setAttribute("id", "footerPlaneMarker");
-    marker.setAttribute("class", "footer-route__plane-marker");
-    var clone = planeSource.cloneNode(true);
-    clone.removeAttribute("id");
-    clone.setAttribute("class", "footer-route__plane-clone");
-    marker.appendChild(clone);
-    svgRoot.appendChild(marker);
-
-    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function placePlane(progress) {
-      var point = trail.getPointAtLength(progress * length);
-      var lookahead = trail.getPointAtLength(Math.min(progress + 0.002, 1) * length);
-      var angle = Math.atan2(lookahead.y - point.y, lookahead.x - point.x) * (180 / Math.PI);
-      marker.setAttribute(
-        "transform",
-        "translate(" + point.x + "," + point.y + ") rotate(" + angle + ") scale(" + planeScale + ") translate(" + -cx + "," + -cy + ")"
-      );
-    }
-
-    if (reduceMotion) {
-      trail.style.strokeDasharray = "none";
-      placePlane(1);
-      marker.style.opacity = "1";
-      return;
-    }
-
-    // Starts right at the trail's own first point (near the pin) and plays
-    // immediately on load — no scroll trigger.
-    trail.style.strokeDasharray = length;
-    trail.style.strokeDashoffset = length;
-    placePlane(0);
-    marker.style.opacity = "1";
-
-    // Draw the line in once, start-to-end; the line stays fully drawn after this.
-    var drawProgress = { value: 0 };
-    gsap.to(drawProgress, {
-      value: 1,
-      duration: 2.8,
-      ease: "power1.inOut",
-      onUpdate: function () {
-        trail.style.strokeDashoffset = String(length * (1 - drawProgress.value));
-        placePlane(drawProgress.value);
-      },
-      onComplete: function () {
-        // Then the plane keeps flying start-to-end and back, forever.
-        var flyProgress = { value: 1 };
-        gsap.to(flyProgress, {
-          value: 0,
-          duration: 2.6,
-          ease: "power1.inOut",
-          repeat: -1,
-          yoyo: true,
-          repeatDelay: 0.4,
-          onUpdate: function () {
-            placePlane(flyProgress.value);
-          },
-        });
-      },
-    });
-  })();
 })();
