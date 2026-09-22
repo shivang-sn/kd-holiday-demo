@@ -8,7 +8,7 @@
   {% set pageDescription = description or (company.tagline + " — Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.") %}
   {% set canonicalUrl = siteUrl + page.url %}
   {% set resolvedOgImage = ogImage or heroImage or "/images/brand/logo-full.png" %}
-  {% set ogImageUrl = siteUrl + resolvedOgImage %}
+  {% set ogImageUrl = resolvedOgImage if "http" in resolvedOgImage else siteUrl + resolvedOgImage %}
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
   <meta name="robots" content="index, follow">

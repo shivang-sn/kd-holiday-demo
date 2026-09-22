@@ -4,6 +4,7 @@
   { "label": "Group & Corporate", "icon": "suitcase", "tag": "group" },
   { "label": "Spiritual & Pilgrimage", "icon": "temple", "tag": "spiritual" },
   { "label": "Wellness", "icon": "leaf", "tag": "wellness" },
+  { "label": "Pilgrimage Yatra", "icon": "temple", "tag": "pilgrimage" },
   { "label": "Adventure", "icon": "mountain", "tag": "adventure" },
   { "label": "Custom Tours", "icon": "star", "tag": "custom" }
 ]

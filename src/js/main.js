@@ -941,12 +941,9 @@
   var destGrid = document.getElementById("destGrid");
   var destEmpty = document.getElementById("destEmpty");
   if (destFilters && destGrid) {
-    destFilters.addEventListener("click", function (e) {
-      var btn = e.target.closest("[data-filter]");
-      if (!btn) return;
+    var applyDestFilter = function (filter, btn) {
       destFilters.querySelectorAll("button").forEach(function (b) { b.classList.remove("is-active"); });
-      btn.classList.add("is-active");
-      var filter = btn.getAttribute("data-filter");
+      if (btn) btn.classList.add("is-active");
       var visibleCount = 0;
       destGrid.querySelectorAll(".dest-card").forEach(function (card) {
         var region = card.getAttribute("data-region");
@@ -956,7 +953,22 @@
         if (match) visibleCount++;
       });
       if (destEmpty) destEmpty.style.display = visibleCount === 0 ? "block" : "none";
+    };
+
+    destFilters.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-filter]");
+      if (!btn) return;
+      applyDestFilter(btn.getAttribute("data-filter"), btn);
     });
+
+    // Deep-link support — e.g. the header's "Spiritual" link goes to
+    // /destinations/?filter=spiritual and should land pre-filtered, the
+    // same as clicking that chip by hand.
+    var urlFilter = new URLSearchParams(window.location.search).get("filter");
+    if (urlFilter) {
+      var matchingBtn = destFilters.querySelector('[data-filter="' + urlFilter + '"]');
+      if (matchingBtn) applyDestFilter(urlFilter, matchingBtn);
+    }
   }
 
   /* ---------- Gallery filter chips ---------- */

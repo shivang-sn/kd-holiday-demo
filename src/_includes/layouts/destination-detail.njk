@@ -38,7 +38,7 @@ layout: layouts/base.njk
   "@type": "Product",
   "name": {{ title | json | safe }},
   "description": {{ (description or subtitle) | json | safe }},
-  "image": {{ (company.website + heroImage) | json | safe }},
+  "image": {{ (heroImage if "http" in heroImage else company.website + heroImage) | json | safe }},
   "brand": { "@type": "Brand", "name": {{ company.name | json | safe }} },
   "offers": {
     "@type": "Offer",

@@ -13,7 +13,7 @@ durationDays: 10
 startingPrice: 30000
 groupType: "Group & Private"
 bestTime: "April – June, Sept – Oct"
-tags: [spiritual, group]
+tags: [spiritual, pilgrimage, group]
 rating: 4.9
 reviewCount: 86
 tagPills: ["Himalayan Shrines", "Helicopter Option Available", "Pilgrimage"]
