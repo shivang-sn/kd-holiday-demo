@@ -8,42 +8,44 @@
  * a detailed notification to ADMIN_EMAIL for every submission, and sends
  * the visitor a "we'll connect soon" auto-reply when they left an email.
  * Both emails go out through sendBrandedEmail_, which appends a shared
- * footer (logo + both office locations + contacts) pulled from COMPANY.
+ * signature block (Regards / proprietor / logo + office + contacts, an
+ * automated-message disclaimer) pulled from COMPANY.
  *
- * Uses the Gmail send scope (MailApp) and the external-request scope
- * (UrlFetchApp, to fetch the footer logo) — re-authorize when prompted
- * after pasting this in.
+ * Mail is sent via the Zoho Mail API (as info@kdholidayz.in), not Gmail —
+ * see the "Zoho Mail" section below for the OAuth setup this needs and
+ * where the credentials live. Everything else (sheet writing, the two
+ * message-building functions, the branded footer) is unchanged.
+ *
+ * Uses the external-request scope (UrlFetchApp, for the Zoho OAuth token
+ * exchange and the send-mail call) — re-authorize when prompted after
+ * pasting this in.
  *
  * Keep this file in sync with whatever is pasted into the Apps Script
  * editor (script.google.com) — it's not deployed automatically from here.
  */
 
-var ADMIN_EMAIL = "kdholidayz@gmail.com";
+var ADMIN_EMAIL = "info@kdholidayz.in";
 
-// Company details rendered into the branded footer of every outgoing email.
-// Keep in sync with src/_data/company.json. `logoUrl` must be a public URL on
-// the live site (used as an inline cid: image — see getLogoBlob_).
+// Company details rendered into the branded signature block of every
+// outgoing email. Keep in sync with src/_data/company.json. `logoUrl` must
+// be a public URL — it's referenced as a plain external <img src>, since
+// Zoho's send-mail API has no attachment/inline-image field to embed it.
+// Currently pointed at the Vercel demo deployment (the production site at
+// kdholidayz.in hasn't been redeployed with the new /images/brand/ assets
+// yet) — switch this to https://www.kdholidayz.in/images/brand/logo-full.png
+// once that deploy happens.
 var COMPANY = {
   name: "KD Holidayz",
   tagline: "A Dream Quest Explorers!",
   website: "https://www.kdholidayz.in",
-  whatsapp: "+91 94297 99355",
-  instagram: "https://www.instagram.com/kdholidayz_jamnagar/",
-  logoUrl: "https://www.kdholidayz.in/images/brand/logo-full.png",
-  offices: [
-    {
-      label: "Head Office — Jamnagar, India",
-      address: "\"Hreehan Complex\", Patel Samaj, Jamnagar, Gujarat, India",
-      phone: "+91 94297 99355",
-      email: "info@kdholidayz.in"
-    },
-    {
-      label: "Branch Office — Eldoret, Kenya",
-      address: "Ronald Ngala Street, P.O. Box 4309-30100, Eldoret, Kenya",
-      phone: "+254 731062066 / +91 8660401151",
-      email: "maithri.shah@kdholidayz.in"
-    }
-  ]
+  proprietor: "Dhaval Gudhka",
+  proprietorTitle: "Proprietor",
+  logoUrl: "https://kd-holiday-demo.vercel.app/images/brand/logo-full.png",
+  office: {
+    address: "\"Hreehan Complex\", Opp. Patel Samaj, Jamnagar, Gujarat, India",
+    mobile: "+91 9429799355",
+    email: "info@kdholidayz.in"
+  }
 };
 
 var FIELD_LABELS = {
@@ -127,9 +129,9 @@ function doPost(e) {
 
     sheet.appendRow(row);
 
-    // Notify the team by email. Wrapped so a mail failure (e.g. missing
-    // Gmail scope authorization) never breaks the sheet write or the
-    // response the client gets back.
+    // Notify the team by email. Wrapped so a mail failure (e.g. a stale
+    // Zoho refresh token, or Script Properties not set up yet) never
+    // breaks the sheet write or the response the client gets back.
     try {
       sendAdminNotification(payload, headers, row);
     } catch (mailErr) {
@@ -186,25 +188,17 @@ function sendAdminNotification(payload, headers, row) {
     '<table style="border-collapse:collapse;width:100%;margin-top:12px;">' + rowsHtml + '</table>' +
     '</div>';
 
-  var plainBody = headers.map(function (label, i) {
-    return label + ": " + (row[i] || "—");
-  }).join("\n");
-
   sendBrandedEmail_({
     to: ADMIN_EMAIL,
     subject: subject,
-    plainBody: plainBody,
-    htmlBody: htmlBody,
-    name: "KD Holidayz Website",
-    replyTo: payload.email || ADMIN_EMAIL
+    htmlBody: htmlBody
   });
 }
 
 // Sends a "we got your enquiry, a consultant will connect soon" auto-reply to
 // the address the visitor entered in the form (payload.email). Silently skips
 // when no / an invalid email was provided (Contact & Custom Tour make it
-// optional). Sends from the script owner (kdholidayz@gmail.com); replies route
-// back to the same inbox.
+// optional). Sends via Zoho as info@kdholidayz.in.
 function sendCustomerAcknowledgement(payload) {
   var to = String(payload.email || "").trim();
   if (!to || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(to)) return;
@@ -224,120 +218,186 @@ function sendCustomerAcknowledgement(payload) {
       '<p>One of our travel consultants will personally connect with you within ' +
         '<strong>24 hours</strong> to start planning your trip.</p>' +
       '<p>If it’s urgent, just reply to this email and we’ll prioritise it.</p>' +
-      '<p style="margin-top:24px;">Warm regards,<br><strong>Team KD Holidayz</strong><br>' +
-        '<span style="color:#666;">A Dream Quest Explorers</span></p>' +
     '</div>';
-
-  var plainBody =
-    "Thank you, " + firstName + "!\n\n" +
-    "We’ve received your " + formType +
-      (destination ? " for " + destination : "") + ".\n\n" +
-    "One of our travel consultants will personally connect with you within 24 hours " +
-    "to start planning your trip. If it’s urgent, just reply to this email.\n\n" +
-    "Warm regards,\nTeam KD Holidayz\nA Dream Quest Explorers";
 
   sendBrandedEmail_({
     to: to,
     subject: subject,
-    plainBody: plainBody,
-    htmlBody: htmlBody,
-    name: "KD Holidayz",
-    replyTo: ADMIN_EMAIL
+    htmlBody: htmlBody
   });
 }
 
 /**
- * Single send path for all outgoing mail. Appends the shared branded footer
- * (logo + office locations + contacts) to both the HTML and plain-text
- * bodies, embeds the logo as an inline cid: image when it can be fetched,
- * and falls back to a text logo when it can't.
+ * Single send path for all outgoing mail. Appends the shared signature
+ * block (Regards / proprietor / logo + office + contacts) and sends via
+ * the Zoho Mail API as info@kdholidayz.in.
  *
- * opts: { to, subject, plainBody, htmlBody, name, replyTo }
+ * opts: { to, subject, htmlBody }
+ *
+ * Note: Zoho's send-mail API has no reply-to field (confirmed against
+ * Zoho's own API docs — fromAddress/toAddress/cc/bcc/subject/content/
+ * mailFormat/askReceipt is the full set) and no plain-text alternative
+ * body, so this only sends HTML. Practical effect on the admin
+ * notification: hitting "reply" goes back to info@kdholidayz.in itself,
+ * not straight to the customer the way it did on Gmail (where replyTo
+ * was set to the customer's address). The customer's email is already in
+ * the notification's table, and the subject includes their name.
  */
 function sendBrandedEmail_(opts) {
-  var logoBlob = getLogoBlob_();
-  var message = {
+  sendViaZoho_({
     to: opts.to,
     subject: opts.subject,
-    name: opts.name || COMPANY.name,
-    replyTo: opts.replyTo || ADMIN_EMAIL,
-    body: opts.plainBody + buildEmailFooterText_(),
-    htmlBody: opts.htmlBody + buildEmailFooterHtml_(!!logoBlob)
-  };
-  if (logoBlob) message.inlineImages = { kdlogo: logoBlob };
-  MailApp.sendEmail(message);
+    htmlBody: opts.htmlBody + buildEmailFooterHtml_()
+  });
 }
 
-// Fetches the footer logo from the live site as an image Blob for embedding
-// as an inline (cid:) image. Cached 6h to avoid re-fetching on every submit.
-// Returns null if the fetch fails — callers then render a text logo instead.
-function getLogoBlob_() {
-  var cache = CacheService.getScriptCache();
-  try {
-    var cached = cache.get("footerLogoB64");
-    if (cached) return Utilities.newBlob(Utilities.base64Decode(cached), "image/png", "logo.png");
-  } catch (e) { /* fall through to a fresh fetch */ }
+/* ==================== Zoho Mail (OAuth) ====================
+ * Sends outgoing mail through the Zoho Mail API, authenticated as
+ * info@kdholidayz.in via OAuth (refresh-token flow — see setup below).
+ * Credentials live in this script's Script Properties (Project Settings
+ * → Script Properties in the Apps Script editor), never in this file:
+ *   ZOHO_CLIENT_ID       — from the Self Client's "Client Secret" tab
+ *   ZOHO_CLIENT_SECRET   — same tab
+ *   ZOHO_REFRESH_TOKEN   — generated once via the Self Client's
+ *                          "Generate Code" flow (see the one-time setup
+ *                          steps documented alongside this file)
+ *   ZOHO_ACCOUNTS_SERVER — e.g. "https://accounts.zoho.in" — must match
+ *                          the data center the Zoho account lives on.
+ *                          The mail API's own host is derived from this
+ *                          (accounts.zoho.X → mail.zoho.X) rather than
+ *                          taken from the token response's `api_domain`
+ *                          field — verified directly against the live
+ *                          account: that field comes back as
+ *                          www.zohoapis.in, which 404s on the mail
+ *                          endpoints; mail.zoho.in is what actually works.
+ *   ZOHO_ACCOUNT_ID      — this mailbox's numeric account id (fetched via
+ *                          GET {mail-host}/api/accounts — see
+ *                          logZohoAccountInfo_() below if it's ever
+ *                          needed again, e.g. after switching mailboxes)
+ */
 
-  try {
-    var resp = UrlFetchApp.fetch(COMPANY.logoUrl, { muteHttpExceptions: true });
-    if (resp.getResponseCode() !== 200) return null;
-    var blob = resp.getBlob().setName("logo.png");
-    var bytes = blob.getBytes();
-    if (bytes.length < 95000) { // CacheService caps values at 100KB
-      try { cache.put("footerLogoB64", Utilities.base64Encode(bytes), 21600); } catch (e) {}
+function zohoMailHost_(accountsServer) {
+  return accountsServer.replace("accounts.zoho", "mail.zoho");
+}
+
+function getZohoAccessToken_() {
+  var props = PropertiesService.getScriptProperties();
+  var cache = CacheService.getScriptCache();
+  var cached = cache.get("zohoAccessToken");
+  if (cached) return cached;
+
+  var accountsServer = props.getProperty("ZOHO_ACCOUNTS_SERVER");
+  var resp = UrlFetchApp.fetch(accountsServer + "/oauth/v2/token", {
+    method: "post",
+    muteHttpExceptions: true,
+    payload: {
+      client_id: props.getProperty("ZOHO_CLIENT_ID"),
+      client_secret: props.getProperty("ZOHO_CLIENT_SECRET"),
+      refresh_token: props.getProperty("ZOHO_REFRESH_TOKEN"),
+      grant_type: "refresh_token"
     }
-    return blob;
-  } catch (e) {
-    console.error("getLogoBlob_: " + e);
-    return null;
+  });
+
+  var data = JSON.parse(resp.getContentText());
+  if (!data.access_token) throw new Error("Zoho token refresh failed: " + resp.getContentText());
+
+  // Valid for 3600s per Zoho; cache a little short of that so a
+  // near-expiry token is never handed to a caller mid-request.
+  cache.put("zohoAccessToken", data.access_token, 3300);
+  return data.access_token;
+}
+
+function sendViaZoho_(opts) {
+  var props = PropertiesService.getScriptProperties();
+  var accountId = props.getProperty("ZOHO_ACCOUNT_ID");
+  var accountsServer = props.getProperty("ZOHO_ACCOUNTS_SERVER");
+  if (!accountId || !accountsServer) {
+    throw new Error("Zoho not configured yet — set ZOHO_ACCOUNT_ID and ZOHO_ACCOUNTS_SERVER in Script Properties.");
+  }
+
+  var resp = UrlFetchApp.fetch(zohoMailHost_(accountsServer) + "/api/accounts/" + accountId + "/messages", {
+    method: "post",
+    contentType: "application/json",
+    muteHttpExceptions: true,
+    headers: { Authorization: "Zoho-oauthtoken " + getZohoAccessToken_() },
+    payload: JSON.stringify({
+      fromAddress: ADMIN_EMAIL,
+      toAddress: opts.to,
+      subject: opts.subject,
+      content: opts.htmlBody,
+      mailFormat: "html",
+      askReceipt: "no"
+    })
+  });
+
+  var data = JSON.parse(resp.getContentText());
+  if (!data.status || data.status.code !== 200) {
+    throw new Error("Zoho send failed: " + resp.getContentText());
   }
 }
 
-// Branded HTML footer. `hasLogo` => emit the cid:kdlogo <img>, else a text logo.
-function buildEmailFooterHtml_(hasLogo) {
-  var officesHtml = COMPANY.offices.map(function (o) {
-    return (
-      '<div style="margin-top:12px;">' +
-        '<div style="font-weight:700;color:#0b3d5c;">' + escapeHtml_(o.label) + '</div>' +
-        '<div style="color:#444;">' + escapeHtml_(o.address) + '</div>' +
-        '<div style="color:#444;">Phone: ' + escapeHtml_(o.phone) + '</div>' +
-        '<div style="color:#444;">Email: <a href="mailto:' + escapeHtml_(o.email) + '" style="color:#0b3d5c;">' + escapeHtml_(o.email) + '</a></div>' +
-      '</div>'
-    );
-  }).join("");
+// Diagnostic helper — run manually from the Apps Script editor (only
+// needed again if the mailbox account id ever needs re-checking, e.g.
+// after switching Zoho accounts) after ZOHO_CLIENT_ID / ZOHO_CLIENT_SECRET
+// / ZOHO_REFRESH_TOKEN / ZOHO_ACCOUNTS_SERVER are set. Prints this
+// mailbox's account id to the execution log — set that as ZOHO_ACCOUNT_ID.
+function logZohoAccountInfo_() {
+  var props = PropertiesService.getScriptProperties();
+  var accountsServer = props.getProperty("ZOHO_ACCOUNTS_SERVER");
+  var tokenResp = UrlFetchApp.fetch(accountsServer + "/oauth/v2/token", {
+    method: "post",
+    muteHttpExceptions: true,
+    payload: {
+      client_id: props.getProperty("ZOHO_CLIENT_ID"),
+      client_secret: props.getProperty("ZOHO_CLIENT_SECRET"),
+      refresh_token: props.getProperty("ZOHO_REFRESH_TOKEN"),
+      grant_type: "refresh_token"
+    }
+  });
+  var tokenData = JSON.parse(tokenResp.getContentText());
+  if (!tokenData.access_token) {
+    Logger.log("Token exchange failed: " + tokenResp.getContentText());
+    return;
+  }
 
+  var acctResp = UrlFetchApp.fetch(zohoMailHost_(accountsServer) + "/api/accounts", {
+    headers: { Authorization: "Zoho-oauthtoken " + tokenData.access_token },
+    muteHttpExceptions: true
+  });
+  Logger.log("Accounts response (find accountId for info@kdholidayz.in, set as ZOHO_ACCOUNT_ID): " + acctResp.getContentText());
+}
+
+// Branded signature block: "Regards, <proprietor> (<title>) / <company>"
+// followed by the logo beside the office address/contact details, matching
+// the company's existing Zoho signature style, plus an automated-message
+// disclaimer since these (unlike a personal reply) are sent by the script.
+// The logo is a plain external <img> pointing at the live site — Zoho's
+// send-mail API takes a `content` HTML string with no attachment/
+// inline-image field (unlike MailApp's inlineImages), so this is the
+// straightforward option; the tradeoff is some mail clients hide external
+// images until the recipient clicks "show images".
+function buildEmailFooterHtml_() {
   var siteLabel = COMPANY.website.replace(/^https?:\/\//, "");
 
   return (
-    '<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:28px auto 0;border-top:2px solid #0b3d5c;padding-top:16px;font-size:13px;line-height:1.55;">' +
-      (hasLogo
-        ? '<img src="cid:kdlogo" alt="' + escapeHtml_(COMPANY.name) + '" height="52" style="display:block;margin-bottom:8px;">'
-        : '<div style="font-size:18px;font-weight:800;color:#0b3d5c;margin-bottom:4px;">' + escapeHtml_(COMPANY.name) + '</div>') +
-      '<div style="color:#777;font-style:italic;margin-bottom:4px;">' + escapeHtml_(COMPANY.tagline) + '</div>' +
-      officesHtml +
-      '<div style="margin-top:14px;color:#444;">' +
-        'Web: <a href="' + COMPANY.website + '" style="color:#0b3d5c;">' + escapeHtml_(siteLabel) + '</a>' +
-        '&nbsp;&nbsp;|&nbsp;&nbsp;WhatsApp: ' + escapeHtml_(COMPANY.whatsapp) +
-        '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="' + COMPANY.instagram + '" style="color:#0b3d5c;">Instagram</a>' +
-      '</div>' +
-      '<div style="margin-top:10px;color:#999;font-size:11px;">This is an automated message from the KD Holidayz website.</div>' +
+    '<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:28px auto 0;padding-top:16px;font-size:13px;line-height:1.6;color:#1a1a1a;">' +
+      '<div>Regards,</div>' +
+      '<div style="margin-top:10px;font-weight:700;">' + escapeHtml_(COMPANY.proprietor) + ' (' + escapeHtml_(COMPANY.proprietorTitle) + ')</div>' +
+      '<div style="font-weight:700;">' + escapeHtml_(COMPANY.name) + '</div>' +
+      '<table style="margin-top:14px;border-collapse:collapse;"><tr>' +
+        '<td style="vertical-align:top;padding-right:16px;">' +
+          '<img src="' + escapeHtml_(COMPANY.logoUrl) + '" alt="' + escapeHtml_(COMPANY.name) + '" height="70">' +
+        '</td>' +
+        '<td style="vertical-align:top;border-left:1px solid #999;padding-left:16px;color:#444;">' +
+          '<div>' + escapeHtml_(COMPANY.office.address) + '</div>' +
+          '<div>Mobile: ' + escapeHtml_(COMPANY.office.mobile) + '</div>' +
+          '<div>EMail: <a href="mailto:' + escapeHtml_(COMPANY.office.email) + '" style="color:#0b3d5c;">' + escapeHtml_(COMPANY.office.email) + '</a></div>' +
+          '<div>Web: <a href="' + COMPANY.website + '" style="color:#0b3d5c;">' + escapeHtml_(siteLabel) + '</a></div>' +
+        '</td>' +
+      '</tr></table>' +
+      '<div style="margin-top:14px;color:#999;font-size:11px;border-top:1px solid #e5e5e5;padding-top:10px;">This is an automated message from the KD Holidayz website.</div>' +
     '</div>'
   );
-}
-
-// Plain-text equivalent of the footer, appended to every text body.
-function buildEmailFooterText_() {
-  var lines = ["", "--", COMPANY.name + " - " + COMPANY.tagline];
-  COMPANY.offices.forEach(function (o) {
-    lines.push("");
-    lines.push(o.label);
-    lines.push(o.address);
-    lines.push("Phone: " + o.phone);
-    lines.push("Email: " + o.email);
-  });
-  lines.push("");
-  lines.push("Web: " + COMPANY.website + "  |  WhatsApp: " + COMPANY.whatsapp);
-  return lines.join("\n");
 }
 
 function escapeHtml_(value) {
