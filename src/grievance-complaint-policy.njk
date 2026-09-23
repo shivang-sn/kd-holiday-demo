@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Privacy Policy"
-description: "How KD Holidayz collects, uses, shares and protects your personal information."
+title: "Customer Grievance & Complaint Policy"
+description: "How to raise a complaint with KD Holidayz and how it is reviewed, escalated and resolved."
 ---
 {% import "partials/page-banner.njk" as banner with context %}
 {% import "partials/icons.njk" as icon %}
 {% set india = company.offices[0] %}
 {% set kenya = company.offices[1] %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Privacy Policy"}], "🔒 Your Privacy", "Privacy Policy", null, "privacy-policy") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Grievance & Complaint Policy"}], "🎧 We're Listening", "Customer Grievance & Complaint Policy", null, "grievance-complaint-policy") }}
 
 <section class="privacy-v2">
   <div class="container">
@@ -22,14 +22,12 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
         <div class="card privacy-v2__sidebar-card">
           <div class="privacy-v2__progress" aria-hidden="true"><div class="privacy-v2__progress-bar" id="pvProgressBar"></div></div>
           <div class="privacy-v2__meta text-muted">📖 23 sections · ~6 min read</div>
-          <nav class="privacy-v2__nav" id="pvNav" aria-label="Privacy policy categories">
-            <a href="#cat-business" data-cat="cat-business"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>Who We Are</a>
-            <a href="#cat-collect" data-cat="cat-collect"><span class="privacy-v2__nav-icon">{{ icon.render("note", 16) }}</span>What We Collect</a>
-            <a href="#cat-use" data-cat="cat-use"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>How We Use &amp; Share It</a>
-            <a href="#cat-payments" data-cat="cat-payments"><span class="privacy-v2__nav-icon">{{ icon.render("coin", 16) }}</span>Payments &amp; Communication</a>
-            <a href="#cat-website" data-cat="cat-website"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Cookies &amp; Third-Party Sites</a>
-            <a href="#cat-security" data-cat="cat-security"><span class="privacy-v2__nav-icon">{{ icon.render("shield", 16) }}</span>Security &amp; Retention</a>
-            <a href="#cat-rights" data-cat="cat-rights"><span class="privacy-v2__nav-icon">{{ icon.render("person", 16) }}</span>Your Rights &amp; Special Cases</a>
+          <nav class="privacy-v2__nav" id="pvNav" aria-label="Grievance policy categories">
+            <a href="#cat-about" data-cat="cat-about"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>About This Policy</a>
+            <a href="#cat-howto" data-cat="cat-howto"><span class="privacy-v2__nav-icon">{{ icon.render("note", 16) }}</span>How to Complain</a>
+            <a href="#cat-handling" data-cat="cat-handling"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>How We Handle It</a>
+            <a href="#cat-special" data-cat="cat-special"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>Special Complaint Types</a>
+            <a href="#cat-fairuse" data-cat="cat-fairuse"><span class="privacy-v2__nav-icon">{{ icon.render("shield", 16) }}</span>Fair Use &amp; Confidentiality</a>
             <a href="#cat-legal" data-cat="cat-legal"><span class="privacy-v2__nav-icon">{{ icon.render("mail", 16) }}</span>Legal &amp; Contact</a>
           </nav>
           <div class="privacy-v2__actions">
@@ -40,256 +38,226 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
       </aside>
 
       <div class="privacy-v2__main">
-        <section class="privacy-v2__category" id="cat-business">
+        <section class="privacy-v2__category" id="cat-about">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("tag", 20) }}</span>
-            <h2>Who We Are</h2>
+            <h2>About This Policy</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item is-open">
               <button class="accordion__trigger" type="button" aria-expanded="true">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">1. Business Details</span>
+                <span class="accordion__question">1. Purpose</span>
               </button>
-              <div class="accordion__panel">
-                <div class="accordion__panel-inner">
-                  <p>KD Holidayz is a registered proprietorship operating from Jamnagar, India, with a branch office in Eldoret, Kenya.</p>
-                  <dl class="legal-business-grid">
-                    <div><dt>Business Name</dt><dd>KD Holidayz</dd></div>
-                    <div><dt>Business Structure</dt><dd>Registered Proprietorship</dd></div>
-                    <div><dt>Website</dt><dd><a href="{{ company.website }}">www.kdholidayz.in</a></dd></div>
-                  </dl>
-                  <div class="legal-offices">
-                    <div class="legal-office">
-                      <span class="pill office-card__label">India — Head Office</span>
-                      <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ india.address }}</span></div>
-                      {% for phone in india.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
-                      <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
-                    </div>
-                    <div class="legal-office">
-                      <span class="pill office-card__label">Kenya — Branch Office</span>
-                      <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ kenya.address }}</span></div>
-                      {% for phone in kenya.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
-                      <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>This Grievance &amp; Complaint Policy explains how customers can raise concerns regarding services provided or arranged by KD Holidayz and how KD Holidayz will review and respond to complaints.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">2. Who May Raise a Complaint</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers, travellers, authorised booking representatives and, where appropriate, persons directly affected by a KD Holidayz service may submit a complaint.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">3. Types of Complaints</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Complaints may relate to bookings, payments, quotations, flights, hotels, tour packages, visa assistance, insurance assistance, communication, documentation, supplier services or other travel-related services provided or arranged by KD Holidayz.</p>
+              </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-collect">
+        <section class="privacy-v2__category" id="cat-howto">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("note", 20) }}</span>
-            <h2>What We Collect</h2>
+            <h2>How to Complain</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">2. Information We Collect</span>
+                <span class="accordion__question">4. First Point of Contact</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>We may collect personal information such as name, date of birth, nationality, address, email, phone/WhatsApp number and emergency contact details; travel information including destinations, dates, traveller details, flight/hotel preferences and special requirements; passport and visa information; and payment/transaction information necessary to provide requested services.</p>
+                <p>Customers are encouraged to contact KD Holidayz as soon as an issue arises. For problems during travel, customers should also notify the relevant hotel, airline, DMC, transport provider or activity operator immediately where that supplier is best placed to resolve the issue.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">3. How We Collect Information</span>
+                <span class="accordion__question">5. How to Submit a Complaint</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Information may be collected through website enquiries, quotations, bookings, phone, WhatsApp, email, visa assistance, travel insurance requests, group/MICE bookings, promotions and website interactions. Limited technical information may also be collected automatically depending on website technologies.</p>
+                <p>Complaints should preferably be submitted in writing by email to info@kdholidayz.in. Customers may also contact KD Holidayz by phone or WhatsApp using the official contact details. The complaint should include the booking/reference number, traveller name, date of service, description of the issue and supporting documents where available.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">6. Information to Include</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>To help us investigate efficiently, customers should provide relevant invoices, booking confirmations, photographs, receipts, correspondence, supplier reports, payment references and any other evidence supporting the complaint.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">10. Complaints During Travel</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>For urgent issues affecting an ongoing trip, customers should contact KD Holidayz and the relevant supplier immediately. Delaying notification until after the trip may reduce the ability of KD Holidayz or the supplier to investigate or correct the issue.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-use">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
-            <h2>How We Use &amp; Share It</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">4. How We Use Information</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>We use information to prepare quotations, process bookings, arrange flights/hotels/transfers/tours, assist with visas and insurance, communicate booking and travel information, provide support, maintain records, prevent misuse, comply with law, improve services and, where permitted, send marketing communications.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">5. Legal Basis and Consent</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz processes personal information in accordance with applicable data protection laws. Where consent is required, appropriate consent will be obtained. Consent may be withdrawn where applicable, without affecting processing lawfully carried out before withdrawal. Certain information may still be processed where necessary to provide services or meet legal obligations.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">6. Sharing of Personal Information</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Relevant information may be shared with airlines, hotels, resorts, tour operators, DMCs, overseas partners, transport providers, visa agencies, embassies/consulates, insurance providers, payment providers, technology providers and authorities where legally required. We aim to share only information reasonably necessary for the relevant service.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">7. International Data Transfers</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>International travel may require information to be shared with overseas hotels, airlines, DMCs, visa partners, transport providers, the Kenya operation and other suppliers. KD Holidayz will take reasonable steps to handle such information in accordance with applicable requirements.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">8. Passport, Visa and Travel Documents</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Passport copies, photographs, financial documents and other supporting documents may be shared with relevant airlines, hotels, embassies, consulates, immigration authorities, visa centres, visa partners, DMCs and other travel suppliers for legitimate travel-related purposes.</p>
-              </div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-payments">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("coin", 20) }}</span>
-            <h2>Payments &amp; Communication</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">9. Payment Information</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Third-party payment gateways, banks and payment providers may process financial information. KD Holidayz does not intend to unnecessarily store complete card numbers, CVV numbers, passwords or banking credentials. Customers should never share OTPs, PINs or passwords with KD Holidayz.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">10. WhatsApp and Electronic Communication</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers may communicate through WhatsApp, email, telephone or other electronic channels. Such communications may contain booking, travel or document information. Third-party platforms are subject to their own privacy and security practices.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">18. Marketing Communications</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Where permitted, KD Holidayz may send travel offers, packages, destination promotions, flight/hotel offers, group tours and seasonal campaigns. Customers may opt out of promotional communications, while essential service communications may continue.</p>
-              </div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-website">
+        <section class="privacy-v2__category" id="cat-handling">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
-            <h2>Cookies &amp; Third-Party Sites</h2>
+            <h2>How We Handle It</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">11. Cookies</span>
+                <span class="accordion__question">7. Acknowledgement</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>The website may use cookies and similar technologies for functionality, preferences, analytics, performance, user experience and, where applicable, marketing. Users may control cookies through browser settings.</p>
+                <p>KD Holidayz will endeavour to acknowledge receipt of a written complaint within a reasonable period. The time required to investigate may depend on the complexity of the matter and whether information must be obtained from an airline, hotel, DMC, insurer, visa provider or other supplier.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">12. Third-Party Websites</span>
+                <span class="accordion__question">8. Investigation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Links to airlines, hotels, visa providers, payment services, travel suppliers, social platforms and other websites may be provided. KD Holidayz does not control their privacy practices; users should review the relevant third-party privacy policy.</p>
+                <p>Complaints will be reviewed based on the booking records, communications, supplier information, applicable terms and conditions, supporting evidence and relevant law. KD Holidayz may request additional information from the customer.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">9. Supplier-Related Complaints</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where the complaint concerns an independent supplier, KD Holidayz may communicate with that supplier and assist the customer. The supplier may have its own complaint, refund or compensation process and its decision may determine the available remedy, subject to applicable law.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">15. Escalation</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>If a customer is dissatisfied with the response, the matter may be escalated internally by requesting a review from the management of KD Holidayz. The customer should provide the previous complaint reference and explain the specific unresolved issue.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-security">
+        <section class="privacy-v2__category" id="cat-special">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
+            <h2>Special Complaint Types</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">11. Refund and Compensation Requests</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>A complaint does not automatically create an entitlement to a refund or compensation. Any refund, credit, replacement or compensation will depend on the applicable booking terms, supplier rules, insurance policy, applicable law and facts of the case.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">12. Visa Complaints</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Visa decisions are made by the relevant embassy, consulate or immigration authority. KD Holidayz can review complaints regarding its own assistance or communication but cannot overturn or guarantee a government visa decision.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">13. Insurance Complaints</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Insurance claim decisions are made by the relevant insurer. KD Holidayz may assist with communication where appropriate, but insurance disputes should also be raised directly with the insurer under its claims or grievance procedure.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">14. Privacy and Data Complaints</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Privacy-related complaints concerning personal information may be submitted to info@kdholidayz.in with the subject line <strong>Privacy Complaint – KD Holidayz</strong>. Such matters will be handled in accordance with the KD Holidayz <a href="/privacy-policy/">Privacy Policy</a> and applicable data protection requirements.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">16. Third-Party and Government Complaints</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where a matter is regulated or controlled by an airline, insurer, hotel, visa authority, payment provider or other third party, customers may also use the grievance or complaint mechanism provided by that organisation.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-fairuse">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("shield", 20) }}</span>
-            <h2>Security &amp; Retention</h2>
+            <h2>Fair Use &amp; Confidentiality</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">13. Data Security</span>
+                <span class="accordion__question">17. Fraudulent or Abusive Complaints</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz takes reasonable technical and organisational measures to protect personal information against unauthorised access, disclosure, misuse, loss, destruction or alteration. No electronic system can be guaranteed completely secure.</p>
+                <p>KD Holidayz may request evidence where a complaint involves disputed transactions, suspected fraud or conflicting information. Threatening, abusive or unlawful communications will not be treated as a substitute for the formal complaint process.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">14. Data Retention</span>
+                <span class="accordion__question">18. Confidentiality</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Information is retained only as reasonably necessary for bookings, services, records, legal requirements, dispute resolution, fraud prevention and protection of legal rights. When no longer required, information may be deleted, anonymised or securely disposed of subject to applicable requirements.</p>
+                <p>KD Holidayz will handle complaint information appropriately and may share relevant information with suppliers, insurers, payment providers, authorities or other parties where necessary to investigate or resolve the complaint and where permitted by applicable law.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">19. Data Breaches and Security Incidents</span>
+                <span class="accordion__question">19. Records</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>If KD Holidayz becomes aware of a personal data breach requiring notification under applicable law, appropriate steps will be taken in accordance with those legal requirements.</p>
-              </div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-rights">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("person", 20) }}</span>
-            <h2>Your Rights &amp; Special Cases</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">15. Customer Rights</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Subject to applicable law, customers may have rights to request information about processing, correction, updating, deletion where applicable, withdrawal of consent and grievance redressal.</p>
+                <p>KD Holidayz may retain complaint records and related communications for reasonable business, legal, accounting, dispute-resolution or compliance purposes in accordance with applicable law and its Privacy Policy.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">16. Children's Personal Information</span>
+                <span class="accordion__question">20. No Waiver of Legal Rights</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Family travel may require information about children. Parents or lawful guardians should provide such information and ensure they are authorised to do so. Such information will be used for relevant travel/service purposes and in accordance with applicable law.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">17. Accuracy of Information</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers are responsible for providing accurate, complete and current information, particularly passport details, names, dates of birth, travel dates, visa information and contact details. KD Holidayz is not responsible for consequences arising from inaccurate or incomplete information supplied by the customer, to the extent permitted by law.</p>
+                <p>Nothing in this policy limits any rights or remedies available to a customer under applicable law.</p>
               </div></div>
             </div>
           </div>
@@ -304,19 +272,10 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">20. Changes to This Policy</span>
+                <span class="accordion__question">21. Contact Details</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz may update this Privacy Policy due to changes in services, technology, legal requirements or data practices. Updates will be published with a revised Last Updated date.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">21. Grievance and Privacy Contact</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz, Registered Proprietorship</p>
+                <p>KD Holidayz, Registered Proprietorship — Privacy/Complaint Email: info@kdholidayz.in</p>
                 <div class="legal-offices">
                   <div class="legal-office">
                     <span class="pill office-card__label">India</span>
@@ -331,25 +290,24 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
                     <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
                   </div>
                 </div>
-                <p style="margin-top:var(--space-3);">For privacy-related requests, use the subject: <strong>Privacy Request – KD Holidayz</strong>.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">22. Governing Law</span>
+                <span class="accordion__question">22. Policy Updates</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>This Privacy Policy is governed by applicable laws of India, including applicable data protection and privacy legislation. Where services involve Kenya or another jurisdiction, applicable local laws may also apply to the relevant activity.</p>
+                <p>KD Holidayz may update this policy from time to time to reflect changes in services, law or internal processes. The current version will be published on the website.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">23. Acceptance</span>
+                <span class="accordion__question">23. Customer Acknowledgement</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>By using the KD Holidayz website or voluntarily providing personal information, you acknowledge that you have read and understood this Privacy Policy. Where applicable law requires consent, processing will be subject to the required consent and legal requirements.</p>
+                <p>Customers are encouraged to raise issues promptly and provide complete information so that KD Holidayz and relevant suppliers have a reasonable opportunity to investigate and resolve the matter.</p>
               </div></div>
             </div>
           </div>

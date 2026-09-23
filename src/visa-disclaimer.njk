@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Terms & Conditions"
-description: "KD Holidayz terms and conditions for bookings, payments, suppliers and travel services."
+title: "Visa Disclaimer & Visa Assistance Terms"
+description: "KD Holidayz visa disclaimer and visa assistance terms — scope of assistance, customer responsibilities and limitations."
 ---
 {% import "partials/page-banner.njk" as banner with context %}
 {% import "partials/icons.njk" as icon %}
 {% set india = company.offices[0] %}
 {% set kenya = company.offices[1] %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Terms & Conditions"}], "📜 Please Read", "Terms & Conditions", null, "terms") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Visa Disclaimer"}], "🛂 Visa Assistance", "Visa Disclaimer & Assistance Terms", null, "visa-disclaimer") }}
 
 <section class="privacy-v2">
   <div class="container">
@@ -22,13 +22,13 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
         <div class="card privacy-v2__sidebar-card">
           <div class="privacy-v2__progress" aria-hidden="true"><div class="privacy-v2__progress-bar" id="pvProgressBar"></div></div>
           <div class="privacy-v2__meta text-muted">📖 29 sections · ~7 min read</div>
-          <nav class="privacy-v2__nav" id="pvNav" aria-label="Terms & conditions categories">
-            <a href="#cat-about" data-cat="cat-about"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>About &amp; Acceptance</a>
-            <a href="#cat-booking" data-cat="cat-booking"><span class="privacy-v2__nav-icon">{{ icon.render("coin", 16) }}</span>Quotations, Booking &amp; Payments</a>
-            <a href="#cat-services" data-cat="cat-services"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>Travel Services &amp; Suppliers</a>
-            <a href="#cat-changes" data-cat="cat-changes"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Changes &amp; Force Majeure</a>
+          <nav class="privacy-v2__nav" id="pvNav" aria-label="Visa disclaimer categories">
+            <a href="#cat-role" data-cat="cat-role"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>Our Role &amp; Approval</a>
             <a href="#cat-responsibilities" data-cat="cat-responsibilities"><span class="privacy-v2__nav-icon">{{ icon.render("person", 16) }}</span>Your Responsibilities</a>
-            <a href="#cat-website" data-cat="cat-website"><span class="privacy-v2__nav-icon">{{ icon.render("note", 16) }}</span>Website, Communication &amp; Liability</a>
+            <a href="#cat-process" data-cat="cat-process"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Process &amp; Timing</a>
+            <a href="#cat-fees" data-cat="cat-fees"><span class="privacy-v2__nav-icon">{{ icon.render("coin", 16) }}</span>Fees, Refusal &amp; Reapplication</a>
+            <a href="#cat-documents" data-cat="cat-documents"><span class="privacy-v2__nav-icon">{{ icon.render("note", 16) }}</span>Documents &amp; Data Sharing</a>
+            <a href="#cat-immigration" data-cat="cat-immigration"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>Travel &amp; Immigration Rules</a>
             <a href="#cat-legal" data-cat="cat-legal"><span class="privacy-v2__nav-icon">{{ icon.render("mail", 16) }}</span>Legal &amp; Contact</a>
           </nav>
           <div class="privacy-v2__actions">
@@ -39,181 +39,46 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
       </aside>
 
       <div class="privacy-v2__main">
-        <section class="privacy-v2__category" id="cat-about">
+        <section class="privacy-v2__category" id="cat-role">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("tag", 20) }}</span>
-            <h2>About &amp; Acceptance</h2>
+            <h2>Our Role &amp; Approval</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item is-open">
               <button class="accordion__trigger" type="button" aria-expanded="true">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">1. About KD Holidayz</span>
+                <span class="accordion__question">1. Scope of Visa Assistance</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz is a registered proprietorship based in Jamnagar, Gujarat, India, providing domestic and international travel services including customised holidays, tour packages, flights, hotels, visa assistance, travel insurance, MICE and group travel services.</p>
+                <p>KD Holidayz may provide visa assistance, documentation guidance, appointment coordination, document checking and submission support for selected destinations. Visa assistance is a facilitation service and does not constitute immigration advice, legal advice or a guarantee of visa approval.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">2. Acceptance of Terms</span>
+                <span class="accordion__question">2. Final Decision Rests with Authorities</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>By using the KD Holidayz website, requesting a quotation, making an enquiry, paying an advance, confirming a booking or using our services, the customer agrees to these Terms &amp; Conditions. Service-specific terms, supplier conditions and written booking confirmations may also apply.</p>
-              </div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-booking">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("coin", 20) }}</span>
-            <h2>Quotations, Booking &amp; Payments</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">3. Quotations and Pricing</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>All quotations are subject to availability and supplier confirmation at the time of booking. Prices may change due to airfare, hotel availability, exchange rates, taxes, fuel surcharges, government charges, supplier revisions or other circumstances. A quotation is not a confirmed booking until KD Holidayz confirms the booking and the required payment is received.</p>
+                <p>The decision to grant, refuse, delay, cancel or condition a visa rests solely with the relevant embassy, consulate, immigration authority, government department or authorised visa processing centre. KD Holidayz has no authority to influence or guarantee such decisions.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">4. Booking Confirmation</span>
+                <span class="accordion__question">3. No Guarantee of Visa Approval</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>A booking is considered confirmed only after the applicable payment/advance has been received and KD Holidayz has issued a confirmation or other written confirmation. Verbal discussions or provisional quotations do not by themselves constitute a confirmed booking.</p>
+                <p>Payment of a visa service fee or submission of an application does not guarantee approval. A visa may be refused, delayed or granted for a shorter period or with different conditions than requested.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">5. Customer Information</span>
+                <span class="accordion__question">22. Travel Agent / Facilitator Role</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers must provide accurate names, passport details, dates of birth, travel dates, contact details and other information required for the service. KD Holidayz is not responsible for consequences arising from incorrect, incomplete or late information supplied by the customer, to the extent permitted by law.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">6. Payments</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Payments must be made according to the payment schedule communicated in the quotation or invoice. Certain suppliers may require full payment before travel. Bank charges, payment gateway charges, currency conversion costs and other applicable charges may be payable by the customer where communicated.</p>
-              </div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-services">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
-            <h2>Travel Services &amp; Suppliers</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">7. Supplier Terms</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Flights, hotels, resorts, cruises, tours, transfers, activities, insurance and visa services are often supplied by independent third parties. Their fare rules, cancellation policies, amendment conditions, baggage rules, check-in requirements and other terms may apply in addition to KD Holidayz terms.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">8. Air Tickets</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Airline schedules, fares, baggage allowances, seat assignments, check-in rules and flight operations are controlled by the relevant airline. KD Holidayz cannot guarantee a particular seat, aircraft, schedule or operational outcome unless expressly confirmed. Airline cancellation, change, no-show and refund rules apply.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">9. Hotels and Resorts</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Hotel and resort facilities, room categories, meal plans, check-in/check-out times, extra beds, child policies, deposits and other conditions are determined by the property. Photographs and descriptions are intended as general representations and may change. Equivalent or alternative accommodation may be offered where permitted by the confirmed booking or supplier terms.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">10. Tour Packages and Activities</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Itineraries are prepared based on available information and supplier confirmations. Operational conditions, weather, local events, road conditions, government restrictions, supplier changes or other circumstances may require changes to an itinerary. KD Holidayz will communicate material changes where reasonably practicable.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">11. Visa Assistance</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz may provide visa assistance as a travel service but does not control embassy, consulate or immigration decisions. Visa approval is never guaranteed unless expressly stated by the relevant authority. Customers remain responsible for providing genuine and complete documents and meeting immigration requirements.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">12. Travel Documents</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers are responsible for checking names, dates, passport validity, visa validity, tickets, hotel confirmations and other travel documents immediately after receiving them and before travel.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">13. Travel Insurance</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Travel insurance is recommended for international and domestic travel where appropriate. Coverage, exclusions, claims and settlement are determined by the relevant insurer and policy. KD Holidayz is not the insurer unless expressly stated.</p>
-              </div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-changes">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
-            <h2>Changes &amp; Force Majeure</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">14. Changes by Customer</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customer-requested changes may attract airline, hotel, supplier, visa, transport, administrative or other charges. Any applicable charges will be communicated where reasonably available. Changes are subject to availability and supplier rules.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">15. Cancellation and Refunds</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Cancellation and refund eligibility depends on the specific booking, supplier rules and the cancellation/refund policy communicated at the time of booking. Separate KD Holidayz <a href="/cancellation-refund-policy/">Cancellation &amp; Refund Policy</a> may apply. Some bookings may be non-refundable. Refunds received from suppliers will be passed to the customer after applicable deductions, subject to the applicable terms.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">16. Delays, Cancellations and Force Majeure</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz is not responsible for events outside its reasonable control, including natural disasters, severe weather, pandemics, epidemics, strikes, civil unrest, war, terrorism, government restrictions, airline operational issues, airport closures, border restrictions, supplier failure or other force majeure events. Assistance may be provided where reasonably possible, but additional costs may be borne by the customer where supplier or law does not provide otherwise.</p>
+                <p>Unless expressly stated otherwise, KD Holidayz acts as a travel consultant/facilitator assisting customers with the visa process. KD Holidayz is not an embassy, consulate, immigration authority or government agency.</p>
               </div></div>
             </div>
           </div>
@@ -228,82 +93,226 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">17. Health, Safety and Travel Requirements</span>
+                <span class="accordion__question">4. Customer Responsibility</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers are responsible for checking health, vaccination, passport validity, visa, entry, transit, customs and other requirements applicable to their journey. Travellers should obtain appropriate medical and travel advice before departure.</p>
+                <p>Customers are responsible for providing complete, accurate and genuine information and documents. Customers must disclose previous visa refusals, immigration issues, travel history and other information where required by the relevant authority.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">18. Customer Conduct</span>
+                <span class="accordion__question">5. Genuine Documents</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers must comply with laws, hotel rules, airline rules, local regulations and instructions of service providers. KD Holidayz may assist with supplier communications where a customer's conduct results in additional charges, penalties or service termination, but the customer remains responsible for such consequences.</p>
+                <p>Customers must provide genuine and valid documents. KD Holidayz will not knowingly submit forged, altered, misleading or fraudulent documents. If a customer provides inaccurate or fraudulent information, the application may be affected and KD Holidayz may discontinue assistance.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">19. Children and Special Requirements</span>
+                <span class="accordion__question">6. Passport Validity</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers must disclose relevant child ages, accessibility requirements, dietary needs and other special requirements at the time of booking. Availability and additional charges are determined by suppliers.</p>
+                <p>Customers are responsible for ensuring that their passport is valid for the required period and has sufficient blank pages where required. Passport requirements vary by destination and may change.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">23. Customer Review of Application</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers should carefully review all application forms and supporting documents before submission. Once an application is submitted, changes may not be possible or may require additional charges.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-website">
+        <section class="privacy-v2__category" id="cat-process">
           <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("note", 20) }}</span>
-            <h2>Website, Communication &amp; Liability</h2>
+            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
+            <h2>Process &amp; Timing</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">20. Communication</span>
+                <span class="accordion__question">7. Visa Requirements Can Change</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz may communicate through phone, email, WhatsApp or other agreed channels. Customers should provide active contact details and monitor communications, especially before and during travel.</p>
+                <p>Visa rules, fees, documentation requirements, processing times and eligibility criteria may change without prior notice. KD Holidayz will use reasonable efforts to communicate requirements available to it at the time of processing, but customers should also verify current requirements with the relevant authority.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">21. Website Information</span>
+                <span class="accordion__question">8. Processing Time</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz aims to keep website information accurate but does not guarantee that every description, price, image, availability indication or promotional statement remains current at all times. Final booking documents and supplier confirmations prevail for the specific booking.</p>
+                <p>Published or estimated processing times are not guaranteed. Processing may take longer due to additional scrutiny, document requests, interviews, security checks, high application volumes, holidays, government delays or other circumstances beyond KD Holidayz's control.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">22. Third-Party Links and Services</span>
+                <span class="accordion__question">9. Additional Documents and Interviews</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>The website may contain links to third-party websites and services. KD Holidayz is not responsible for their content, availability, security, policies or performance.</p>
+                <p>The relevant authority may request additional documents, biometrics, interviews, medical examinations, police certificates or other information. Customers are responsible for providing such requirements within the specified deadline.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">23. Limitation of Responsibility</span>
+                <span class="accordion__question">20. Emergency or Expedited Processing</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz acts as a travel consultant/agent and tour operator for the services it offers, while many travel components are provided by independent suppliers. Liability, where applicable, is subject to the confirmed booking terms, supplier conditions and applicable law. Nothing in these terms excludes liability that cannot lawfully be excluded.</p>
+                <p>Where an expedited or priority service is available, it is subject to the relevant authority or service provider. Payment for an expedited service does not guarantee visa approval or a particular decision date.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">24. Complaints</span>
+                <span class="accordion__question">21. Visa Appointment Services</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers should report service issues to KD Holidayz as soon as reasonably possible so that we can communicate with the relevant supplier and attempt to resolve the matter during the trip. Written complaints should be submitted promptly after the service concerned.</p>
+                <p>Appointment availability is controlled by the relevant embassy, consulate or visa centre. KD Holidayz cannot guarantee a particular appointment date or time unless confirmed by the relevant authority.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-fees">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("coin", 20) }}</span>
+            <h2>Fees, Refusal &amp; Reapplication</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">10. Visa Fees and Service Fees</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Government/embassy/consulate fees, visa centre charges, courier fees, biometric charges and KD Holidayz service fees are separate where applicable. Third-party and government fees may be non-refundable once paid or processing has commenced.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">11. Refusal or Rejection</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>If an application is refused or rejected, KD Holidayz is not responsible for the decision. Refunds, if any, will be governed by the applicable fee and refund terms. Government or visa-centre fees are generally subject to the relevant authority's rules.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">12. Reapplication</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>If a visa is refused, customers may choose to reapply where permitted. A new application may require new fees, documents and processing. KD Holidayz does not guarantee a different outcome on a subsequent application.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">24. Cancellation of Visa Assistance</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Cancellation of visa assistance is subject to the applicable service terms. Government, embassy, visa-centre, courier and third-party charges already incurred may not be refundable.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-documents">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("note", 20) }}</span>
+            <h2>Documents &amp; Data Sharing</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">13. Passport Handling</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where a passport is provided to KD Holidayz or an authorised visa service partner, reasonable care will be taken to facilitate the requested process. Customers should not send original documents unless required for the service. KD Holidayz is not responsible for delays or loss caused by third-party courier, embassy, consulate or visa-centre processes, subject to applicable law.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">14. Data and Document Sharing</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Visa processing may require personal information and documents to be shared with embassies, consulates, immigration authorities, visa application centres, authorised agents and overseas service providers. Such information will be handled in accordance with the KD Holidayz <a href="/privacy-policy/">Privacy Policy</a> and applicable law.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">25. Communication of Visa Updates</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz may communicate visa updates through email, phone or WhatsApp. Customers should provide an active contact number and email address and respond promptly to requests for additional documents or information.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-immigration">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
+            <h2>Travel &amp; Immigration Rules</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">15. Immigration and Entry Requirements</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>A visa does not automatically guarantee entry into a country. Border and immigration officials may make the final decision at the port of entry. Travellers must satisfy all entry, health, customs, immigration and other requirements.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">16. Transit Visas</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers are responsible for checking transit visa requirements for every transit point in their itinerary. Requirements can depend on nationality, passport, airport, terminal, airline, itinerary and immigration rules.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">17. Visa Validity and Stay Period</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers must check the visa validity, number of entries and permitted duration of stay before travelling. A visa holder must comply with the conditions attached to the visa.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">18. Overstay and Immigration Violations</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz is not responsible for consequences arising from overstaying a visa, violating visa conditions, providing incorrect information to immigration authorities or failing to comply with local laws.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">19. Travel Before Visa Issuance</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers should not make irreversible travel commitments based solely on an expectation that a visa will be approved unless they accept the financial risk. KD Holidayz is not responsible for losses resulting from travel arrangements made before visa issuance.</p>
               </div></div>
             </div>
           </div>
@@ -318,28 +327,19 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">25. Privacy</span>
+                <span class="accordion__question">26. No Legal or Immigration Advice</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Personal information is handled in accordance with the KD Holidayz <a href="/privacy-policy/">Privacy Policy</a>. By using our services, customers acknowledge that relevant information may need to be shared with airlines, hotels, DMCs, visa providers, insurers and other suppliers to fulfil the booking.</p>
+                <p>Information provided by KD Holidayz is intended for travel and visa-processing assistance. It should not be treated as legal advice or a guarantee of eligibility. Customers requiring legal immigration advice should consult a qualified immigration lawyer or authorised professional.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">26. Amendments to Terms</span>
+                <span class="accordion__question">27. Limitation of Responsibility</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz may update these Terms &amp; Conditions from time to time. The version applicable to a booking will generally be the version communicated or accepted at the time of confirmation, subject to applicable law and any later agreed amendments.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">27. Governing Law and Jurisdiction</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>These Terms &amp; Conditions are governed by applicable laws of India. Subject to applicable consumer protection and other mandatory laws, disputes shall be subject to the competent courts having jurisdiction over KD Holidayz's principal place of business.</p>
+                <p>KD Holidayz will make reasonable efforts to assist with visa processing, but cannot control government decisions, processing times, appointment availability or policy changes. Nothing in this disclaimer excludes rights or liabilities that cannot lawfully be excluded.</p>
               </div></div>
             </div>
             <div class="accordion__item">
@@ -368,10 +368,10 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">29. Customer Acknowledgement</span>
+                <span class="accordion__question">29. Acknowledgement</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>By proceeding with a booking or using KD Holidayz services, the customer confirms that they have had an opportunity to review these Terms &amp; Conditions and the terms applicable to their specific service.</p>
+                <p>By requesting visa assistance from KD Holidayz, the customer acknowledges that visa decisions are made by the relevant government or immigration authority and that KD Holidayz cannot guarantee approval, processing time, appointment availability or entry into the destination country.</p>
               </div></div>
             </div>
           </div>

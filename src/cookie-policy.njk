@@ -1,0 +1,345 @@
+---
+layout: layouts/base.njk
+title: "Cookie Policy"
+description: "How KD Holidayz uses cookies and similar technologies on www.kdholidayz.in."
+---
+{% import "partials/page-banner.njk" as banner with context %}
+{% import "partials/icons.njk" as icon %}
+{% set india = company.offices[0] %}
+
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Cookie Policy"}], "🍪 Website Cookies", "Cookie Policy", null, "cookie-policy") }}
+
+<section class="privacy-v2">
+  <div class="container">
+    <div class="legal-meta text-muted">
+      <span class="pill">Effective Date: 22 September 2026</span>
+      <span class="pill">Last Updated: 22 September 2026</span>
+    </div>
+
+    <div class="privacy-v2__layout">
+      <aside class="privacy-v2__sidebar">
+        <div class="card privacy-v2__sidebar-card">
+          <div class="privacy-v2__progress" aria-hidden="true"><div class="privacy-v2__progress-bar" id="pvProgressBar"></div></div>
+          <div class="privacy-v2__meta text-muted">📖 22 sections · ~5 min read</div>
+          <nav class="privacy-v2__nav" id="pvNav" aria-label="Cookie policy categories">
+            <a href="#cat-about" data-cat="cat-about"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>About Cookies</a>
+            <a href="#cat-types" data-cat="cat-types"><span class="privacy-v2__nav-icon">{{ icon.render("note", 16) }}</span>Types of Cookies</a>
+            <a href="#cat-thirdparty" data-cat="cat-thirdparty"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>Third-Party &amp; Tools</a>
+            <a href="#cat-data" data-cat="cat-data"><span class="privacy-v2__nav-icon">{{ icon.render("shield", 16) }}</span>Data Collected</a>
+            <a href="#cat-controls" data-cat="cat-controls"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Your Controls</a>
+            <a href="#cat-legal" data-cat="cat-legal"><span class="privacy-v2__nav-icon">{{ icon.render("mail", 16) }}</span>Legal &amp; Contact</a>
+          </nav>
+          <div class="privacy-v2__actions">
+            <button type="button" class="btn btn--ghost btn--sm" id="pvExpandAll">Expand All</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="pvCollapseAll">Collapse All</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="privacy-v2__main">
+        <section class="privacy-v2__category" id="cat-about">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("tag", 20) }}</span>
+            <h2>About Cookies</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item is-open">
+              <button class="accordion__trigger" type="button" aria-expanded="true">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">1. Introduction</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>This Cookie Policy explains how KD Holidayz uses cookies and similar technologies when visitors access or interact with www.kdholidayz.in. This policy should be read together with the KD Holidayz <a href="/privacy-policy/">Privacy Policy</a>.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">2. What Are Cookies?</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Cookies are small text files placed on a device when a website is visited. Cookies help websites function properly, remember user preferences, improve user experience, analyse website performance and support security and marketing activities where applicable.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">3. Why We Use Cookies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz may use cookies and similar technologies to operate website functions, improve performance, remember preferences, understand visitor behaviour, measure website traffic, improve customer experience and support marketing or advertising activities where applicable.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-types">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("note", 20) }}</span>
+            <h2>Types of Cookies</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">4. Types of Cookies We May Use</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Depending on the website configuration, KD Holidayz may use essential cookies, functional cookies, analytics cookies, performance cookies, security cookies and marketing cookies.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">5. Essential Cookies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Essential cookies help basic website functions operate correctly. These cookies may be necessary for navigation, security, form submissions, session management and other core website functions.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">6. Functional Cookies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Functional cookies may remember user preferences such as language preferences, form information, device preferences or other settings that improve the browsing experience.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">7. Analytics Cookies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Analytics cookies may be used to understand how visitors interact with the website. Information collected may include pages visited, time spent on pages, visitor behaviour, device information and general website performance metrics.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">8. Marketing and Advertising Cookies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where applicable, marketing cookies may be used to understand customer interests, measure campaign performance, improve promotional activities and display relevant travel-related advertisements.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-thirdparty">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
+            <h2>Third-Party &amp; Tools</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">9. Third-Party Cookies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Certain cookies may be placed by third-party service providers such as analytics providers, advertising partners, payment providers, social media platforms, chat providers or embedded content providers. These third parties may have their own privacy and cookie policies.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">10. Google Services</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>If KD Holidayz uses Google Analytics, Google Ads or related services, Google may collect information through cookies or similar technologies in accordance with Google's own policies and terms.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">11. Social Media Integrations</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>The website may include links, widgets, plugins or integrations from social media platforms. Such platforms may collect information according to their own privacy and cookie policies.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">12. Contact Forms and Enquiries</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Cookies or similar technologies may assist in the operation of enquiry forms, quote request forms, contact forms and other communication tools available on the website.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">13. WhatsApp and Communication Tools</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where WhatsApp buttons, chat widgets or communication tools are available, those services may use their own technologies and policies independent of KD Holidayz.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-data">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("shield", 20) }}</span>
+            <h2>Data Collected</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">14. Information Collected Through Cookies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Depending on the technology used, cookies may collect information such as browser type, device type, operating system, IP address, website pages visited, visit duration, referral source and other technical usage information.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">15. Personal Information</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Cookies generally do not directly identify a specific individual by name. However, information collected through cookies may become associated with other information where permitted by law and applicable website settings.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">19. Data Protection and Privacy</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Information collected through cookies will be handled in accordance with the KD Holidayz <a href="/privacy-policy/">Privacy Policy</a> and applicable data protection requirements.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-controls">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
+            <h2>Your Controls</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">16. Managing Cookies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Most web browsers allow users to manage, restrict, block or delete cookies through browser settings. Visitors may choose to disable cookies, although some website functions may not operate properly if certain cookies are disabled.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">17. Browser Controls</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Visitors should consult the help section of their browser for instructions on managing cookies, deleting cookies or adjusting privacy preferences.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">18. Consent</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where required by applicable law, KD Holidayz may seek consent before placing certain categories of cookies or similar technologies on a visitor's device.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-legal">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("mail", 20) }}</span>
+            <h2>Legal &amp; Contact</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">20. Changes to This Cookie Policy</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz may update this Cookie Policy from time to time due to changes in technology, legal requirements, website functionality or business practices. Updated versions will be published on the website.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">21. Contact Details</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz, Registered Proprietorship</p>
+                <div class="legal-office">
+                  <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ india.address }}</span></div>
+                  {% for phone in india.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
+                  <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
+                  <div class="office-card__row"><span class="text-muted">{{ icon.render("globe", 18) }}</span><a href="{{ company.website }}">www.kdholidayz.in</a></div>
+                </div>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">22. Acknowledgement</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>By continuing to use the KD Holidayz website, visitors acknowledge that cookies and similar technologies may be used as described in this Cookie Policy, subject to applicable legal requirements and any consent preferences selected by the visitor.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <p class="text-muted" style="text-align:center; margin-top:var(--space-6);">© 2026 KD Holidayz. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var progressBar = document.getElementById("pvProgressBar");
+  if (progressBar) {
+    var onScroll = function () {
+      var el = document.documentElement;
+      var scrollTop = el.scrollTop || document.body.scrollTop;
+      var height = el.scrollHeight - el.clientHeight;
+      var pct = height > 0 ? (scrollTop / height) * 100 : 0;
+      progressBar.style.width = pct + "%";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  var navLinks = document.querySelectorAll("#pvNav a");
+  var categories = document.querySelectorAll(".privacy-v2__category");
+  if (categories.length && navLinks.length && "IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (l) { l.classList.remove("is-active"); });
+        var link = document.querySelector('#pvNav a[data-cat="' + entry.target.id + '"]');
+        if (link) link.classList.add("is-active");
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    categories.forEach(function (c) { obs.observe(c); });
+  }
+
+  var expandBtn = document.getElementById("pvExpandAll");
+  var collapseBtn = document.getElementById("pvCollapseAll");
+  function setAll(open) {
+    document.querySelectorAll(".privacy-v2 .accordion__item").forEach(function (item) {
+      item.classList.toggle("is-open", open);
+      var trigger = item.querySelector(".accordion__trigger");
+      if (trigger) trigger.setAttribute("aria-expanded", String(open));
+    });
+  }
+  if (expandBtn) expandBtn.addEventListener("click", function () { setAll(true); });
+  if (collapseBtn) collapseBtn.addEventListener("click", function () { setAll(false); });
+})();
+</script>

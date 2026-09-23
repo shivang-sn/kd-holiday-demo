@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Privacy Policy"
-description: "How KD Holidayz collects, uses, shares and protects your personal information."
+title: "Booking, Cancellation & Refund Policy"
+description: "KD Holidayz booking, cancellation and refund policy — payment, cancellation, amendment and refund conditions."
 ---
 {% import "partials/page-banner.njk" as banner with context %}
 {% import "partials/icons.njk" as icon %}
 {% set india = company.offices[0] %}
 {% set kenya = company.offices[1] %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Privacy Policy"}], "🔒 Your Privacy", "Privacy Policy", null, "privacy-policy") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Cancellation & Refund Policy"}], "🎫 Booking Terms", "Booking, Cancellation & Refund Policy", null, "cancellation-refund") }}
 
 <section class="privacy-v2">
   <div class="container">
@@ -21,15 +21,14 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
       <aside class="privacy-v2__sidebar">
         <div class="card privacy-v2__sidebar-card">
           <div class="privacy-v2__progress" aria-hidden="true"><div class="privacy-v2__progress-bar" id="pvProgressBar"></div></div>
-          <div class="privacy-v2__meta text-muted">📖 23 sections · ~6 min read</div>
-          <nav class="privacy-v2__nav" id="pvNav" aria-label="Privacy policy categories">
-            <a href="#cat-business" data-cat="cat-business"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>Who We Are</a>
-            <a href="#cat-collect" data-cat="cat-collect"><span class="privacy-v2__nav-icon">{{ icon.render("note", 16) }}</span>What We Collect</a>
-            <a href="#cat-use" data-cat="cat-use"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>How We Use &amp; Share It</a>
-            <a href="#cat-payments" data-cat="cat-payments"><span class="privacy-v2__nav-icon">{{ icon.render("coin", 16) }}</span>Payments &amp; Communication</a>
-            <a href="#cat-website" data-cat="cat-website"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Cookies &amp; Third-Party Sites</a>
-            <a href="#cat-security" data-cat="cat-security"><span class="privacy-v2__nav-icon">{{ icon.render("shield", 16) }}</span>Security &amp; Retention</a>
-            <a href="#cat-rights" data-cat="cat-rights"><span class="privacy-v2__nav-icon">{{ icon.render("person", 16) }}</span>Your Rights &amp; Special Cases</a>
+          <div class="privacy-v2__meta text-muted">📖 26 sections · ~7 min read</div>
+          <nav class="privacy-v2__nav" id="pvNav" aria-label="Cancellation & refund policy categories">
+            <a href="#cat-overview" data-cat="cat-overview"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>Overview &amp; Booking</a>
+            <a href="#cat-rules" data-cat="cat-rules"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>Cancellation Rules by Service</a>
+            <a href="#cat-charges" data-cat="cat-charges"><span class="privacy-v2__nav-icon">{{ icon.render("coin", 16) }}</span>Service Charges &amp; Amendments</a>
+            <a href="#cat-refunds" data-cat="cat-refunds"><span class="privacy-v2__nav-icon">{{ icon.render("note", 16) }}</span>Refund Process</a>
+            <a href="#cat-forcemajeure" data-cat="cat-forcemajeure"><span class="privacy-v2__nav-icon">{{ icon.render("shield", 16) }}</span>Force Majeure &amp; Supplier Issues</a>
+            <a href="#cat-howto" data-cat="cat-howto"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>How to Cancel &amp; Disputes</a>
             <a href="#cat-legal" data-cat="cat-legal"><span class="privacy-v2__nav-icon">{{ icon.render("mail", 16) }}</span>Legal &amp; Contact</a>
           </nav>
           <div class="privacy-v2__actions">
@@ -40,256 +39,262 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
       </aside>
 
       <div class="privacy-v2__main">
-        <section class="privacy-v2__category" id="cat-business">
+        <section class="privacy-v2__category" id="cat-overview">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("tag", 20) }}</span>
-            <h2>Who We Are</h2>
+            <h2>Overview &amp; Booking</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item is-open">
               <button class="accordion__trigger" type="button" aria-expanded="true">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">1. Business Details</span>
-              </button>
-              <div class="accordion__panel">
-                <div class="accordion__panel-inner">
-                  <p>KD Holidayz is a registered proprietorship operating from Jamnagar, India, with a branch office in Eldoret, Kenya.</p>
-                  <dl class="legal-business-grid">
-                    <div><dt>Business Name</dt><dd>KD Holidayz</dd></div>
-                    <div><dt>Business Structure</dt><dd>Registered Proprietorship</dd></div>
-                    <div><dt>Website</dt><dd><a href="{{ company.website }}">www.kdholidayz.in</a></dd></div>
-                  </dl>
-                  <div class="legal-offices">
-                    <div class="legal-office">
-                      <span class="pill office-card__label">India — Head Office</span>
-                      <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ india.address }}</span></div>
-                      {% for phone in india.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
-                      <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
-                    </div>
-                    <div class="legal-office">
-                      <span class="pill office-card__label">Kenya — Branch Office</span>
-                      <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ kenya.address }}</span></div>
-                      {% for phone in kenya.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
-                      <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-collect">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("note", 20) }}</span>
-            <h2>What We Collect</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">2. Information We Collect</span>
+                <span class="accordion__question">1. Purpose</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>We may collect personal information such as name, date of birth, nationality, address, email, phone/WhatsApp number and emergency contact details; travel information including destinations, dates, traveller details, flight/hotel preferences and special requirements; passport and visa information; and payment/transaction information necessary to provide requested services.</p>
+                <p>This Booking, Cancellation &amp; Refund Policy explains the general payment, cancellation, amendment and refund conditions applicable to travel services booked through KD Holidayz. The exact terms for a booking may vary according to the airline, hotel, DMC, tour operator, visa provider, insurer or other supplier.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">3. How We Collect Information</span>
+                <span class="accordion__question">2. Booking Confirmation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Information may be collected through website enquiries, quotations, bookings, phone, WhatsApp, email, visa assistance, travel insurance requests, group/MICE bookings, promotions and website interactions. Limited technical information may also be collected automatically depending on website technologies.</p>
+                <p>A quotation or itinerary is not a confirmed booking. A booking becomes confirmed only after the required payment has been received and KD Holidayz or the relevant supplier has confirmed the service in writing. Availability and prices may change until confirmation.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">3. Advance and Balance Payment</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>The required advance and balance payment will be communicated in the quotation, invoice or booking confirmation. Different services may have different payment deadlines. Failure to pay by the stated deadline may result in automatic cancellation or release of the reservation, with applicable charges.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-use">
+        <section class="privacy-v2__category" id="cat-rules">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
-            <h2>How We Use &amp; Share It</h2>
+            <h2>Cancellation Rules by Service</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">4. How We Use Information</span>
+                <span class="accordion__question">4. Supplier-Specific Cancellation Rules</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>We use information to prepare quotations, process bookings, arrange flights/hotels/transfers/tours, assist with visas and insurance, communicate booking and travel information, provide support, maintain records, prevent misuse, comply with law, improve services and, where permitted, send marketing communications.</p>
+                <p>Every travel component may have its own cancellation and refund rules. Airline tickets, hotels, resorts, cruises, tours, transfers, activities, visas and insurance may be refundable, partially refundable or completely non-refundable depending on the confirmed terms. The supplier's applicable cancellation conditions will prevail for that component.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">5. Legal Basis and Consent</span>
+                <span class="accordion__question">6. Flight Cancellation and Changes</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz processes personal information in accordance with applicable data protection laws. Where consent is required, appropriate consent will be obtained. Consent may be withdrawn where applicable, without affecting processing lawfully carried out before withdrawal. Certain information may still be processed where necessary to provide services or meet legal obligations.</p>
+                <p>Airline tickets are subject to the fare rules of the relevant airline. Cancellation, date change, name correction, no-show, reissue, refund, seat and baggage conditions are determined by the airline/fare. Any airline penalty, fare difference, taxes, agency/service charges or other applicable amounts may be deducted before a refund is processed.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">6. Sharing of Personal Information</span>
+                <span class="accordion__question">7. Hotel and Resort Cancellation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Relevant information may be shared with airlines, hotels, resorts, tour operators, DMCs, overseas partners, transport providers, visa agencies, embassies/consulates, insurance providers, payment providers, technology providers and authorities where legally required. We aim to share only information reasonably necessary for the relevant service.</p>
+                <p>Hotel and resort bookings are subject to the property's confirmed cancellation and no-show policy. Promotional, prepaid, advance-purchase and special-rate bookings may be non-refundable. Where a supplier permits a refund, applicable supplier deductions and KD Holidayz charges may apply.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">7. International Data Transfers</span>
+                <span class="accordion__question">8. Tour Package Cancellation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>International travel may require information to be shared with overseas hotels, airlines, DMCs, visa partners, transport providers, the Kenya operation and other suppliers. KD Holidayz will take reasonable steps to handle such information in accordance with applicable requirements.</p>
+                <p>Cancellation of a package may involve separate cancellation rules for flights, accommodation, transport, activities, permits, DMC services and other components. The refund will be calculated based on the amounts actually refundable from the relevant suppliers, after applicable deductions.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">8. Passport, Visa and Travel Documents</span>
+                <span class="accordion__question">9. Visa Fees and Visa Assistance</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Passport copies, photographs, financial documents and other supporting documents may be shared with relevant airlines, hotels, embassies, consulates, immigration authorities, visa centres, visa partners, DMCs and other travel suppliers for legitimate travel-related purposes.</p>
+                <p>Visa application fees, embassy/consulate fees, visa centre charges, courier charges, service fees and other third-party charges may be non-refundable once paid or once processing has started. Visa approval is not guaranteed. Refusal, delay or withdrawal of a visa application does not automatically create an entitlement to a full refund.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">10. Travel Insurance</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Insurance premiums are subject to the insurer's terms. Once a policy has been issued, cancellation or refund depends on the insurer's policy. Claims are handled by the insurer and not by KD Holidayz unless otherwise expressly stated.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-payments">
+        <section class="privacy-v2__category" id="cat-charges">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("coin", 20) }}</span>
-            <h2>Payments &amp; Communication</h2>
+            <h2>Service Charges &amp; Amendments</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">9. Payment Information</span>
+                <span class="accordion__question">5. KD Holidayz Service Charges</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Third-party payment gateways, banks and payment providers may process financial information. KD Holidayz does not intend to unnecessarily store complete card numbers, CVV numbers, passwords or banking credentials. Customers should never share OTPs, PINs or passwords with KD Holidayz.</p>
+                <p>KD Holidayz may charge consultation, processing, booking, administrative or service fees for services provided. Such fees may be non-refundable once the relevant service or processing has commenced, where disclosed to the customer and permitted by applicable law.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">10. WhatsApp and Electronic Communication</span>
+                <span class="accordion__question">11. Customer-Requested Amendments</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers may communicate through WhatsApp, email, telephone or other electronic channels. Such communications may contain booking, travel or document information. Third-party platforms are subject to their own privacy and security practices.</p>
+                <p>Changes requested by the customer may incur supplier penalties, fare differences, hotel amendment charges, administrative fees, visa charges or other costs. Changes are subject to availability and cannot be guaranteed.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">18. Marketing Communications</span>
+                <span class="accordion__question">12. No-Show</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Where permitted, KD Holidayz may send travel offers, packages, destination promotions, flight/hotel offers, group tours and seasonal campaigns. Customers may opt out of promotional communications, while essential service communications may continue.</p>
+                <p>If a customer does not appear for a confirmed flight, hotel, tour, transfer or other service without cancelling within the applicable deadline, the booking may be treated as a no-show. No-show charges or loss of the booking may apply according to supplier rules.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-website">
+        <section class="privacy-v2__category" id="cat-refunds">
           <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
-            <h2>Cookies &amp; Third-Party Sites</h2>
+            <span class="privacy-v2__category-icon">{{ icon.render("note", 20) }}</span>
+            <h2>Refund Process</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">11. Cookies</span>
+                <span class="accordion__question">13. Refund Processing</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>The website may use cookies and similar technologies for functionality, preferences, analytics, performance, user experience and, where applicable, marketing. Users may control cookies through browser settings.</p>
+                <p>Where a refund is approved, KD Holidayz will process the refundable amount after receiving or confirming the refund from the relevant supplier, subject to applicable deductions. The timing of the actual refund may depend on the airline, hotel, DMC, payment provider or other supplier. KD Holidayz does not guarantee a supplier's processing timeline.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">12. Third-Party Websites</span>
+                <span class="accordion__question">14. Refund Method</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Links to airlines, hotels, visa providers, payment services, travel suppliers, social platforms and other websites may be provided. KD Holidayz does not control their privacy practices; users should review the relevant third-party privacy policy.</p>
+                <p>Refunds will generally be made to the original payment method or another method permitted by the applicable payment and legal requirements. Bank charges, payment gateway charges, currency conversion differences and other non-refundable transaction costs may be deducted where applicable and disclosed.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">15. Currency and Exchange Rate Differences</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>For bookings involving foreign currency, the amount ultimately received on refund may differ from the original INR amount because of exchange-rate movements, bank charges, payment provider charges or supplier currency conversion. Where applicable, the refund will be based on the amount actually recoverable from the supplier, subject to the booking terms.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">16. Partial Refunds</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>If only some components of a booking are refundable, KD Holidayz may process a partial refund for those components after receiving the applicable refundable amount. Non-refundable components will not be included in the refund.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">21. Refund Exceptions</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Certain amounts may be non-refundable, including but not limited to visa/embassy charges, convenience or processing fees, special promotional fares, non-refundable hotel rates, supplier penalties, insurance premiums after issuance and services already consumed, subject to the specific booking terms and applicable law.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-security">
+        <section class="privacy-v2__category" id="cat-forcemajeure">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("shield", 20) }}</span>
-            <h2>Security &amp; Retention</h2>
+            <h2>Force Majeure &amp; Supplier Issues</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">13. Data Security</span>
+                <span class="accordion__question">17. Supplier Cancellation or Service Failure</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz takes reasonable technical and organisational measures to protect personal information against unauthorised access, disclosure, misuse, loss, destruction or alteration. No electronic system can be guaranteed completely secure.</p>
+                <p>If an airline, hotel, DMC or other supplier cancels or materially changes a service, KD Holidayz will communicate available alternatives or refund options as provided by the supplier or applicable law. Supplier refunds are subject to the supplier's rules.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">14. Data Retention</span>
+                <span class="accordion__question">18. Force Majeure</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Information is retained only as reasonably necessary for bookings, services, records, legal requirements, dispute resolution, fraud prevention and protection of legal rights. When no longer required, information may be deleted, anonymised or securely disposed of subject to applicable requirements.</p>
+                <p>Events such as severe weather, natural disasters, pandemics, government restrictions, war, civil unrest, strikes, airport closures, border restrictions or other events beyond reasonable control may affect cancellation and refund outcomes. Refunds or alternatives will depend on applicable supplier rules and law.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">19. Data Breaches and Security Incidents</span>
+                <span class="accordion__question">19. Travel Date and Deadline Responsibility</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>If KD Holidayz becomes aware of a personal data breach requiring notification under applicable law, appropriate steps will be taken in accordance with those legal requirements.</p>
+                <p>Customers are responsible for reviewing cancellation deadlines and payment deadlines communicated in their booking documents. Requests received after supplier deadlines may result in higher penalties or loss of refund eligibility.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-rights">
+        <section class="privacy-v2__category" id="cat-howto">
           <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("person", 20) }}</span>
-            <h2>Your Rights &amp; Special Cases</h2>
+            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
+            <h2>How to Cancel &amp; Disputes</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">15. Customer Rights</span>
+                <span class="accordion__question">20. How to Request Cancellation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Subject to applicable law, customers may have rights to request information about processing, correction, updating, deletion where applicable, withdrawal of consent and grievance redressal.</p>
+                <p>Cancellation requests should be made in writing through the customer's registered email address or another communication channel accepted by KD Holidayz. The request should include the booking/reference number, traveller name and requested cancellation details.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">16. Children's Personal Information</span>
+                <span class="accordion__question">22. Chargebacks and Payment Disputes</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Family travel may require information about children. Parents or lawful guardians should provide such information and ensure they are authorised to do so. Such information will be used for relevant travel/service purposes and in accordance with applicable law.</p>
+                <p>Customers should first contact KD Holidayz regarding a booking or refund concern so that the matter can be reviewed. Unauthorised or fraudulent transactions will be handled through the relevant payment provider and applicable procedures.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">17. Accuracy of Information</span>
+                <span class="accordion__question">23. Communication of Specific Terms</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers are responsible for providing accurate, complete and current information, particularly passport details, names, dates of birth, travel dates, visa information and contact details. KD Holidayz is not responsible for consequences arising from inaccurate or incomplete information supplied by the customer, to the extent permitted by law.</p>
+                <p>Where a quotation, invoice or booking confirmation contains cancellation or refund conditions specific to the customer's booking, those specific written conditions will apply to that booking, subject to applicable law.</p>
               </div></div>
             </div>
           </div>
@@ -304,16 +309,16 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">20. Changes to This Policy</span>
+                <span class="accordion__question">24. Limitation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz may update this Privacy Policy due to changes in services, technology, legal requirements or data practices. Updates will be published with a revised Last Updated date.</p>
+                <p>KD Holidayz will make reasonable efforts to assist customers with cancellations and refunds, but cannot guarantee a refund where the relevant supplier or applicable law does not provide one. Nothing in this policy excludes rights or liabilities that cannot lawfully be excluded.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">21. Grievance and Privacy Contact</span>
+                <span class="accordion__question">25. Contact for Cancellation and Refund Requests</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
                 <p>KD Holidayz, Registered Proprietorship</p>
@@ -331,25 +336,15 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
                     <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
                   </div>
                 </div>
-                <p style="margin-top:var(--space-3);">For privacy-related requests, use the subject: <strong>Privacy Request – KD Holidayz</strong>.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">22. Governing Law</span>
+                <span class="accordion__question">26. Policy Updates</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>This Privacy Policy is governed by applicable laws of India, including applicable data protection and privacy legislation. Where services involve Kenya or another jurisdiction, applicable local laws may also apply to the relevant activity.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">23. Acceptance</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>By using the KD Holidayz website or voluntarily providing personal information, you acknowledge that you have read and understood this Privacy Policy. Where applicable law requires consent, processing will be subject to the required consent and legal requirements.</p>
+                <p>KD Holidayz may update this policy from time to time. The policy applicable to a booking will generally be the version communicated or accepted for that booking, subject to applicable law.</p>
               </div></div>
             </div>
           </div>

@@ -1,0 +1,391 @@
+---
+layout: layouts/base.njk
+title: "Flight Booking Terms & Conditions"
+description: "KD Holidayz flight booking terms — fares, baggage, schedule changes, cancellations and refunds for air tickets."
+---
+{% import "partials/page-banner.njk" as banner with context %}
+{% import "partials/icons.njk" as icon %}
+{% set india = company.offices[0] %}
+{% set kenya = company.offices[1] %}
+
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Flight Booking Terms"}], "✈️ Air Travel", "Flight Booking Terms & Conditions", null, "flight-booking-terms") }}
+
+<section class="privacy-v2">
+  <div class="container">
+    <div class="legal-meta text-muted">
+      <span class="pill">Effective Date: 22 September 2026</span>
+      <span class="pill">Last Updated: 22 September 2026</span>
+    </div>
+
+    <div class="privacy-v2__layout">
+      <aside class="privacy-v2__sidebar">
+        <div class="card privacy-v2__sidebar-card">
+          <div class="privacy-v2__progress" aria-hidden="true"><div class="privacy-v2__progress-bar" id="pvProgressBar"></div></div>
+          <div class="privacy-v2__meta text-muted">📖 25 sections · ~6 min read</div>
+          <nav class="privacy-v2__nav" id="pvNav" aria-label="Flight booking terms categories">
+            <a href="#cat-basics" data-cat="cat-basics"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>Booking Basics</a>
+            <a href="#cat-passengers" data-cat="cat-passengers"><span class="privacy-v2__nav-icon">{{ icon.render("person", 16) }}</span>Passengers &amp; Documents</a>
+            <a href="#cat-schedule" data-cat="cat-schedule"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Schedule &amp; Cancellation</a>
+            <a href="#cat-changes" data-cat="cat-changes"><span class="privacy-v2__nav-icon">{{ icon.render("coin", 16) }}</span>Changes, No-Show &amp; Refunds</a>
+            <a href="#cat-connections" data-cat="cat-connections"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>Connections &amp; Check-In</a>
+            <a href="#cat-insurance" data-cat="cat-insurance"><span class="privacy-v2__nav-icon">{{ icon.render("shield", 16) }}</span>Insurance &amp; Communication</a>
+            <a href="#cat-legal" data-cat="cat-legal"><span class="privacy-v2__nav-icon">{{ icon.render("mail", 16) }}</span>Legal &amp; Contact</a>
+          </nav>
+          <div class="privacy-v2__actions">
+            <button type="button" class="btn btn--ghost btn--sm" id="pvExpandAll">Expand All</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="pvCollapseAll">Collapse All</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="privacy-v2__main">
+        <section class="privacy-v2__category" id="cat-basics">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("tag", 20) }}</span>
+            <h2>Booking Basics</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item is-open">
+              <button class="accordion__trigger" type="button" aria-expanded="true">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">1. Scope</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>These Flight Booking Terms apply to domestic and international air tickets arranged by KD Holidayz. They should be read together with the airline's applicable fare rules, ticket conditions, baggage rules and the KD Holidayz <a href="/terms-conditions/">Terms &amp; Conditions</a> and <a href="/cancellation-refund-policy/">Booking, Cancellation &amp; Refund Policy</a>.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">2. Flight Booking Confirmation</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>A flight enquiry, quotation or fare display is not a confirmed ticket. A booking is confirmed only after the required payment has been received and the airline or booking system has issued a valid ticket/PNR or KD Holidayz has provided written confirmation.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">3. Fare and Availability</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Airfares and seat availability can change until ticket issuance. A quoted fare is not guaranteed until the ticket has been issued. Taxes, fuel surcharges, airport charges, baggage fees, seat fees and other components may change before confirmation.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-passengers">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("person", 20) }}</span>
+            <h2>Passengers &amp; Documents</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">4. Passenger Name and Details</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers must provide passenger names exactly as required by the airline and travel documents. Customers are responsible for checking the issued ticket immediately. Name correction or name change is subject to airline rules and may not be permitted.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">5. Passport and Travel Documents</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>International travellers are responsible for ensuring passport validity, visas, transit permissions and other travel documents are valid for the complete itinerary. KD Holidayz may provide assistance but the traveller remains responsible for meeting entry and transit requirements.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">6. Baggage</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Baggage allowance is determined by the airline, fare type, route and ticket conditions. Additional baggage may attract charges. Customers should verify the baggage allowance shown on their final ticket and airline rules.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">7. Seat Selection</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Seat selection is subject to airline availability and may attract a separate fee. A requested seat is not guaranteed unless confirmed by the airline.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">8. Meals and Special Services</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Special meals, wheelchair assistance, infant services and other special requests are subject to airline availability and confirmation. Customers should communicate special requirements as early as possible.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-schedule">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
+            <h2>Schedule &amp; Cancellation</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">9. Flight Schedule Changes</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Airlines may change flight schedules, terminals, aircraft, routes or operating arrangements. KD Holidayz will communicate material changes received from the airline as reasonably practicable. The airline's operational policies apply.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">10. Flight Cancellation by Airline</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>If an airline cancels a flight, available options such as rebooking, credit or refund will depend on the airline's rules and applicable law. KD Holidayz will assist with communication or processing where reasonably possible.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">20. Airline Insolvency or Operational Failure</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>If an airline ceases operations, becomes insolvent or experiences major operational disruption, available refunds or alternatives depend on the airline, applicable protection schemes and law. KD Holidayz will provide reasonable assistance but cannot guarantee recovery.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-changes">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("coin", 20) }}</span>
+            <h2>Changes, No-Show &amp; Refunds</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">11. Customer Cancellation</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customer-requested cancellation is subject to the fare rules and cancellation conditions applicable to the ticket. Airline penalties, taxes, service charges and other applicable deductions may apply.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">12. Date Change and Reissue</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Changes to travel dates or flights are subject to availability and airline rules. Fare difference, change fee, reissue fee, taxes and KD Holidayz service charges may apply.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">13. No-Show</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Failure to travel on a booked flight without cancelling or changing the ticket within the applicable airline deadline may be treated as a no-show. No-show penalties and loss of ticket value may apply.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">14. Refunds</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Refunds are subject to airline fare rules. Where a refund is permitted, KD Holidayz may process it after the airline or relevant supplier confirms the refundable amount. Airline processing timelines are outside KD Holidayz's control.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">15. Refund of Unused Taxes</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Unused taxes or refundable components may be returned only where permitted by the fare and airline rules. Some taxes, fees and service charges may be non-refundable.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">17. Low-Cost and Special Fares</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Low-cost, promotional, charter, group and special fares may have stricter restrictions and may be partially or completely non-refundable or non-changeable. The specific fare conditions communicated at booking apply.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-connections">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
+            <h2>Connections &amp; Check-In</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">16. Connecting Flights</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers are responsible for ensuring that the itinerary provides adequate connection time and that transit requirements are met. Where flights are on separate tickets, protection against missed connections may not apply.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">18. Airline Check-In</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers must complete online or airport check-in within the airline's specified time. Failure to check in on time may result in denied boarding or no-show treatment.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">19. Denied Boarding and Immigration</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Airlines and border authorities may deny boarding or entry for reasons including documentation issues, visa requirements, security requirements, health requirements or other applicable rules. KD Holidayz does not control such decisions.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-insurance">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("shield", 20) }}</span>
+            <h2>Insurance &amp; Communication</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">21. Travel Insurance</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers are encouraged to obtain appropriate travel insurance. Insurance coverage for flight cancellation, delay, baggage or other events depends on the insurance policy and does not replace airline fare rules.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">22. Communication</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers should provide an active phone number, email address and, where applicable, WhatsApp number. KD Holidayz may use these channels for booking confirmations and important flight updates.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">23. Third-Party Booking Platforms</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where a ticket is issued through a third-party airline reservation or booking platform, the platform and airline rules may apply in addition to KD Holidayz service terms.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-legal">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("mail", 20) }}</span>
+            <h2>Legal &amp; Contact</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">24. Contact Details</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz, Registered Proprietorship</p>
+                <div class="legal-offices">
+                  <div class="legal-office">
+                    <span class="pill office-card__label">India</span>
+                    <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ india.address }}</span></div>
+                    {% for phone in india.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
+                    <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
+                  </div>
+                  <div class="legal-office">
+                    <span class="pill office-card__label">Kenya Branch</span>
+                    <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ kenya.address }}</span></div>
+                    {% for phone in kenya.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
+                    <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">25. Acknowledgement</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>By purchasing an airline ticket through KD Holidayz, the customer acknowledges that the relevant airline's fare rules, ticket conditions and operational decisions apply to the flight and that KD Holidayz cannot guarantee airline schedules, availability, boarding or operational outcomes.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <p class="text-muted" style="text-align:center; margin-top:var(--space-6);">© 2026 KD Holidayz. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var progressBar = document.getElementById("pvProgressBar");
+  if (progressBar) {
+    var onScroll = function () {
+      var el = document.documentElement;
+      var scrollTop = el.scrollTop || document.body.scrollTop;
+      var height = el.scrollHeight - el.clientHeight;
+      var pct = height > 0 ? (scrollTop / height) * 100 : 0;
+      progressBar.style.width = pct + "%";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  var navLinks = document.querySelectorAll("#pvNav a");
+  var categories = document.querySelectorAll(".privacy-v2__category");
+  if (categories.length && navLinks.length && "IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (l) { l.classList.remove("is-active"); });
+        var link = document.querySelector('#pvNav a[data-cat="' + entry.target.id + '"]');
+        if (link) link.classList.add("is-active");
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    categories.forEach(function (c) { obs.observe(c); });
+  }
+
+  var expandBtn = document.getElementById("pvExpandAll");
+  var collapseBtn = document.getElementById("pvCollapseAll");
+  function setAll(open) {
+    document.querySelectorAll(".privacy-v2 .accordion__item").forEach(function (item) {
+      item.classList.toggle("is-open", open);
+      var trigger = item.querySelector(".accordion__trigger");
+      if (trigger) trigger.setAttribute("aria-expanded", String(open));
+    });
+  }
+  if (expandBtn) expandBtn.addEventListener("click", function () { setAll(true); });
+  if (collapseBtn) collapseBtn.addEventListener("click", function () { setAll(false); });
+})();
+</script>

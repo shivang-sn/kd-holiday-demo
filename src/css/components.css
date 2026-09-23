@@ -1631,7 +1631,7 @@ body.nav-open {
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  padding: var(--space-5) 0;
+  padding: var(--space-5) 0 0 0;
   background: none;
   border: none;
   text-align: left;
@@ -2205,6 +2205,361 @@ body.nav-open {
   color: var(--color-primary);
   font-weight: 800;
   flex: none;
+}
+
+/* ===== Legal content (privacy policy / terms) ===== */
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  align-items: center;
+  font-size: var(--fs-small);
+  margin-bottom: var(--space-6);
+}
+
+.legal-toc {
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.legal-toc__title {
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.legal-toc__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2) var(--space-5);
+}
+
+.legal-toc__list a {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  transition: var(--transition-fast);
+}
+
+.legal-toc__list a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 640px) {
+  .legal-toc__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.legal-content {
+  padding: var(--space-6);
+}
+
+.legal-block {
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+.legal-block:first-child {
+  padding-top: 0;
+}
+
+.legal-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.legal-block h2 {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-3);
+}
+
+.legal-block p {
+  margin-bottom: var(--space-3);
+}
+
+.legal-block p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-block ul {
+  margin-top: var(--space-2);
+}
+
+.legal-block li {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  align-items: flex-start;
+}
+
+.legal-block li::before {
+  content: "•";
+  color: var(--color-primary);
+  font-weight: 800;
+  flex: none;
+}
+
+.legal-business-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3) var(--space-6);
+  margin: 0 0 var(--space-5);
+}
+
+.legal-business-grid dt {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.legal-business-grid dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .legal-business-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.legal-offices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+@media (max-width: 640px) {
+  .legal-offices {
+    grid-template-columns: 1fr;
+  }
+}
+
+.legal-office {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+/* ===== Privacy Policy v2 — interactive concept layout ===== */
+.privacy-v2 {
+  padding-block: var(--space-7) var(--space-9);
+}
+
+.privacy-v2__layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-7);
+  align-items: start;
+  max-width: 100%;
+}
+
+/* Sticky on desktop only — pinned under the fixed header, capped to the
+   viewport height so a short window scrolls the sidebar's own nav list
+   instead of clipping it. Matches the .booking-sidebar pattern/breakpoint
+   used on destination-detail. */
+.privacy-v2__sidebar {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+  max-height: calc(100vh - var(--header-height) - var(--space-6));
+  /* overflow-y: auto; */
+}
+
+.privacy-v2__sidebar-card {
+  padding: var(--space-5);
+}
+
+/* This override must stay AFTER the unconditional rules above: same
+   specificity, so source order decides which one wins on the shared
+   properties (position, max-height, overflow-y). */
+@media (max-width: 960px) {
+  .privacy-v2__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .privacy-v2__sidebar {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    min-width: 0;
+  }
+
+  .privacy-v2__sidebar-card {
+    min-width: 0;
+  }
+}
+
+.privacy-v2__progress {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-warm-gray);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+
+.privacy-v2__progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-sunset));
+  transition: width 0.15s linear;
+}
+
+.privacy-v2__meta {
+  font-size: var(--fs-small);
+  margin-bottom: var(--space-5);
+}
+
+.privacy-v2__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-5);
+}
+
+.privacy-v2__nav a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition: var(--transition-fast);
+}
+
+.privacy-v2__nav a:hover {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.privacy-v2__nav a.is-active {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+.privacy-v2__nav-icon {
+  flex: none;
+  display: flex;
+  color: var(--color-primary);
+}
+
+.privacy-v2__actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.privacy-v2__actions .btn {
+  flex: 1;
+}
+
+/* Below the sidebar breakpoint the category list becomes a horizontal chip
+   scroller instead of 8 stacked rows, so it doesn't push content off-screen. */
+@media (max-width: 960px) {
+
+  .privacy-v2__layout,
+  .privacy-v2__sidebar-card {
+    min-width: 0;
+  }
+
+  .privacy-v2__nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: 100%;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .privacy-v2__nav a {
+    flex: none;
+    white-space: nowrap;
+    background: var(--color-bg-alt);
+  }
+
+  .privacy-v2__nav a.is-active {
+    background: var(--color-gold);
+    color: var(--color-charcoal);
+  }
+}
+
+.privacy-v2__main {
+  min-width: 0;
+}
+
+.privacy-v2__category {
+  margin-bottom: var(--space-7);
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+.privacy-v2__category-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.privacy-v2__category-icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+.privacy-v2__category-head h2 {
+  margin: 0;
+}
+
+/* Legal accordion panels: collapsed items peek a 2-line, ellipsis-truncated
+   preview of their first paragraph instead of fully hiding (base FAQ
+   accordion hides collapsed panels entirely via max-height:0 — overridden
+   here to size to the peek content instead). Everything else in the panel
+   (office cards, detail grids, extra paragraphs) stays hidden until
+   expanded, when the panel grows to fit the full content.
+   The open-state selector below must match the base rule's specificity
+   (.accordion__item.is-open .accordion__panel, 3 classes) — a 2-class
+   override loses that tie-break and silently caps long legal panels at
+   400px, overflowing on top of the next accordion item. */
+.accordion--legal .accordion__panel {
+  max-height: none;
+  overflow: visible;
+  transition: none;
+}
+
+.accordion--legal .accordion__item.is-open .accordion__panel {
+  max-height: none;
+}
+
+.accordion--legal .accordion__panel-inner {
+  padding-bottom: var(--space-4);
+}
+
+.accordion--legal .accordion__item:not(.is-open) .accordion__panel-inner>p:first-of-type {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.accordion--legal .accordion__item:not(.is-open) .accordion__panel-inner> :not(p:first-of-type) {
+  display: none;
+}
+
+.accordion--legal .legal-business-grid,
+.accordion--legal .legal-offices {
+  margin-top: var(--space-4);
 }
 
 /* ===== Footer ===== */
@@ -2845,4 +3200,20 @@ body.nav-open {
   .footer-pills {
     justify-content: center;
   }
+}
+
+
+.footer-nav:last-child {
+  width: 100%;
+  text-align: center;
+}
+
+.footer-nav:last-child nav.footer-pills {
+  max-width: none;
+  justify-content: center;
+}
+
+.footer-nav:last-child .footer-heading::after {
+  left: 50%;
+  transform: translateX(-50%);
 }

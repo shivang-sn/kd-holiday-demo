@@ -11,7 +11,7 @@
   {% set ogImageUrl = resolvedOgImage if "http" in resolvedOgImage else siteUrl + resolvedOgImage %}
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDescription }}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="{{ robots or 'index, follow' }}">
   <link rel="canonical" href="{{ canonicalUrl }}">
 
   <meta property="og:type" content="{{ ogType or 'website' }}">

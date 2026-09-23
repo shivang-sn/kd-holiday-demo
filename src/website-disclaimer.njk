@@ -1,0 +1,363 @@
+---
+layout: layouts/base.njk
+title: "Website Disclaimer"
+description: "KD Holidayz website disclaimer — accuracy of website information, third-party links and limitation of liability."
+---
+{% import "partials/page-banner.njk" as banner with context %}
+{% import "partials/icons.njk" as icon %}
+{% set india = company.offices[0] %}
+{% set kenya = company.offices[1] %}
+
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Website Disclaimer"}], "🌐 Website Terms", "Website Disclaimer", null, "website-disclaimer") }}
+
+<section class="privacy-v2">
+  <div class="container">
+    <div class="legal-meta text-muted">
+      <span class="pill">Effective Date: 22 September 2026</span>
+      <span class="pill">Last Updated: 22 September 2026</span>
+    </div>
+
+    <div class="privacy-v2__layout">
+      <aside class="privacy-v2__sidebar">
+        <div class="card privacy-v2__sidebar-card">
+          <div class="privacy-v2__progress" aria-hidden="true"><div class="privacy-v2__progress-bar" id="pvProgressBar"></div></div>
+          <div class="privacy-v2__meta text-muted">📖 23 sections · ~6 min read</div>
+          <nav class="privacy-v2__nav" id="pvNav" aria-label="Website disclaimer categories">
+            <a href="#cat-about" data-cat="cat-about"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>About This Website</a>
+            <a href="#cat-content" data-cat="cat-content"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>Travel Content Accuracy</a>
+            <a href="#cat-suppliers" data-cat="cat-suppliers"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Suppliers &amp; Links</a>
+            <a href="#cat-security" data-cat="cat-security"><span class="privacy-v2__nav-icon">{{ icon.render("shield", 16) }}</span>Site Operation &amp; Security</a>
+            <a href="#cat-use" data-cat="cat-use"><span class="privacy-v2__nav-icon">{{ icon.render("person", 16) }}</span>Your Use of the Site</a>
+            <a href="#cat-legal" data-cat="cat-legal"><span class="privacy-v2__nav-icon">{{ icon.render("mail", 16) }}</span>Legal &amp; Contact</a>
+          </nav>
+          <div class="privacy-v2__actions">
+            <button type="button" class="btn btn--ghost btn--sm" id="pvExpandAll">Expand All</button>
+            <button type="button" class="btn btn--ghost btn--sm" id="pvCollapseAll">Collapse All</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="privacy-v2__main">
+        <section class="privacy-v2__category" id="cat-about">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("tag", 20) }}</span>
+            <h2>About This Website</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item is-open">
+              <button class="accordion__trigger" type="button" aria-expanded="true">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">1. General Information</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>The information provided on www.kdholidayz.in is intended for general travel information, marketing and customer assistance purposes. KD Holidayz is a registered proprietorship based in Jamnagar, Gujarat, India, providing domestic and international travel services.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">2. Accuracy of Website Information</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz makes reasonable efforts to keep website content accurate and current. However, prices, availability, schedules, hotel facilities, itineraries, visa requirements, destination information and other details may change without prior notice. Website information should not be treated as a guarantee of availability or final booking terms.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">3. Prices and Offers</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Prices and promotional offers displayed on the website may be subject to availability, travel dates, taxes, currency fluctuations, supplier changes, booking conditions and other restrictions. The final price will be confirmed in the applicable quotation, invoice or booking confirmation.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">4. Availability</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Displaying a travel package, hotel, flight or service on the website does not guarantee availability. Availability may change at any time and is confirmed only when the relevant booking has been accepted and confirmed.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-content">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
+            <h2>Travel Content Accuracy</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">5. Travel Packages and Itineraries</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Itineraries shown on the website are indicative unless expressly identified as a confirmed itinerary. Actual arrangements may change due to supplier availability, weather, local conditions, operational requirements, government restrictions or other circumstances.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">6. Flights and Airline Information</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Flight schedules, fares, baggage rules, routes, aircraft, seat availability and other airline information may change. The relevant airline's confirmed ticket and fare rules apply to the customer's booking.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">7. Hotels and Resorts</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Hotel names, room categories, photographs, facilities, meal plans, star ratings and descriptions are provided for informational or promotional purposes. Facilities and services may change. The confirmed booking documents and property terms apply to the customer's reservation.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">8. Visa and Immigration Information</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Visa and immigration information published on the website is general information and may change. Visa decisions are made by the relevant government or immigration authority. Customers should review current requirements before travel. KD Holidayz does not guarantee visa approval, processing time or entry into a destination.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">9. Travel Advisories and Health Requirements</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Travel advisories, health requirements, vaccination rules, entry restrictions and other government requirements may change. Customers are responsible for checking applicable requirements and obtaining appropriate travel, medical or other professional advice.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-suppliers">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
+            <h2>Suppliers &amp; Links</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">10. Third-Party Suppliers</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz works with independent airlines, hotels, DMCs, transport providers, tour operators, insurers, visa service providers and other suppliers. Their services are subject to their own terms and conditions. KD Holidayz cannot guarantee the performance of an independent supplier, subject to applicable law.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">11. External Links</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>The website may contain links to third-party websites. These links are provided for convenience or reference. KD Holidayz does not control or endorse third-party content, availability, security, privacy practices or accuracy.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-security">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("shield", 20) }}</span>
+            <h2>Site Operation &amp; Security</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">12. Website Availability</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz aims to keep the website available and functional but does not guarantee uninterrupted or error-free access. Website availability may be affected by maintenance, technical failures, hosting issues, internet connectivity, cyber incidents or other circumstances.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">13. Errors and Omissions</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Despite reasonable efforts, the website may contain typographical errors, outdated information, technical errors or omissions. KD Holidayz reserves the right to correct errors and update information without prior notice.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">18. Website Security</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz takes reasonable measures to protect its website and systems, but cannot guarantee that the website or communications will always be free from viruses, malicious code, unauthorised access or other security risks. Users should maintain appropriate security on their own devices.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">19. Changes to Website Content</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz may modify, suspend, remove or update any website content, service, package, promotion or feature at any time without prior notice.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-use">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("person", 20) }}</span>
+            <h2>Your Use of the Site</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">14. No Professional Advice</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Website content is not intended to constitute legal, immigration, medical, financial or other professional advice. Customers requiring specialist advice should consult an appropriately qualified professional or the relevant government authority.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">15. User-Provided Information</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where customers submit information through forms, enquiries or other website features, they are responsible for ensuring that the information provided is accurate, complete and lawful. Such information is handled in accordance with the KD Holidayz <a href="/privacy-policy/">Privacy Policy</a>.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">16. Intellectual Property</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Unless otherwise stated, website text, branding, logos, graphics, photographs, design elements and other content are owned by or used with permission by KD Holidayz or the relevant rights holder. Content may not be copied, reproduced, modified, distributed or commercially used without appropriate permission.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-legal">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("mail", 20) }}</span>
+            <h2>Legal &amp; Contact</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">17. Limitation of Liability</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>To the extent permitted by applicable law, KD Holidayz shall not be responsible for losses arising solely from reliance on general website information where that information has changed, become outdated or was not part of a confirmed booking. This does not exclude rights or liabilities that cannot lawfully be excluded.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">20. Relationship with Other Policies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>This Website Disclaimer should be read together with the KD Holidayz <a href="/privacy-policy/">Privacy Policy</a>, <a href="/terms-conditions/">Terms &amp; Conditions</a>, <a href="/cancellation-refund-policy/">Booking, Cancellation &amp; Refund Policy</a>, <a href="/visa-disclaimer/">Visa Disclaimer</a> and other applicable policies. Where a confirmed booking document contains specific terms, those booking-specific terms generally govern the relevant service, subject to applicable law.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">21. Governing Law</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>This Website Disclaimer is governed by the applicable laws of India. Subject to applicable mandatory laws, disputes shall be subject to the competent courts having jurisdiction over KD Holidayz's principal place of business.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">22. Contact Details</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>KD Holidayz, Registered Proprietorship</p>
+                <div class="legal-offices">
+                  <div class="legal-office">
+                    <span class="pill office-card__label">India</span>
+                    <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ india.address }}</span></div>
+                    {% for phone in india.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
+                    <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
+                  </div>
+                  <div class="legal-office">
+                    <span class="pill office-card__label">Kenya Branch</span>
+                    <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ kenya.address }}</span></div>
+                    {% for phone in kenya.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
+                    <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
+                  </div>
+                </div>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">23. Acknowledgement</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>By using the KD Holidayz website, you acknowledge that website information is provided for general and travel-related purposes and that confirmed booking documents, supplier terms and applicable laws govern specific travel services.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <p class="text-muted" style="text-align:center; margin-top:var(--space-6);">© 2026 KD Holidayz. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var progressBar = document.getElementById("pvProgressBar");
+  if (progressBar) {
+    var onScroll = function () {
+      var el = document.documentElement;
+      var scrollTop = el.scrollTop || document.body.scrollTop;
+      var height = el.scrollHeight - el.clientHeight;
+      var pct = height > 0 ? (scrollTop / height) * 100 : 0;
+      progressBar.style.width = pct + "%";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  var navLinks = document.querySelectorAll("#pvNav a");
+  var categories = document.querySelectorAll(".privacy-v2__category");
+  if (categories.length && navLinks.length && "IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (l) { l.classList.remove("is-active"); });
+        var link = document.querySelector('#pvNav a[data-cat="' + entry.target.id + '"]');
+        if (link) link.classList.add("is-active");
+      });
+    }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+    categories.forEach(function (c) { obs.observe(c); });
+  }
+
+  var expandBtn = document.getElementById("pvExpandAll");
+  var collapseBtn = document.getElementById("pvCollapseAll");
+  function setAll(open) {
+    document.querySelectorAll(".privacy-v2 .accordion__item").forEach(function (item) {
+      item.classList.toggle("is-open", open);
+      var trigger = item.querySelector(".accordion__trigger");
+      if (trigger) trigger.setAttribute("aria-expanded", String(open));
+    });
+  }
+  if (expandBtn) expandBtn.addEventListener("click", function () { setAll(true); });
+  if (collapseBtn) collapseBtn.addEventListener("click", function () { setAll(false); });
+})();
+</script>

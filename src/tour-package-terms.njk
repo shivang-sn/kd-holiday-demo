@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "Terms & Conditions"
-description: "KD Holidayz terms and conditions for bookings, payments, suppliers and travel services."
+title: "Tour Package Terms & Conditions"
+description: "KD Holidayz tour package terms — inclusions, itineraries, cancellations, force majeure and refunds for holiday packages."
 ---
 {% import "partials/page-banner.njk" as banner with context %}
 {% import "partials/icons.njk" as icon %}
 {% set india = company.offices[0] %}
 {% set kenya = company.offices[1] %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Terms & Conditions"}], "📜 Please Read", "Terms & Conditions", null, "terms") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Tour Package Terms"}], "🧳 Holiday Packages", "Tour Package Terms & Conditions", null, "tour-package-terms") }}
 
 <section class="privacy-v2">
   <div class="container">
@@ -22,13 +22,13 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
         <div class="card privacy-v2__sidebar-card">
           <div class="privacy-v2__progress" aria-hidden="true"><div class="privacy-v2__progress-bar" id="pvProgressBar"></div></div>
           <div class="privacy-v2__meta text-muted">📖 29 sections · ~7 min read</div>
-          <nav class="privacy-v2__nav" id="pvNav" aria-label="Terms & conditions categories">
-            <a href="#cat-about" data-cat="cat-about"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>About &amp; Acceptance</a>
-            <a href="#cat-booking" data-cat="cat-booking"><span class="privacy-v2__nav-icon">{{ icon.render("coin", 16) }}</span>Quotations, Booking &amp; Payments</a>
-            <a href="#cat-services" data-cat="cat-services"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>Travel Services &amp; Suppliers</a>
-            <a href="#cat-changes" data-cat="cat-changes"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Changes &amp; Force Majeure</a>
+          <nav class="privacy-v2__nav" id="pvNav" aria-label="Tour package terms categories">
+            <a href="#cat-pricing" data-cat="cat-pricing"><span class="privacy-v2__nav-icon">{{ icon.render("tag", 16) }}</span>Booking &amp; Pricing</a>
+            <a href="#cat-included" data-cat="cat-included"><span class="privacy-v2__nav-icon">{{ icon.render("globe", 16) }}</span>What's Included</a>
             <a href="#cat-responsibilities" data-cat="cat-responsibilities"><span class="privacy-v2__nav-icon">{{ icon.render("person", 16) }}</span>Your Responsibilities</a>
-            <a href="#cat-website" data-cat="cat-website"><span class="privacy-v2__nav-icon">{{ icon.render("note", 16) }}</span>Website, Communication &amp; Liability</a>
+            <a href="#cat-changes" data-cat="cat-changes"><span class="privacy-v2__nav-icon">{{ icon.render("coin", 16) }}</span>Changes &amp; Cancellation</a>
+            <a href="#cat-forcemajeure" data-cat="cat-forcemajeure"><span class="privacy-v2__nav-icon">{{ icon.render("shield", 16) }}</span>Force Majeure &amp; Insurance</a>
+            <a href="#cat-refunds" data-cat="cat-refunds"><span class="privacy-v2__nav-icon">{{ icon.render("compass", 16) }}</span>Refunds, Complaints &amp; Media</a>
             <a href="#cat-legal" data-cat="cat-legal"><span class="privacy-v2__nav-icon">{{ icon.render("mail", 16) }}</span>Legal &amp; Contact</a>
           </nav>
           <div class="privacy-v2__actions">
@@ -39,181 +39,118 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
       </aside>
 
       <div class="privacy-v2__main">
-        <section class="privacy-v2__category" id="cat-about">
+        <section class="privacy-v2__category" id="cat-pricing">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("tag", 20) }}</span>
-            <h2>About &amp; Acceptance</h2>
+            <h2>Booking &amp; Pricing</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item is-open">
               <button class="accordion__trigger" type="button" aria-expanded="true">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">1. About KD Holidayz</span>
+                <span class="accordion__question">1. Scope</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz is a registered proprietorship based in Jamnagar, Gujarat, India, providing domestic and international travel services including customised holidays, tour packages, flights, hotels, visa assistance, travel insurance, MICE and group travel services.</p>
+                <p>These Tour Package Terms apply to domestic and international holiday packages, customised itineraries, honeymoon packages, group tours, destination packages and other bundled travel arrangements offered by KD Holidayz.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">2. Acceptance of Terms</span>
+                <span class="accordion__question">2. Package Confirmation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>By using the KD Holidayz website, requesting a quotation, making an enquiry, paying an advance, confirming a booking or using our services, the customer agrees to these Terms &amp; Conditions. Service-specific terms, supplier conditions and written booking confirmations may also apply.</p>
+                <p>A package quotation or itinerary is provisional until required payment is received and the package is confirmed in writing. Components may be subject to availability until confirmation.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">3. Package Price</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Package prices may include only the inclusions specifically stated in the quotation or booking confirmation. Taxes, visa fees, insurance, meals, transfers, activities, tips, personal expenses and other items are excluded unless expressly included.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">4. Price Changes Before Confirmation</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Prices may change before confirmation due to airfare, hotel availability, exchange rates, taxes, fuel surcharges, supplier revisions or other factors. The price confirmed in the final booking documentation applies to the confirmed booking, subject to stated conditions.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">5. Inclusions and Exclusions</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers should carefully review the inclusion and exclusion section of their itinerary. Items not expressly included should be treated as excluded unless subsequently confirmed in writing.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-booking">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("coin", 20) }}</span>
-            <h2>Quotations, Booking &amp; Payments</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">3. Quotations and Pricing</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>All quotations are subject to availability and supplier confirmation at the time of booking. Prices may change due to airfare, hotel availability, exchange rates, taxes, fuel surcharges, government charges, supplier revisions or other circumstances. A quotation is not a confirmed booking until KD Holidayz confirms the booking and the required payment is received.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">4. Booking Confirmation</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>A booking is considered confirmed only after the applicable payment/advance has been received and KD Holidayz has issued a confirmation or other written confirmation. Verbal discussions or provisional quotations do not by themselves constitute a confirmed booking.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">5. Customer Information</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers must provide accurate names, passport details, dates of birth, travel dates, contact details and other information required for the service. KD Holidayz is not responsible for consequences arising from incorrect, incomplete or late information supplied by the customer, to the extent permitted by law.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">6. Payments</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Payments must be made according to the payment schedule communicated in the quotation or invoice. Certain suppliers may require full payment before travel. Bank charges, payment gateway charges, currency conversion costs and other applicable charges may be payable by the customer where communicated.</p>
-              </div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-services">
+        <section class="privacy-v2__category" id="cat-included">
           <div class="privacy-v2__category-head">
             <span class="privacy-v2__category-icon">{{ icon.render("globe", 20) }}</span>
-            <h2>Travel Services &amp; Suppliers</h2>
+            <h2>What's Included</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">7. Supplier Terms</span>
+                <span class="accordion__question">6. Itinerary</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Flights, hotels, resorts, cruises, tours, transfers, activities, insurance and visa services are often supplied by independent third parties. Their fare rules, cancellation policies, amendment conditions, baggage rules, check-in requirements and other terms may apply in addition to KD Holidayz terms.</p>
+                <p>An itinerary is prepared based on available supplier information and operational feasibility. The sequence, timing or specific service may change due to weather, road conditions, local events, supplier operations, government restrictions or other circumstances.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">8. Air Tickets</span>
+                <span class="accordion__question">7. Transportation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Airline schedules, fares, baggage allowances, seat assignments, check-in rules and flight operations are controlled by the relevant airline. KD Holidayz cannot guarantee a particular seat, aircraft, schedule or operational outcome unless expressly confirmed. Airline cancellation, change, no-show and refund rules apply.</p>
+                <p>Transfers, coaches, cars, trains, ferries, domestic flights and other transportation are subject to supplier availability and operational conditions. Vehicle type, route and timing may change where reasonably necessary.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">9. Hotels and Resorts</span>
+                <span class="accordion__question">8. Sightseeing and Activities</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Hotel and resort facilities, room categories, meal plans, check-in/check-out times, extra beds, child policies, deposits and other conditions are determined by the property. Photographs and descriptions are intended as general representations and may change. Equivalent or alternative accommodation may be offered where permitted by the confirmed booking or supplier terms.</p>
+                <p>Sightseeing, excursions, safari, adventure activities, cruises and other experiences are subject to availability, weather, safety conditions, local regulations and supplier rules. Some activities may carry age, health or physical requirements.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">10. Tour Packages and Activities</span>
+                <span class="accordion__question">9. Hotels Within Packages</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Itineraries are prepared based on available information and supplier confirmations. Operational conditions, weather, local events, road conditions, government restrictions, supplier changes or other circumstances may require changes to an itinerary. KD Holidayz will communicate material changes where reasonably practicable.</p>
+                <p>Hotel accommodation is subject to the <a href="/hotel-accommodation-terms/">Hotel &amp; Accommodation Terms</a> and the confirmed property/supplier conditions. A hotel may be replaced by an equivalent or alternative property where permitted by the package terms or required by operational circumstances.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">11. Visa Assistance</span>
+                <span class="accordion__question">10. Meals</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz may provide visa assistance as a travel service but does not control embassy, consulate or immigration decisions. Visa approval is never guaranteed unless expressly stated by the relevant authority. Customers remain responsible for providing genuine and complete documents and meeting immigration requirements.</p>
+                <p>Meal inclusions are limited to those specifically stated. Restaurant schedules, menus and meal arrangements may vary. Special dietary requests should be communicated before travel and remain subject to availability.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">12. Travel Documents</span>
+                <span class="accordion__question">11. Guide and Tour Services</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers are responsible for checking names, dates, passport validity, visa validity, tickets, hotel confirmations and other travel documents immediately after receiving them and before travel.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">13. Travel Insurance</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Travel insurance is recommended for international and domestic travel where appropriate. Coverage, exclusions, claims and settlement are determined by the relevant insurer and policy. KD Holidayz is not the insurer unless expressly stated.</p>
-              </div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="privacy-v2__category" id="cat-changes">
-          <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
-            <h2>Changes &amp; Force Majeure</h2>
-          </div>
-          <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">14. Changes by Customer</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customer-requested changes may attract airline, hotel, supplier, visa, transport, administrative or other charges. Any applicable charges will be communicated where reasonably available. Changes are subject to availability and supplier rules.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">15. Cancellation and Refunds</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Cancellation and refund eligibility depends on the specific booking, supplier rules and the cancellation/refund policy communicated at the time of booking. Separate KD Holidayz <a href="/cancellation-refund-policy/">Cancellation &amp; Refund Policy</a> may apply. Some bookings may be non-refundable. Refunds received from suppliers will be passed to the customer after applicable deductions, subject to the applicable terms.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">16. Delays, Cancellations and Force Majeure</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz is not responsible for events outside its reasonable control, including natural disasters, severe weather, pandemics, epidemics, strikes, civil unrest, war, terrorism, government restrictions, airline operational issues, airport closures, border restrictions, supplier failure or other force majeure events. Assistance may be provided where reasonably possible, but additional costs may be borne by the customer where supplier or law does not provide otherwise.</p>
+                <p>Guides, escorts and local representatives are provided where included and available. Their schedules and services may be affected by local operational conditions.</p>
               </div></div>
             </div>
           </div>
@@ -228,82 +165,172 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">17. Health, Safety and Travel Requirements</span>
+                <span class="accordion__question">12. Customer Responsibilities</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers are responsible for checking health, vaccination, passport validity, visa, entry, transit, customs and other requirements applicable to their journey. Travellers should obtain appropriate medical and travel advice before departure.</p>
+                <p>Customers must provide accurate traveller details, comply with visa and entry requirements, follow local laws and supplier instructions, maintain required documents and arrive at designated meeting points on time.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">18. Customer Conduct</span>
+                <span class="accordion__question">13. Passport, Visa and Entry Requirements</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers must comply with laws, hotel rules, airline rules, local regulations and instructions of service providers. KD Holidayz may assist with supplier communications where a customer's conduct results in additional charges, penalties or service termination, but the customer remains responsible for such consequences.</p>
+                <p>Customers are responsible for holding valid passports, visas, permits and other required documents. KD Holidayz may provide assistance but cannot guarantee visa approval or entry into a destination.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">19. Children and Special Requirements</span>
+                <span class="accordion__question">19. Group Size</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers must disclose relevant child ages, accessibility requirements, dietary needs and other special requirements at the time of booking. Availability and additional charges are determined by suppliers.</p>
+                <p>Where a package is based on a minimum or specified group size, pricing and inclusions may depend on that group size. Changes in group composition may affect the package price or arrangements where stated in the booking terms.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">20. Child and Infant Policies</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Child ages, extra beds, meals, entrance fees and infant policies vary by supplier and destination. The ages of children must be accurately disclosed at booking.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">21. Personal Expenses</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Unless specifically included, customers are responsible for personal expenses including shopping, laundry, room service, minibar, tips, porterage, telephone charges, optional activities and other incidental expenses.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">22. Health and Fitness</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers should consider their health, mobility and ability to participate in planned activities. Any relevant medical, dietary or accessibility requirements should be communicated before booking.</p>
               </div></div>
             </div>
           </div>
         </section>
 
-        <section class="privacy-v2__category" id="cat-website">
+        <section class="privacy-v2__category" id="cat-changes">
           <div class="privacy-v2__category-head">
-            <span class="privacy-v2__category-icon">{{ icon.render("note", 20) }}</span>
-            <h2>Website, Communication &amp; Liability</h2>
+            <span class="privacy-v2__category-icon">{{ icon.render("coin", 20) }}</span>
+            <h2>Changes &amp; Cancellation</h2>
           </div>
           <div class="accordion accordion--legal">
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">20. Communication</span>
+                <span class="accordion__question">14. Cancellation</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz may communicate through phone, email, WhatsApp or other agreed channels. Customers should provide active contact details and monitor communications, especially before and during travel.</p>
+                <p>Package cancellations are subject to the cancellation conditions stated in the quotation or booking confirmation and the applicable supplier rules. Different components may have different cancellation penalties.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">21. Website Information</span>
+                <span class="accordion__question">15. Amendments</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz aims to keep website information accurate but does not guarantee that every description, price, image, availability indication or promotional statement remains current at all times. Final booking documents and supplier confirmations prevail for the specific booking.</p>
+                <p>Customer-requested changes to travel dates, hotels, flights, room categories, activities or other components are subject to availability and may attract supplier penalties, fare differences and service charges.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">22. Third-Party Links and Services</span>
+                <span class="accordion__question">16. No-Show and Unused Services</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>The website may contain links to third-party websites and services. KD Holidayz is not responsible for their content, availability, security, policies or performance.</p>
+                <p>Unused flights, hotels, transfers, sightseeing, meals or other package components may not be refundable unless the applicable supplier terms provide otherwise. Failure to join a tour at the specified time may be treated as a no-show.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">23. Limitation of Responsibility</span>
+                <span class="accordion__question">17. Supplier Changes</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz acts as a travel consultant/agent and tour operator for the services it offers, while many travel components are provided by independent suppliers. Liability, where applicable, is subject to the confirmed booking terms, supplier conditions and applicable law. Nothing in these terms excludes liability that cannot lawfully be excluded.</p>
+                <p>Suppliers may change schedules, accommodation, transport, activities or other arrangements. KD Holidayz will make reasonable efforts to provide suitable alternatives where a material change occurs.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-forcemajeure">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("shield", 20) }}</span>
+            <h2>Force Majeure &amp; Insurance</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">18. Force Majeure</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Natural disasters, severe weather, pandemics, strikes, political unrest, war, terrorism, government restrictions, border closures, transportation disruption and other events beyond reasonable control may require changes or cancellation. Refunds or alternatives will depend on supplier rules and applicable law.</p>
               </div></div>
             </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">24. Complaints</span>
+                <span class="accordion__question">23. Travel Insurance</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Customers should report service issues to KD Holidayz as soon as reasonably possible so that we can communicate with the relevant supplier and attempt to resolve the matter during the trip. Written complaints should be submitted promptly after the service concerned.</p>
+                <p>Travel insurance is recommended. Coverage for cancellation, medical emergencies, baggage and other events depends on the insurance policy and insurer's terms.</p>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="privacy-v2__category" id="cat-refunds">
+          <div class="privacy-v2__category-head">
+            <span class="privacy-v2__category-icon">{{ icon.render("compass", 20) }}</span>
+            <h2>Refunds, Complaints &amp; Media</h2>
+          </div>
+          <div class="accordion accordion--legal">
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">24. Refunds</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Where a refund is available, it will generally be calculated based on amounts refundable by the relevant suppliers after applicable cancellation penalties, non-refundable components, taxes, service charges and other permitted deductions.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">25. Complaints During Travel</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Customers should report significant issues promptly to the local supplier and KD Holidayz so that reasonable corrective action can be attempted during the trip. Complaints raised only after completion may be more difficult to resolve.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">26. Photography and Marketing</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Photographs and videos used in promotional material are generally illustrative and may not represent the exact room, vehicle, group, activity or experience received. Any use of customer images for marketing should be subject to appropriate consent where required.</p>
+              </div></div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger" type="button" aria-expanded="false">
+                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
+                <span class="accordion__question">27. Third-Party Suppliers</span>
+              </button>
+              <div class="accordion__panel"><div class="accordion__panel-inner">
+                <p>Hotels, airlines, DMCs, transport companies, activity operators and other suppliers are independent providers. Their terms and operational decisions may apply to the relevant component.</p>
               </div></div>
             </div>
           </div>
@@ -315,33 +342,6 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
             <h2>Legal &amp; Contact</h2>
           </div>
           <div class="accordion accordion--legal">
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">25. Privacy</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>Personal information is handled in accordance with the KD Holidayz <a href="/privacy-policy/">Privacy Policy</a>. By using our services, customers acknowledge that relevant information may need to be shared with airlines, hotels, DMCs, visa providers, insurers and other suppliers to fulfil the booking.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">26. Amendments to Terms</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>KD Holidayz may update these Terms &amp; Conditions from time to time. The version applicable to a booking will generally be the version communicated or accepted at the time of confirmation, subject to applicable law and any later agreed amendments.</p>
-              </div></div>
-            </div>
-            <div class="accordion__item">
-              <button class="accordion__trigger" type="button" aria-expanded="false">
-                <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">27. Governing Law and Jurisdiction</span>
-              </button>
-              <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>These Terms &amp; Conditions are governed by applicable laws of India. Subject to applicable consumer protection and other mandatory laws, disputes shall be subject to the competent courts having jurisdiction over KD Holidayz's principal place of business.</p>
-              </div></div>
-            </div>
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
@@ -368,10 +368,10 @@ description: "KD Holidayz terms and conditions for bookings, payments, suppliers
             <div class="accordion__item">
               <button class="accordion__trigger" type="button" aria-expanded="false">
                 <span class="accordion__badge"><span class="accordion__icon" aria-hidden="true"></span></span>
-                <span class="accordion__question">29. Customer Acknowledgement</span>
+                <span class="accordion__question">29. Acknowledgement</span>
               </button>
               <div class="accordion__panel"><div class="accordion__panel-inner">
-                <p>By proceeding with a booking or using KD Holidayz services, the customer confirms that they have had an opportunity to review these Terms &amp; Conditions and the terms applicable to their specific service.</p>
+                <p>By confirming a tour package with KD Holidayz, the customer acknowledges that the confirmed itinerary, inclusions, exclusions, supplier conditions and applicable KD Holidayz policies govern the package.</p>
               </div></div>
             </div>
           </div>
