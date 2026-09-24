@@ -33,7 +33,8 @@ description: "Design your own journey with KD Holidayz — fully customized itin
     </div>
     <div class="grid grid--4">
       {% for cat in tourCategories %}
-        {{ cards.categoryTile(cat, collections.destinations | tagCount(cat.tag)) }}
+        {% set catCount = (cat.count if cat.count is not none else (collections.destinations | tagCount(cat.tag))) %}
+        {{ cards.categoryTile(cat, catCount) }}
       {% endfor %}
     </div>
   </div>

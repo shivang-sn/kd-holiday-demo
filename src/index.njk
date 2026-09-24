@@ -20,17 +20,19 @@ preloadImage: "/images/photos/rajasthan.jpg"
 <section class="hero home__hero">
   <div class="hero__slider" id="heroSlider">
     {% set slides = [
-      {"src": "/images/photos/rajasthan.jpg", "alt": "Neemrana Fort, Rajasthan"},
-      {"src": "/images/photos/kerala.jpg", "alt": "Kerala backwaters at sunrise"},
-      {"src": "/images/photos/dubai.jpg", "alt": "Burj Khalifa, Dubai"},
-      {"src": "/images/photos/africa.jpg", "alt": "Safari in Kenya"},
-      {"src": "/images/photos/kedarnath.jpg", "alt": "Kedarnath Temple, Himalayas"}
+      {"src": "/images/photos/rajasthan.jpg", "alt": "Neemrana Fort, Rajasthan", "title": "Trust", "desc": "Honest and transparent travel services"},
+      {"src": "/images/photos/kerala.jpg", "alt": "Kerala backwaters at sunrise", "title": "Customer First", "desc": "Every journey designed around the traveller"},
+      {"src": "/images/photos/dubai.jpg", "alt": "Burj Khalifa, Dubai", "title": "Excellence", "desc": "Quality in every detail"},
+      {"src": "/images/photos/africa.jpg", "alt": "Safari in Kenya", "title": "Innovation", "desc": "Smarter and better ways to travel"},
+      {"src": "/images/photos/kedarnath.jpg", "alt": "Kedarnath Temple, Himalayas", "title": "Global Connect", "desc": "Strong India–Africa and international partnerships"},
+      {"src": "/images/photos/bali.jpg", "alt": "Bali island shoreline", "title": "Responsibility", "desc": "Encouraging safe and responsible travel"},
+      {"src": "/images/photos/switzerland.jpg", "alt": "Swiss Alps", "title": "Personalization", "desc": "Experiences designed to suit individual needs"}
     ] %}
     {% for slide in slides %}
     {% if loop.first %}
-    <div class="hero__slide is-active" style="background-image:url('{{ slide.src }}');" role="img" aria-label="{{ slide.alt }}"></div>
+    <div class="hero__slide is-active" style="background-image:url('{{ slide.src }}');" role="img" aria-label="{{ slide.alt }}" data-value-title="{{ slide.title }}" data-value-desc="{{ slide.desc }}"></div>
     {% else %}
-    <div class="hero__slide" data-bg="{{ slide.src }}" role="img" aria-label="{{ slide.alt }}"></div>
+    <div class="hero__slide" data-bg="{{ slide.src }}" role="img" aria-label="{{ slide.alt }}" data-value-title="{{ slide.title }}" data-value-desc="{{ slide.desc }}"></div>
     {% endif %}
     {% endfor %}
   </div>
@@ -39,6 +41,7 @@ preloadImage: "/images/photos/rajasthan.jpg"
     <div class="hero__content">
       <span class="pill pill--dark">✨ {{ company.tagline }}</span>
       <h1 style="margin-top:20px;">Discover the World, <span style="color:var(--color-gold);">Your Way</span></h1>
+      <p class="hero__value" id="heroValue"><strong>{{ slides[0].title }}</strong> — {{ slides[0].desc }}</p>
       <p class="hero__lede">Personal, consultant-led travel planning — from Himalayan pilgrimages to island honeymoons. Your journey starts with a conversation, not a template.</p>
       <div class="hero__actions">
         <a href="/destinations/" class="btn btn--primary">🌍 Explore Destinations</a>
@@ -153,7 +156,8 @@ preloadImage: "/images/photos/rajasthan.jpg"
     </div>
     <div class="grid grid--4" data-reveal>
       {% for cat in tourCategories %}
-        {{ cards.categoryTile(cat, collections.destinations | tagCount(cat.tag)) }}
+        {% set catCount = (cat.count if cat.count is not none else (collections.destinations | tagCount(cat.tag))) %}
+        {{ cards.categoryTile(cat, catCount) }}
       {% endfor %}
     </div>
   </div>

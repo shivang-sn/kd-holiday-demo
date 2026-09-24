@@ -77,6 +77,7 @@
   if (heroSlider) {
     var slides = [].slice.call(heroSlider.querySelectorAll(".hero__slide"));
     var dots = [].slice.call(document.querySelectorAll("#heroDots .hero__dot"));
+    var heroValue = document.getElementById("heroValue");
     var currentSlide = 0;
     var slideTimer = null;
 
@@ -92,6 +93,18 @@
       }
       next.classList.add("is-active");
       if (dots[currentSlide]) dots[currentSlide].classList.add("is-active");
+
+      if (heroValue) {
+        var title = next.getAttribute("data-value-title");
+        var desc = next.getAttribute("data-value-desc");
+        if (title && desc) {
+          heroValue.classList.add("is-fading");
+          setTimeout(function () {
+            heroValue.innerHTML = "<strong>" + title + "</strong> — " + desc;
+            heroValue.classList.remove("is-fading");
+          }, 300);
+        }
+      }
     }
 
     function startSlider() {

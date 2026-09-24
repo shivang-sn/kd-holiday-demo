@@ -1,10 +1,50 @@
 [
-  { "label": "Family Tours", "icon": "person", "tag": "family" },
-  { "label": "Honeymoon", "icon": "heart", "tag": "honeymoon" },
-  { "label": "Group & Corporate", "icon": "suitcase", "tag": "group" },
-  { "label": "Spiritual & Pilgrimage", "icon": "temple", "tag": "spiritual" },
-  { "label": "Wellness", "icon": "leaf", "tag": "wellness" },
-  { "label": "Pilgrimage Yatra", "icon": "temple", "tag": "pilgrimage" },
-  { "label": "Adventure", "icon": "mountain", "tag": "adventure" },
-  { "label": "Custom Tours", "icon": "star", "tag": "custom" }
+  {
+    "label": "Family Tours",
+    "icon": "person",
+    "tag": "family",
+    "count": null
+  },
+  {
+    "label": "Honeymoon",
+    "icon": "heart",
+    "tag": "honeymoon",
+    "count": null
+  },
+  {
+    "label": "Group & Corporate",
+    "icon": "suitcase",
+    "tag": "group",
+    "count": null
+  },
+  {
+    "label": "Spiritual & Pilgrimage",
+    "icon": "temple",
+    "tag": "spiritual",
+    "count": null
+  },
+  {
+    "label": "Wellness",
+    "icon": "leaf",
+    "tag": "wellness",
+    "count": null
+  },
+  {
+    "label": "Pilgrimage Yatra",
+    "icon": "temple",
+    "tag": "pilgrimage",
+    "count": null
+  },
+  {
+    "label": "Adventure",
+    "icon": "mountain",
+    "tag": "adventure",
+    "count": null
+  },
+  {
+    "label": "Custom Tours",
+    "icon": "star",
+    "tag": "custom",
+    "count": 25
+  }
 ]
