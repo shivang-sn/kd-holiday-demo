@@ -3342,3 +3342,39 @@ body.nav-open {
 .about__faq button.accordion__trigger {
   padding: var(--space-5) 0;
 }
+
+
+.hero__content {
+  max-width: 1100px;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.hero__value {
+  width: 100%;
+}
+
+.hero__content>*:not(span) {
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero__actions {
+  justify-content: center;
+}
+
+.hero__search {
+  max-width: 100%;
+}
+
+.hero__content>.hero__rating {
+  max-width: max-content;
+}
+
+p.hero__lede {
+  display: none;
+}
+
+p#heroValue {
+  font-size: 30px;
+}
