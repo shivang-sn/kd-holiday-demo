@@ -61,13 +61,13 @@ description: "How KD Holidayz collects, uses, shares and protects your personal 
                   </dl>
                   <div class="legal-offices">
                     <div class="legal-office">
-                      <span class="pill office-card__label">India — Head Office</span>
+                      <span class="pill office-card__label">India, Head Office</span>
                       <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ india.address }}</span></div>
                       {% for phone in india.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
                       <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
                     </div>
                     <div class="legal-office">
-                      <span class="pill office-card__label">Kenya — Branch Office</span>
+                      <span class="pill office-card__label">Kenya, Branch Office</span>
                       <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ kenya.address }}</span></div>
                       {% for phone in kenya.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
                       <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>

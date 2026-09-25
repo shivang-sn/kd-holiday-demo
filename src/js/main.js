@@ -100,7 +100,7 @@
         if (title && desc) {
           heroValue.classList.add("is-fading");
           setTimeout(function () {
-            heroValue.innerHTML = "<strong>" + title + "</strong> — " + desc;
+            heroValue.innerHTML = "<strong>" + title + ":</strong> " + desc;
             heroValue.classList.remove("is-fading");
           }, 300);
         }
@@ -728,7 +728,7 @@
       drawerSuccess.classList.add("is-visible");
       var successMsg = drawerSuccess.querySelector("p");
       if (pdfPath && successMsg) {
-        successMsg.textContent = "Thank you! Your itinerary PDF is downloading now — our consultant will reach out shortly.";
+        successMsg.textContent = "Thank you! Your itinerary PDF is downloading now. Our consultant will reach out shortly.";
         downloadPdf(pdfPath);
       } else if (successMsg) {
         successMsg.textContent = "Thank you! Our consultant will reach out shortly.";

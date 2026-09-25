@@ -1,7 +1,7 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Bali"
-subtitle: "Island of the Gods — a customised honeymoon and leisure escape"
+subtitle: "Island of the Gods: a customised honeymoon and leisure escape"
 description: "Bali honeymoon and leisure packages by KD Holidayz, customised itineraries across Ubud, Seminyak & Uluwatu."
 heroImage: /images/photos/bali.jpg
 pdfFile: /pdfs/bali.pdf
@@ -76,6 +76,6 @@ itinerary:
     description: "Transfer to Denpasar airport for your onward journey."
 sample: true
 ---
-This is the same style of honeymoon planning KD Holidayz has done for guests like Neel Vachhani and Neha Shah — a relaxed, well-balanced mix of Bali's beaches, culture, and romance, tailored to your pace rather than a fixed template.
+This is the same style of honeymoon planning KD Holidayz has done for guests like Neel Vachhani and Neha Shah: a relaxed, well-balanced mix of Bali's beaches, culture, and romance, tailored to your pace rather than a fixed template.
 
-Hotels, activity mix, and day count are fully adjustable — this itinerary is a starting point for the conversation, not a fixed package.
+Hotels, activity mix, and day count are fully adjustable. This itinerary is a starting point for the conversation, not a fixed package.

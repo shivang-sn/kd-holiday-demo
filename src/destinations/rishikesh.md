@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Rishikesh"
-subtitle: "The Yoga Capital of the World — Ganga Aarti, ashrams and river rafting in the Himalayan foothills"
-description: "Rishikesh tour package by KD Holidayz — Ganga Aarti at Triveni Ghat, yoga and meditation retreats, Laxman Jhula, and white-water rafting."
+subtitle: "The Yoga Capital of the World: Ganga Aarti, ashrams and river rafting in the Himalayan foothills"
+description: "Rishikesh tour package by KD Holidayz: Ganga Aarti at Triveni Ghat, yoga and meditation retreats, Laxman Jhula, and white-water rafting."
 heroImage: "https://images.unsplash.com/photo-1716573260891-23ad993e8833?w=1600&q=75"
 pdfFile: /pdfs/rishikesh.pdf
 heroImageCredit: "Photo via Unsplash"
@@ -28,7 +28,7 @@ activities:
     image: "https://images.unsplash.com/photo-1571679654681-ba01b9e1e117?w=500&q=70"
 topPlaces:
   - name: "Triveni Ghat"
-    description: "The spiritual heart of Rishikesh — join the evening Ganga Aarti as lamps are set afloat on the river."
+    description: "The spiritual heart of Rishikesh: join the evening Ganga Aarti as lamps are set afloat on the river."
     image: "https://images.unsplash.com/photo-1729922141827-ba9163bfb884?w=500&q=70"
   - name: "Laxman Jhula"
     description: "An iconic suspension bridge over the Ganga, said to mark where Lakshmana once crossed the river."
@@ -61,6 +61,6 @@ itinerary:
     description: "Transfer to Dehradun airport/Haridwar railway station for your onward journey."
 sample: true
 ---
-Rishikesh draws travelers for two very different reasons that somehow coexist perfectly — it's the self-declared Yoga Capital of the World, and also a base for some of North India's most accessible white-water rafting. KD Holidayz builds this as a wellness-first itinerary, with the Ganga Aarti, ashram time, and yoga sessions at its core, and rafting as an optional add-on for those who want it.
+Rishikesh draws travelers for two very different reasons that somehow coexist perfectly: it's the self-declared Yoga Capital of the World, and also a base for some of North India's most accessible white-water rafting. KD Holidayz builds this as a wellness-first itinerary, with the Ganga Aarti, ashram time, and yoga sessions at its core, and rafting as an optional add-on for those who want it.
 
 Often paired with a Char Dham Yatra as its final leisure stop, Rishikesh also works well as a standalone short break. Starting from **₹10,999 per person**, inclusive of accommodation, daily breakfast, and local transfers. Ashram stays or hotel stays, yoga intensity, and day count are all adjustable to what you're looking for.

@@ -67,5 +67,5 @@
   ],
   "mission": "To deliver personalized, reliable and seamless travel solutions with expert guidance, trusted partnerships and exceptional customer service.",
   "vision": "To become a trusted global travel partner, creating memorable journeys and meaningful experiences around the world.",
-  "notes": "Fields set to null are confirmed gaps from the client requirement list (Section 5 of docs/website-build-brief.md) — do not invent numbers or copy here, wire the templates to show a TODO state instead."
+  "notes": "Fields set to null are confirmed gaps from the client requirement list (Section 5 of docs/website-build-brief.md). Do not invent numbers or copy here; wire the templates to show a TODO state instead."
 }

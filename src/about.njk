@@ -1,14 +1,14 @@
 ---
 layout: layouts/base.njk
-title: "About Us — Travel Consultants in Jamnagar & Eldoret"
-description: "About KD Holidayz — founded 2023, consulting on domestic and international travel from Jamnagar, India and Eldoret, Kenya."
+title: "About Us: Travel Consultants in Jamnagar & Eldoret"
+description: "About KD Holidayz, founded 2023, consulting on domestic and international travel from Jamnagar, India and Eldoret, Kenya."
 ogImage: "/images/brand/Profile-Dhaval-KD.png"
 ---
 {% import "macros/cards.njk" as cards %}
 {% import "partials/icons.njk" as icon %}
 {% import "partials/page-banner.njk" as banner with context %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "A Dream Quest Explorers — Since 2023", "From a Jamnagar-based consultancy to a two-country operation — this is the story behind KD Holidayz.", "about") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"About"}], "🎯 Our Purpose", "A Dream Quest Explorers, Since 2023", "From a Jamnagar-based consultancy to a two-country operation: this is the story behind KD Holidayz.", "about") }}
 
 <script type="application/ld+json">
 {
@@ -60,7 +60,7 @@ ogImage: "/images/brand/Profile-Dhaval-KD.png"
       <div class="eyebrow">📖 Our Story</div>
       <h2>Consult. Plan. Deliver.</h2>
       <p class="body-lg text-muted" style="margin-top:16px;">KD Holidayz was founded in {{ company.founded }} as a travel consulting firm specializing in thoughtfully planned domestic and international journeys. With an operational presence in Eldoret, Kenya alongside our India base in Jamnagar, we offer stronger destination coordination and dependable on-ground support.</p>
-      <p class="body-lg text-muted" style="margin-top:16px;">We go beyond selling packages — every trip is <strong>consulted</strong> around your needs, <strong>planned</strong> in detail, and <strong>delivered</strong> with on-trip support, building the kind of long-term client trust reflected in our testimonials.</p>
+      <p class="body-lg text-muted" style="margin-top:16px;">We go beyond selling packages: every trip is <strong>consulted</strong> around your needs, <strong>planned</strong> in detail, and <strong>delivered</strong> with on-trip support, building the kind of long-term client trust reflected in our testimonials.</p>
     </div>
     <div class="process-steps" style="grid-template-columns: 1fr; gap:24px;">
       {% set philosophy = [
@@ -89,18 +89,21 @@ ogImage: "/images/brand/Profile-Dhaval-KD.png"
     </div>
     <div class="grid grid--3">
       {% set pillars = [
-        {"icon": "compass", "title": "Personal Consultation", "desc": "Itineraries planned directly with our founder, not a call-center script."},
-        {"icon": "globe", "title": "Two-Country Presence", "desc": "On-ground coordination from our India and Kenya offices."},
-        {"icon": "coin", "title": "Transparent Pricing", "desc": "No hidden charges — clear inclusions and exclusions on every quote."},
-        {"icon": "suitcase", "title": "Fully Customized Trips", "desc": "Every package can be tailored to your budget, dates, and pace."},
-        {"icon": "shield", "title": "End-to-End Support", "desc": "Flights, hotels, visas, and insurance coordinated for you."},
-        {"icon": "star", "title": "Trusted by Travelers", "desc": "Real testimonials from Char Dham to Europe to Bali."}
+        {"icon": "compass", "title": "Personal Consultation", "desc": "Itineraries planned directly with our founder, not a call-center script.", "bg": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=70"},
+        {"icon": "globe", "title": "Two-Country Presence", "desc": "On-ground coordination from our India and Kenya offices.", "bg": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&q=70"},
+        {"icon": "coin", "title": "Transparent Pricing", "desc": "No hidden charges, just clear inclusions and exclusions on every quote.", "bg": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=70"},
+        {"icon": "suitcase", "title": "Fully Customized Trips", "desc": "Every package can be tailored to your budget, dates, and pace.", "bg": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=70"},
+        {"icon": "shield", "title": "End-to-End Support", "desc": "Flights, hotels, visas, and insurance coordinated for you.", "bg": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=70"},
+        {"icon": "star", "title": "Trusted by Travelers", "desc": "Real testimonials from Char Dham to Europe to Bali.", "bg": "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800&q=70"}
       ] %}
       {% for p in pillars %}
-      <div class="card" style="padding:32px;">
-        <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render(p.icon, 26) }}</div>
-        <h3>{{ p.title }}</h3>
-        <p class="text-muted" style="margin-top:8px; font-size:var(--fs-small);">{{ p.desc }}</p>
+      <div class="card strength-card">
+        <div class="strength-card__bg" style="background-image:url('{{ p.bg }}');"></div>
+        <div class="strength-card__content">
+          <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render(p.icon, 26) }}</div>
+          <h3>{{ p.title }}</h3>
+          <p class="text-muted" style="margin-top:8px; font-size:var(--fs-small);">{{ p.desc }}</p>
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -129,9 +132,9 @@ ogImage: "/images/brand/Profile-Dhaval-KD.png"
       <h2>Certifications & Recognitions</h2>
       <p class="body-lg text-muted">Registered and recognized by the bodies that matter for safe, reliable travel planning.</p>
     </div>
-    <div class="grid grid--3">
+    <div class="grid grid--2">
       {% for cert in certifications %}
-      <div class="card cert-card">
+      <div class="card cert-card cert-card--feature">
         {% if cert.image %}
           <img src="{{ cert.image }}" alt="{{ cert.name }}" class="cert-card__image" loading="lazy">
         {% else %}
@@ -140,7 +143,7 @@ ogImage: "/images/brand/Profile-Dhaval-KD.png"
           </div>
         {% endif %}
         <h3 style="margin-top:16px;">{{ cert.name }}</h3>
-        {% if not cert.image and cert.note %}
+        {% if cert.note %}
           <p class="text-muted" style="margin-top:8px; font-size:var(--fs-small);">{{ cert.note }}</p>
         {% endif %}
       </div>
@@ -150,10 +153,17 @@ ogImage: "/images/brand/Profile-Dhaval-KD.png"
 </section>
 
 <section class="section section--alt about__stats">
-  <div class="container grid grid--4">
-    {% for stat in company.stats %}
-      {{ cards.statTile(stat) }}
-    {% endfor %}
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">📊 Our Track Record</div>
+      <h2>Let the Numbers Speak</h2>
+      <p class="body-lg text-muted">Years of trusted travel planning, measured in journeys and smiles.</p>
+    </div>
+    <div class="grid grid--4">
+      {% for stat in company.stats %}
+        {{ cards.statTile(stat) }}
+      {% endfor %}
+    </div>
   </div>
 </section>
 

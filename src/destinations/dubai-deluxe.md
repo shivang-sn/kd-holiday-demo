@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Dubai Deluxe"
-subtitle: "Premium desert safari, Miracle Garden & Global Village — the fuller Dubai experience"
-description: "Dubai Deluxe packages by KD Holidayz — premium desert safari, marina dinner cruise, Burj Khalifa, Miracle Garden & Global Village, with 4★ and 5★ hotel options."
+subtitle: "Premium desert safari, Miracle Garden & Global Village: the fuller Dubai experience"
+description: "Dubai Deluxe packages by KD Holidayz: premium desert safari, marina dinner cruise, Burj Khalifa, Miracle Garden & Global Village, with 4★ and 5★ hotel options."
 heroImage: /images/photos/dubai-deluxe.jpg
 pdfFile: /pdfs/dubai-deluxe.pdf
 heroImageCredit: "Photo via Pexels"
@@ -23,13 +23,13 @@ activities:
     image: "https://images.unsplash.com/photo-1580164541787-ea5633f2118e?w=500&q=70"
   - name: "Dubai City Tour"
     image: "https://images.unsplash.com/photo-1593329267032-dce6a0c3e635?w=500&q=70"
-  - name: "Burj Khalifa — 124th Floor"
+  - name: "Burj Khalifa, 124th Floor"
     image: "https://images.unsplash.com/photo-1544092683-c0c9ebb368e5?w=500&q=70"
   - name: "Miracle Garden"
     image: "https://images.unsplash.com/photo-1588788898902-0a46a5c23b0e?w=500&q=70"
 topPlaces:
   - name: "Burj Khalifa"
-    description: "World's tallest tower — views from the 124th floor observation deck (non-peak slot included)."
+    description: "World's tallest tower, views from the 124th floor observation deck (non-peak slot included)."
     image: "https://images.unsplash.com/photo-1544092683-c0c9ebb368e5?w=500&q=70"
   - name: "The View at the Palm"
     description: "Sky-high viewpoint looking straight down the Palm Jumeirah's fronds."
@@ -42,10 +42,10 @@ localFood:
     description: "Fragrant spiced rice slow-cooked with meat or chicken, a Gulf classic."
     image: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=500&q=70"
   - name: "Shawarma"
-    description: "Spit-roasted, spiced meat wrapped in flatbread — a UAE street-food staple."
+    description: "Spit-roasted, spiced meat wrapped in flatbread, a UAE street-food staple."
     image: "https://images.unsplash.com/photo-1593895411298-ef38430b8472?w=500&q=70"
   - name: "Dates & Arabic Coffee"
-    description: "The traditional Emirati welcome — fresh dates paired with cardamom-spiced coffee."
+    description: "The traditional Emirati welcome: fresh dates paired with cardamom-spiced coffee."
     image: "https://images.unsplash.com/photo-1602669203817-904bb75469e5?w=500&q=70"
   - name: "Moutabal (Vegetarian)"
     description: "Smoky roasted eggplant dip, blended with tahini and served with pita."
@@ -70,6 +70,6 @@ itinerary:
     title: "Departure"
     description: "Transfer to Dubai airport for your onward journey."
 ---
-This Dubai Deluxe package sits between our Affordable and Premium tiers — the full spread of experiences guests love, including the Miracle Garden, Global Village and The View at the Palm, on a premium desert safari and marina dinner cruise rather than a fixed template.
+This Dubai Deluxe package sits between our Affordable and Premium tiers: the full spread of experiences guests love, including the Miracle Garden, Global Village and The View at the Palm, on a premium desert safari and marina dinner cruise rather than a fixed template.
 
 Two hotel tiers are available: **₹52,000 per person** on a 4★ hotel, or **₹59,500 per person** on a 5★ hotel. Both include 5 nights' accommodation, daily breakfast, airport transfers, the Dubai visa, and every activity listed above. Dubai tourism dirham (city tax)/VAT/TCS and travel insurance are billed separately and are not included in the package price.

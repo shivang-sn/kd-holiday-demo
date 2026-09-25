@@ -2,7 +2,7 @@
 layout: layouts/destination-detail.njk
 title: "Dwarka – Somnath Yatra"
 subtitle: "Two of the holiest Jyotirlinga & Char Dham shrines in coastal Gujarat"
-description: "Dwarka – Somnath Yatra package by KD Holidayz — Dwarkadhish Temple, Beyt Dwarka, Nageshwar Jyotirlinga and Somnath Temple in one short pilgrimage circuit."
+description: "Dwarka – Somnath Yatra package by KD Holidayz: Dwarkadhish Temple, Beyt Dwarka, Nageshwar Jyotirlinga and Somnath Temple in one short pilgrimage circuit."
 heroImage: "https://images.unsplash.com/photo-1717326630799-703fe906e283?w=1600&q=75"
 pdfFile: /pdfs/dwarka-somnath-yatra.pdf
 heroImageCredit: "Photo via Unsplash"
@@ -64,6 +64,6 @@ itinerary:
     description: "Morning visit to the Triveni Sangam, then transfer to the airport/railway station for your onward journey."
 sample: true
 ---
-A compact pilgrimage circuit along Gujarat's Saurashtra coast, covering two of Hinduism's most revered shrines — the Dwarkadhish Temple, one of the four Char Dhams, and the Somnath Jyotirlinga, first among the twelve. Being based in Jamnagar ourselves, KD Holidayz runs this circuit with close, on-ground familiarity with both temple towns.
+A compact pilgrimage circuit along Gujarat's Saurashtra coast, covering two of Hinduism's most revered shrines: the Dwarkadhish Temple, one of the four Char Dhams, and the Somnath Jyotirlinga, first among the twelve. Being based in Jamnagar ourselves, KD Holidayz runs this circuit with close, on-ground familiarity with both temple towns.
 
-The pace is unhurried — enough time for darshan without rushing between shrines — with a stop at Beyt Dwarka's island temple via the Sudarshan Setu along the way. Starting from **₹12,999 per person**, inclusive of accommodation, daily breakfast, and inter-city transfers. Hotels and day count are fully adjustable to your schedule.
+The pace is unhurried (enough time for darshan without rushing between shrines), with a stop at Beyt Dwarka's island temple via the Sudarshan Setu along the way. Starting from **₹12,999 per person**, inclusive of accommodation, daily breakfast, and inter-city transfers. Hotels and day count are fully adjustable to your schedule.

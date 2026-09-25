@@ -3,7 +3,7 @@
     {
       "name": "International Packages",
       "icon": "globe",
-      "description": "Curated journeys across Southeast Asia, Europe, the Middle East, and beyond — planned and consulted end to end."
+      "description": "Curated journeys across Southeast Asia, Europe, the Middle East, and beyond, planned and consulted end to end."
     },
     {
       "name": "Domestic Packages",
@@ -29,7 +29,7 @@
     { "name": "Travel Insurance", "icon": "shield" }
   ],
   "extended": {
-    "note": "From the client requirement list — confirm with KD Holidayz which of these are currently active before publishing.",
+    "note": "From the client requirement list, confirm with KD Holidayz which of these are currently active before publishing.",
     "items": [
       "Honeymoon Packages",
       "Corporate Tours",

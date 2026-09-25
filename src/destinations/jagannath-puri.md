@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Jagannath Puri"
-subtitle: "One of the Char Dhams — Jagannath Temple, Konark Sun Temple and the Odisha coast"
-description: "Jagannath Puri tour package by KD Holidayz — Jagannath Temple darshan, Konark Sun Temple, Puri Beach and Chilika Lake."
+subtitle: "One of the Char Dhams: Jagannath Temple, Konark Sun Temple and the Odisha coast"
+description: "Jagannath Puri tour package by KD Holidayz: Jagannath Temple darshan, Konark Sun Temple, Puri Beach and Chilika Lake."
 heroImage: "https://images.unsplash.com/photo-1706790574525-d218c4c52b5c?w=1600&q=75"
 pdfFile: /pdfs/jagannath-puri.pdf
 heroImageCredit: "Photo via Unsplash"
@@ -64,6 +64,6 @@ itinerary:
     description: "Transfer to Bhubaneswar airport/railway station for your onward journey."
 sample: true
 ---
-Puri holds one of the four Char Dhams — the Jagannath Temple — and pairs it naturally with two of Odisha's other landmark sights: the Konark Sun Temple's carved stone chariot and Chilika Lake's dolphin-watching boat rides. KD Holidayz plans this as an easy, well-paced circuit rather than a rushed day-tour rundown.
+Puri holds one of the four Char Dhams, the Jagannath Temple, and pairs it naturally with two of Odisha's other landmark sights: the Konark Sun Temple's carved stone chariot and Chilika Lake's dolphin-watching boat rides. KD Holidayz plans this as an easy, well-paced circuit rather than a rushed day-tour rundown.
 
-The itinerary balances temple time with genuine leisure — a sunrise beach walk, an afternoon on the lake — so it doesn't feel like a checklist. Starting from **₹13,999 per person**, inclusive of accommodation, daily breakfast, and inter-city transfers. Hotels and day count are fully adjustable to your schedule.
+The itinerary balances temple time with genuine leisure (a sunrise beach walk, an afternoon on the lake) so it doesn't feel like a checklist. Starting from **₹13,999 per person**, inclusive of accommodation, daily breakfast, and inter-city transfers. Hotels and day count are fully adjustable to your schedule.

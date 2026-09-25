@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Rajasthan"
-subtitle: "Amber Fort, Pushkar, Mount Abu & the Thar Desert — royal Rajasthan across six cities"
-description: "Rajasthan tour packages by KD Holidayz — Jaipur, Ajmer-Pushkar, Jodhpur, Jaisalmer, Udaipur and Mount Abu, covering forts, palaces, and a desert safari."
+subtitle: "Amber Fort, Pushkar, Mount Abu & the Thar Desert: royal Rajasthan across six cities"
+description: "Rajasthan tour packages by KD Holidayz: Jaipur, Ajmer-Pushkar, Jodhpur, Jaisalmer, Udaipur and Mount Abu, covering forts, palaces, and a desert safari."
 heroImage: /images/photos/rajasthan-tour.jpg
 pdfFile: /pdfs/rajasthan.pdf
 heroImageCredit: "Photo via Pexels"
@@ -28,7 +28,7 @@ activities:
     image: "https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?w=500&q=70"
 topPlaces:
   - name: "Jaipur"
-    description: "The Pink City — Amber Fort, Hawa Mahal, and the City Palace."
+    description: "The Pink City: Amber Fort, Hawa Mahal, and the City Palace."
     image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?w=500&q=70"
   - name: "Ajmer & Pushkar"
     description: "The revered Ajmer Sharif Dargah, and Pushkar's sacred lake ringed with ghats."
@@ -40,7 +40,7 @@ topPlaces:
     description: "The Golden City on the edge of the Thar Desert, gateway to the Sam Sand Dunes."
     image: "https://images.unsplash.com/photo-1448838520990-b0f959a7da46?w=500&q=70"
   - name: "Mount Abu"
-    description: "Rajasthan's only hill station — the Dilwara Jain Temples and Nakki Lake."
+    description: "Rajasthan's only hill station: the Dilwara Jain Temples and Nakki Lake."
     image: "https://images.unsplash.com/photo-1630825828191-6f14ad0b84b8?w=500&q=70"
 localFood:
   - name: "Dal Baati Churma (Vegetarian)"
@@ -81,6 +81,6 @@ itinerary:
     title: "Departure"
     description: "Transfer to the airport for your onward journey."
 ---
-This extended Rajasthan circuit runs through six stops — Jaipur's forts and palaces, the pilgrimage towns of Ajmer and Pushkar, Jodhpur's Blue City views from Mehrangarh, a desert safari in the dunes outside Jaisalmer, Udaipur's lakes, and a hill-station close at Mount Abu.
+This extended Rajasthan circuit runs through six stops: Jaipur's forts and palaces, the pilgrimage towns of Ajmer and Pushkar, Jodhpur's Blue City views from Mehrangarh, a desert safari in the dunes outside Jaisalmer, Udaipur's lakes, and a hill-station close at Mount Abu.
 
-Hotel tiers researched from current listings include Umaid Bhawan Boutique Hotel (3★, Jaipur), Trident (4★, Jaipur/Udaipur), and Umaid Bhawan Palace (5★ heritage palace, Jodhpur) — final hotel selection and pricing confirmed with you before booking. Starting from **₹24,999 per person**, inclusive of accommodation, daily breakfast, and inter-city transfers. Hotels, activity mix, and day count are fully adjustable — this itinerary is a starting point for the conversation, not a fixed package.
+Hotel tiers researched from current listings include Umaid Bhawan Boutique Hotel (3★, Jaipur), Trident (4★, Jaipur/Udaipur), and Umaid Bhawan Palace (5★ heritage palace, Jodhpur), with final hotel selection and pricing confirmed with you before booking. Starting from **₹24,999 per person**, inclusive of accommodation, daily breakfast, and inter-city transfers. Hotels, activity mix, and day count are fully adjustable. This itinerary is a starting point for the conversation, not a fixed package.

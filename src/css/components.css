@@ -560,6 +560,83 @@ body.nav-open {
   font-weight: 700;
 }
 
+/* ===== Strength cards (About & Services pages) — each pillar/service gets a
+   themed background photo with a dark gradient overlay so the white text
+   stays readable. The photo lives in its own layer (__bg) so it can zoom on
+   hover without also scaling the text/icon on top of it. ===== */
+.strength-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+  display: flex;
+  align-items: flex-end;
+  color: var(--color-white);
+}
+
+.strength-card__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+.strength-card:hover .strength-card__bg {
+  transform: scale(1.1);
+}
+
+.strength-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 20, 40, 0.35) 0%, rgba(6, 14, 28, 0.88) 100%);
+  z-index: 1;
+}
+
+.strength-card__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-6);
+}
+
+.strength-card h3 {
+  color: var(--color-white);
+}
+
+.strength-card .text-muted {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.strength-card .icon-badge {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--color-gold-accent);
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.strength-card:hover .icon-badge {
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--color-gold);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+.strength-card:hover .icon-badge>svg {
+  animation: iconVibrate 0.5s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .strength-card__bg,
+  .strength-card:hover .strength-card__bg {
+    transition: none;
+    transform: none;
+  }
+
+  .strength-card:hover .icon-badge>svg {
+    animation: none;
+  }
+}
+
 /* ===== Icon badge — the circular tinted container for every line icon =====
    Lottie ring (.lottie-ring) sits absolutely behind the glyph; both need the
    badge to be a fixed-size positioning context. */
@@ -614,7 +691,6 @@ body.nav-open {
 }
 
 .about__mission-vision .card:hover .icon-badge,
-.services__core .card:hover .icon-badge,
 .services__allied .card:hover .icon-badge {
   background: rgba(224, 164, 0, 0.18);
   color: var(--color-gold);
@@ -663,6 +739,28 @@ body.nav-open {
   height: 96px;
   border: 2px dashed var(--color-gray-200);
   border-radius: var(--radius-lg);
+}
+
+/* Two-column feature layout: GTAA certificate + WTC photo, larger and
+   letterboxed on a neutral background so a landscape certificate and a
+   portrait event photo both display in full without cropping. */
+.cert-card--feature {
+  padding: var(--space-6);
+}
+
+.cert-card--feature .cert-card__image {
+  max-height: 340px;
+  width: 100%;
+  height: 340px;
+  background: var(--color-gray-100);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+}
+
+@media (max-width: 700px) {
+  .cert-card--feature .cert-card__image {
+    height: 260px;
+  }
 }
 
 /* ===== Why choose us ===== */
@@ -3234,4 +3332,13 @@ body.nav-open {
 .footer-nav:last-child .footer-heading::after {
   left: 50%;
   transform: translateX(-50%);
+}
+
+
+.home__stats .section-heading {
+  margin-bottom: 0;
+}
+
+.about__faq button.accordion__trigger {
+  padding: var(--space-5) 0;
 }

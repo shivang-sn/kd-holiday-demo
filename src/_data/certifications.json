@@ -1,5 +1,4 @@
 [
-  { "name": "Gujarat Tourism", "note": "Confirm exact registration/certificate name with client, then upload scan", "image": null },
-  { "name": "Additional Certification", "note": "Client to specify which other travel body/certification to feature here", "image": null },
-  { "name": "Additional Certification", "note": "Client to specify which other travel body/certification to feature here", "image": null }
+  { "name": "GTAA - Global Travel Agent Association", "image": "/images/brand/gtaa-certificate.png", "note": "Certified Member, Valid till March 2027" },
+  { "name": "World Travel Collective (WTC)", "image": "/images/brand/wtc-world-travel-collective.png", "note": "Ahmedabad, India" }
 ]

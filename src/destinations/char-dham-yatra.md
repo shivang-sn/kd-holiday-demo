@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Char Dham Yatra"
-subtitle: "The Himalayan pilgrimage circuit — Yamunotri, Gangotri, Kedarnath & Badrinath"
-description: "Char Dham Yatra package by KD Holidayz — Himalayan pilgrimage circuit with land and helicopter options."
+subtitle: "The Himalayan pilgrimage circuit: Yamunotri, Gangotri, Kedarnath & Badrinath"
+description: "Char Dham Yatra package by KD Holidayz: Himalayan pilgrimage circuit with land and helicopter options."
 heroImage: /images/photos/kedarnath.jpg
 pdfFile: /pdfs/char-dham-yatra.pdf
 heroImageCredit: "Photo via Pexels"
@@ -70,18 +70,18 @@ itinerary:
     description: "Scenic drive through the Mandakini valley towards Badrinath."
   - day: 7
     title: "Badrinath Darshan"
-    description: "Temple darshan, visit Mana village — the last Indian village on the India-China border."
+    description: "Temple darshan, visit Mana village, the last Indian village on the India-China border."
   - day: 8
     title: "Return journey begins"
     description: "Drive back towards Rudraprayag / Rishikesh."
   - day: 9
-    title: "Rishikesh — leisure day"
+    title: "Rishikesh: leisure day"
     description: "Optional Ganga Aarti at Triveni Ghat, free time by the river."
   - day: 10
     title: "Departure"
     description: "Transfer to Dehradun airport/railway station for your onward journey."
 sample: true
 ---
-Often undertaken as a once-in-a-lifetime pilgrimage, the Char Dham Yatra takes you through the four sacred Himalayan shrines of Yamunotri, Gangotri, Kedarnath, and Badrinath. KD Holidayz plans this journey with careful attention to altitude, weather windows, and on-ground support — the same care our founder Dhavalbhai brought to Mayur Nakhva's Char Dham trip.
+Often undertaken as a once-in-a-lifetime pilgrimage, the Char Dham Yatra takes you through the four sacred Himalayan shrines of Yamunotri, Gangotri, Kedarnath, and Badrinath. KD Holidayz plans this journey with careful attention to altitude, weather windows, and on-ground support, the same care our founder Dhavalbhai brought to Mayur Nakhva's Char Dham trip.
 
 Both land and helicopter options are available depending on how much time you have and how much walking you're comfortable with. Every itinerary is adjusted for the season and current road/weather conditions before departure.

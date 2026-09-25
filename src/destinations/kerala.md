@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Kerala"
-subtitle: "God's Own Country — backwaters, hill stations & houseboats"
-description: "Kerala family and honeymoon packages by KD Holidayz — backwaters, Munnar hills, and houseboat stays."
+subtitle: "God's Own Country: backwaters, hill stations & houseboats"
+description: "Kerala family and honeymoon packages by KD Holidayz: backwaters, Munnar hills, and houseboat stays."
 heroImage: /images/photos/kerala.jpg
 pdfFile: /pdfs/kerala.pdf
 heroImageCredit: "Photo via Pexels"
@@ -72,6 +72,6 @@ itinerary:
     description: "Transfer to Trivandrum airport for your onward journey."
 sample: true
 ---
-Kerala is one of KD Holidayz's most requested domestic circuits — the same mix of backwaters, hills, and coast that made Hiten Malde's trip run smoothly "from flights to local coordination."
+Kerala is one of KD Holidayz's most requested domestic circuits: the same mix of backwaters, hills, and coast that made Hiten Malde's trip run smoothly "from flights to local coordination."
 
 This itinerary works equally well as a family trip or a honeymoon, with the pace and hotel category adjusted to match.

@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Bali Dreams"
-subtitle: "Kuta beaches & an Ubud private pool villa — a relaxed, culture-rich escape"
-description: "Bali Dreams packages by KD Holidayz — Kuta and an Ubud private pool villa, with GWK Park, Uluwatu Temple and the My Bali swing."
+subtitle: "Kuta beaches & an Ubud private pool villa: a relaxed, culture-rich escape"
+description: "Bali Dreams packages by KD Holidayz: Kuta and an Ubud private pool villa, with GWK Park, Uluwatu Temple and the My Bali swing."
 heroImage: /images/photos/bali-dreams.jpg
 pdfFile: /pdfs/bali-dreams.pdf
 heroImageCredit: "Photo via Pexels"
@@ -28,23 +28,23 @@ activities:
     image: "https://images.unsplash.com/photo-1561271457-c2f452d0e95d?w=500&q=70"
 topPlaces:
   - name: "Garuda Wisnu Kencana"
-    description: "A 121m bronze statue of Vishnu riding Garuda — one of Bali's most striking landmarks."
+    description: "A 121m bronze statue of Vishnu riding Garuda, one of Bali's most striking landmarks."
     image: "https://images.unsplash.com/photo-1641741296263-ddbc7d5f4137?w=500&q=70"
   - name: "Ubud Private Pool Villa"
-    description: "Your own pool overlooking rice fields — a quiet base for the Ubud half of the trip."
+    description: "Your own pool overlooking rice fields, a quiet base for the Ubud half of the trip."
     image: "https://images.unsplash.com/photo-1675657144361-98ae33e6b6f9?w=500&q=70"
   - name: "Uluwatu"
     description: "Clifftop temple and dramatic coastline on Bali's southern tip."
     image: "https://images.unsplash.com/photo-1664918706173-6349ca225dd0?w=500&q=70"
 localFood:
   - name: "Pisang Goreng (Vegetarian)"
-    description: "Golden, crisp-fried banana fritters — a favourite Balinese snack."
+    description: "Golden, crisp-fried banana fritters, a favourite Balinese snack."
     image: "https://images.unsplash.com/photo-1658373072934-d96e583a44f4?w=500&q=70"
   - name: "Ikan Bakar"
     description: "Whole fish marinated and grilled over charcoal, served on banana leaf."
     image: "https://images.unsplash.com/photo-1661939252817-ebb73304f4c7?w=500&q=70"
   - name: "Fresh Coconut"
-    description: "Young coconut water straight from the shell — Bali's everyday refresher."
+    description: "Young coconut water straight from the shell, Bali's everyday refresher."
     image: "https://images.unsplash.com/photo-1617611140379-0e0ec17cc45f?w=500&q=70"
 itinerary:
   - day: 1
@@ -69,6 +69,6 @@ itinerary:
     title: "Departure"
     description: "Transfer to Denpasar airport for your onward journey."
 ---
-Bali Dreams is built around one idea: four nights soaking up Kuta's beaches and landmarks, then two nights slowing down at a private pool villa in Ubud — a relaxed pace rather than a packed schedule. Hotel choices include Neo Plus Kuta, Golden Tulip, Harris or Ramada in Kuta, and Dwarka The Royal Villas, Furama Ubud Villa or The Sankara Resort in Ubud.
+Bali Dreams is built around one idea: four nights soaking up Kuta's beaches and landmarks, then two nights slowing down at a private pool villa in Ubud, a relaxed pace rather than a packed schedule. Hotel choices include Neo Plus Kuta, Golden Tulip, Harris or Ramada in Kuta, and Dwarka The Royal Villas, Furama Ubud Villa or The Sankara Resort in Ubud.
 
-Priced at **₹42,000 per person**, it includes daily breakfast, all inter-hotel transfers, and the Bali eVisa, alongside the activities listed above. Hotels, activity mix, and day count are fully adjustable — this itinerary is a starting point for the conversation, not a fixed package.
+Priced at **₹42,000 per person**, it includes daily breakfast, all inter-hotel transfers, and the Bali eVisa, alongside the activities listed above. Hotels, activity mix, and day count are fully adjustable. This itinerary is a starting point for the conversation, not a fixed package.

@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: "Home"
-description: "KD Holidayz — A Dream Quest Explorers. Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya."
+description: "KD Holidayz: A Dream Quest Explorers. Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya."
 preloadImage: "/images/photos/rajasthan.jpg"
 ---
 {% import "macros/cards.njk" as cards %}
@@ -12,7 +12,7 @@ preloadImage: "/images/photos/rajasthan.jpg"
 
 <div class="announcement" id="announcement">
   <div class="container">
-    🏔️ Chardham Yatra 2026 — Helicopter & Land packages now open. <a href="/destinations/char-dham-yatra/">Explore the itinerary →</a>
+    🏔️ Chardham Yatra 2026: Helicopter & Land packages now open. <a href="/destinations/char-dham-yatra/">Explore the itinerary →</a>
   </div>
   <button class="announcement__close" id="announcementClose" aria-label="Dismiss">×</button>
 </div>
@@ -41,8 +41,8 @@ preloadImage: "/images/photos/rajasthan.jpg"
     <div class="hero__content">
       <span class="pill pill--dark">✨ {{ company.tagline }}</span>
       <h1 style="margin-top:20px;">Discover the World, <span style="color:var(--color-gold);">Your Way</span></h1>
-      <p class="hero__value" id="heroValue"><strong>{{ slides[0].title }}</strong> — {{ slides[0].desc }}</p>
-      <p class="hero__lede">Personal, consultant-led travel planning — from Himalayan pilgrimages to island honeymoons. Your journey starts with a conversation, not a template.</p>
+      <p class="hero__value" id="heroValue"><strong>{{ slides[0].title }}:</strong> {{ slides[0].desc }}</p>
+      <p class="hero__lede">Personal, consultant-led travel planning for everything from Himalayan pilgrimages to island honeymoons. Your journey starts with a conversation, not a template.</p>
       <div class="hero__actions">
         <a href="/destinations/" class="btn btn--primary">🌍 Explore Destinations</a>
         <button class="btn btn--outline" data-drawer-open type="button">🎨 Customize My Trip</button>
@@ -73,7 +73,7 @@ preloadImage: "/images/photos/rajasthan.jpg"
     <button class="no-match-modal__close" id="noMatchClose" type="button" aria-label="Close">×</button>
     <div class="eyebrow">🎨 Let's Build It Together</div>
     <h3>We don't have a ready-made package for "<span id="noMatchQuery"></span>" yet</h3>
-    <p class="text-muted" style="margin-top:8px;">But that's exactly what we're built for — tell us where you want to go and our consultants will design a custom itinerary and package around it.</p>
+    <p class="text-muted" style="margin-top:8px;">But that's exactly what we're built for. Tell us where you want to go, and our consultants will design a custom itinerary and package around it.</p>
     <button class="btn btn--primary" id="noMatchRequestBtn" type="button" style="margin-top:20px;">Request Custom Package 🚀</button>
     <div class="no-match-modal__explore">
       <p class="text-muted" style="font-size:var(--fs-small); text-transform:uppercase; letter-spacing:0.04em;">Or explore these destinations instead</p>
@@ -83,10 +83,17 @@ preloadImage: "/images/photos/rajasthan.jpg"
 </div>
 
 <section class="section--sm section--alt home__stats">
-  <div class="container grid grid--4" data-reveal>
-    {% for stat in company.stats %}
-      {{ cards.statTile(stat) }}
-    {% endfor %}
+  <div class="container">
+    <div class="section-heading section-heading--center">
+      <div class="eyebrow" style="justify-content:center;">📊 Our Track Record</div>
+      <h2>Let the Numbers Speak</h2>
+      <p class="body-lg text-muted">Years of trusted travel planning, measured in journeys and smiles.</p>
+    </div>
+    <div class="grid grid--4" data-reveal>
+      {% for stat in company.stats %}
+        {{ cards.statTile(stat) }}
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -95,7 +102,7 @@ preloadImage: "/images/photos/rajasthan.jpg"
     <div data-reveal>
       <div class="eyebrow">✦ Our Promise</div>
       <h2>Why Travelers Choose KD Holidayz</h2>
-      <p class="body-lg text-muted" style="margin-top:16px;">{{ company.tagline }} We go beyond selling packages — every trip is consulted, planned, and delivered personally.</p>
+      <p class="body-lg text-muted" style="margin-top:16px;">{{ company.tagline }} We go beyond selling packages: every trip is consulted, planned, and delivered personally.</p>
       <a href="/about/" class="btn btn--secondary" style="margin-top:24px;">Learn Our Story</a>
     </div>
     <div data-reveal>
@@ -105,7 +112,7 @@ preloadImage: "/images/photos/rajasthan.jpg"
         {"title": "Personal Consultation", "desc": "Your itinerary is planned directly with our founder.", "icon": "compass"},
         {"title": "Two-Country Presence", "desc": "On-ground support from our India and Kenya offices.", "icon": "globe"},
         {"title": "Fully Customized Trips", "desc": "Every package can be tailored to your budget and pace.", "icon": "suitcase"},
-        {"title": "End-to-End Support", "desc": "Flights, hotels, visas, and insurance — handled for you.", "icon": "shield"}
+        {"title": "End-to-End Support", "desc": "Flights, hotels, visas, and insurance, all handled for you.", "icon": "shield"}
       ] %}
       {% for r in reasons %}
       <div class="why-item">
@@ -168,7 +175,7 @@ preloadImage: "/images/photos/rajasthan.jpg"
     <div class="section-heading">
       <div class="eyebrow">📸 Moments</div>
       <h2>Travel Gallery</h2>
-      <p class="body-lg text-muted">Real moments from KD Holidayz journeys — office, teams, and destinations.</p>
+      <p class="body-lg text-muted">Real moments from KD Holidayz journeys: office, teams, and destinations.</p>
     </div>
     <div class="gallery-grid--bento" data-reveal>
       {% set moments = [
@@ -198,7 +205,7 @@ preloadImage: "/images/photos/rajasthan.jpg"
     <div class="section-heading section-heading--center">
       <div class="eyebrow" style="justify-content:center;">🔥 Don't Miss Out</div>
       <h2>Limited-Time Offers</h2>
-      <p class="body-lg text-muted">Genuinely time-bound departures — booked while seats last.</p>
+      <p class="body-lg text-muted">Genuinely time-bound departures, booked while seats last.</p>
     </div>
     <div class="grid grid--3" data-reveal>
       {% for offer in offers %}
@@ -270,7 +277,7 @@ preloadImage: "/images/photos/rajasthan.jpg"
   <div class="container">
     <div class="cta-band">
       <h2 style="color:var(--color-white);">Ready to Explore?</h2>
-      <p style="max-width:520px; margin-inline:auto; margin-top:16px; opacity:0.85;">Tell us where you'd like to go — we'll take it from there.</p>
+      <p style="max-width:520px; margin-inline:auto; margin-top:16px; opacity:0.85;">Tell us where you'd like to go, and we'll take it from there.</p>
       <div class="flex flex--gap-4" style="justify-content:center; margin-top:24px; flex-wrap:wrap;">
         <a href="{{ company.whatsappNumber | whatsappLink('Hi KD Holidayz, I would like to plan a trip.') }}" class="btn btn--primary" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
         <button class="btn btn--outline" data-drawer-open type="button">Enquire Now</button>

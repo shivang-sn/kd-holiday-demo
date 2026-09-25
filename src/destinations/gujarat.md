@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Gujarat"
-subtitle: "Statue of Unity, Saputara, Gir's lions & Beyt Dwarka — heritage, hills and coast in one circuit"
-description: "Gujarat tour packages by KD Holidayz — Statue of Unity, Saputara hill station, Gir National Park, Somnath, Dwarka and Beyt Dwarka via the Sudarshan Setu."
+subtitle: "Statue of Unity, Saputara, Gir's lions & Beyt Dwarka: heritage, hills and coast in one circuit"
+description: "Gujarat tour packages by KD Holidayz: Statue of Unity, Saputara hill station, Gir National Park, Somnath, Dwarka and Beyt Dwarka via the Sudarshan Setu."
 heroImage: /images/photos/gujarat.jpg
 pdfFile: /pdfs/gujarat.pdf
 heroImageCredit: "Photo via Pexels"
@@ -37,7 +37,7 @@ topPlaces:
     description: "The only home of the wild Asiatic lion, best explored on an early-morning safari."
     image: "https://images.unsplash.com/photo-1624951714070-74a95c1f6959?w=500&q=70"
   - name: "Beyt Dwarka"
-    description: "An island temple town off Dwarka, now linked to the mainland by the Sudarshan Setu — India's longest cable-stayed bridge."
+    description: "An island temple town off Dwarka, now linked to the mainland by the Sudarshan Setu, India's longest cable-stayed bridge."
     image: "https://images.unsplash.com/photo-1609737183025-6c45adb62077?w=500&q=70"
   - name: "Rann of Kutch"
     description: "A vast white salt desert that turns silver under moonlight during the Rann Utsav season."
@@ -78,6 +78,6 @@ itinerary:
     title: "Departure"
     description: "Transfer to the airport for your onward journey."
 ---
-Gujarat's heritage-and-wildlife circuit runs from Ahmedabad to the Statue of Unity, up into the Saputara hills, into Gir for the Asiatic lion, and on to the twin pilgrimage towns of Somnath and Dwarka — extending to the island temple at Beyt Dwarka via the new Sudarshan Setu bridge — with the White Rann of Kutch as an optional extension during the Rann Utsav season (November–February).
+Gujarat's heritage-and-wildlife circuit runs from Ahmedabad to the Statue of Unity, up into the Saputara hills, into Gir for the Asiatic lion, and on to the twin pilgrimage towns of Somnath and Dwarka, extending to the island temple at Beyt Dwarka via the new Sudarshan Setu bridge, with the White Rann of Kutch as an optional extension during the Rann Utsav season (November–February).
 
-Hotel tiers researched from current listings include Lords Inn (3★, Somnath), The Fern Sattva Resort or The Fern Gir Forest Resort (4★, Dwarka/Gir), and Gir Serai – IHCL SeleQtions (5★, Gir) — final hotel selection and pricing confirmed with you before booking. Starting from **₹24,999 per person**, inclusive of accommodation, daily breakfast, and inter-city transfers. Hotels, activity mix, and day count are fully adjustable — this itinerary is a starting point for the conversation, not a fixed package.
+Hotel tiers researched from current listings include Lords Inn (3★, Somnath), The Fern Sattva Resort or The Fern Gir Forest Resort (4★, Dwarka/Gir), and Gir Serai – IHCL SeleQtions (5★, Gir), with final hotel selection and pricing confirmed with you before booking. Starting from **₹24,999 per person**, inclusive of accommodation, daily breakfast, and inter-city transfers. Hotels, activity mix, and day count are fully adjustable. This itinerary is a starting point for the conversation, not a fixed package.

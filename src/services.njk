@@ -1,13 +1,13 @@
 ---
 layout: layouts/base.njk
 title: "Services"
-description: "KD Holidayz services — international & domestic packages, MICE & group tours, spiritual tours, flights, hotels, visas and more."
+description: "KD Holidayz services: international & domestic packages, MICE & group tours, spiritual tours, flights, hotels, visas and more."
 ---
 {% import "macros/cards.njk" as cards %}
 {% import "partials/icons.njk" as icon %}
 {% import "partials/page-banner.njk" as banner with context %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Services"}], "🧳 What We Do", "Everything Your Trip Needs, Under One Consultant", "From the first idea to the flight home — core planning and every allied booking, coordinated in one place.", "services") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Services"}], "🧳 What We Do", "Everything Your Trip Needs, Under One Consultant", "From the first idea to the flight home: core planning and every allied booking, coordinated in one place.", "services") }}
 
 <section class="section section--alt services__core">
   <div class="container">
@@ -16,11 +16,20 @@ description: "KD Holidayz services — international & domestic packages, MICE &
       <h2>Where We Specialize</h2>
     </div>
     <div class="grid grid--2">
+      {% set coreBg = {
+        "International Packages": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=70",
+        "Domestic Packages": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=70",
+        "MICE & Group Tours": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=70",
+        "Spiritual & Pilgrimage Tours": "/images/photos/kedarnath.jpg"
+      } %}
       {% for s in services.core %}
-      <div class="card" style="padding:32px;">
-        <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render(s.icon, 26) }}</div>
-        <h3>{{ s.name }}</h3>
-        <p class="text-muted" style="margin-top:8px;">{{ s.description }}</p>
+      <div class="card strength-card">
+        <div class="strength-card__bg" style="background-image:url('{{ coreBg[s.name] }}');"></div>
+        <div class="strength-card__content">
+          <div class="icon-badge" style="margin-bottom:16px;">{{ icon.lottieRing("forest") }}{{ icon.render(s.icon, 26) }}</div>
+          <h3>{{ s.name }}</h3>
+          <p class="text-muted" style="margin-top:8px;">{{ s.description }}</p>
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -42,7 +51,7 @@ description: "KD Holidayz services — international & domestic packages, MICE &
       {% endfor %}
     </div>
     <div style="margin-top:32px;">
-      <p class="text-muted" style="font-size:var(--fs-small);">Also available — confirm active list with KD Holidayz before publishing: {{ services.extended.items | join(", ") }}.</p>
+      <p class="text-muted" style="font-size:var(--fs-small);">Also available (confirm active list with KD Holidayz before publishing): {{ services.extended.items | join(", ") }}.</p>
     </div>
   </div>
 </section>

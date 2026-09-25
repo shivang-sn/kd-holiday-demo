@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: "Contact Us"
-description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch Office in Eldoret, Kenya."
+description: "Contact KD Holidayz: Head Office in Jamnagar, India and Branch Office in Eldoret, Kenya."
 ---
 {% import "macros/cards.njk" as cards %}
 {% import "macros/forms.njk" as forms %}
@@ -10,7 +10,7 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
 {% set india = company.offices[0] %}
 {% set kenya = company.offices[1] %}
 
-{{ banner.render([{"label":"Home","url":"/"},{"label":"Contact"}], "📞 Get In Touch", "Let's Plan Your Dream Trip", "Our consultants are ready to help — reach out however's easiest for you.", "contact") }}
+{{ banner.render([{"label":"Home","url":"/"},{"label":"Contact"}], "📞 Get In Touch", "Let's Plan Your Dream Trip", "Our consultants are ready to help. Reach out however's easiest for you.", "contact") }}
 
 <section class="section--sm contact__info">
   <div class="container grid grid--5">
@@ -47,7 +47,7 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
     <div>
       <div class="eyebrow">📞 We're Here to Help</div>
       <h2>Talk to a Real Consultant</h2>
-      <p class="body-lg text-muted" style="margin-top:16px;">No call centers, no scripts — your itinerary is planned directly with our team.</p>
+      <p class="body-lg text-muted" style="margin-top:16px;">No call centers, no scripts. Your itinerary is planned directly with our team.</p>
       <div style="margin-top:32px; display:flex; flex-direction:column; gap:20px;">
         <div class="flex flex--gap-3">
           <span style="font-size:1.3rem;">⚡</span>
@@ -98,7 +98,7 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
     <div class="grid grid--2">
       <div class="card office-card">
         <span class="pill office-card__label">Head Office</span>
-        <h3>India — Jamnagar</h3>
+        <h3>India, Jamnagar</h3>
         <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ india.address }}</span></div>
         {% for phone in india.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
         <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ india.email }}">{{ india.email }}</a></div>
@@ -109,12 +109,12 @@ description: "Contact KD Holidayz — Head Office in Jamnagar, India and Branch 
       </div>
       <div class="card office-card">
         <span class="pill office-card__label">Branch Office</span>
-        <h3>Kenya — Eldoret</h3>
+        <h3>Kenya, Eldoret</h3>
         <div class="office-card__row"><span class="text-muted">{{ icon.render("pin", 18) }}</span><span>{{ kenya.address }}</span></div>
         {% for phone in kenya.phones %}<div class="office-card__row"><span class="text-muted">{{ icon.render("phone", 18) }}</span><a href="{{ phone | telLink }}">{{ phone }}</a></div>{% endfor %}
         <div class="office-card__row"><span class="text-muted">{{ icon.render("mail", 18) }}</span><a href="mailto:{{ kenya.email }}">{{ kenya.email }}</a></div>
         <div class="media-img office-card__map" style="--ph-ratio:16/9;">
-          <iframe src="https://www.google.com/maps?q={{ kenya.mapQuery | urlencode }}&output=embed" title="Map — {{ kenya.mapQuery }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps?q={{ kenya.mapQuery | urlencode }}&output=embed" title="Map of {{ kenya.mapQuery }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
         <a href="{{ company.whatsappNumber | whatsappLink('Hi, I would like to visit the Eldoret office.') }}" class="btn btn--secondary btn--block" style="margin-top:20px;" target="_blank" rel="noopener">Chat on WhatsApp</a>
       </div>

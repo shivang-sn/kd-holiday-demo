@@ -1,8 +1,8 @@
 ---
 layout: layouts/destination-detail.njk
 title: "Bali Honey"
-subtitle: "Kuta, Ubud & the Gili Islands — beaches, culture and island-hopping in one trip"
-description: "Bali Honey packages by KD Holidayz — Kuta, Ubud and the Gili Islands, with temple tours, ATV rides and the Alas Harum swing."
+subtitle: "Kuta, Ubud & the Gili Islands: beaches, culture and island-hopping in one trip"
+description: "Bali Honey packages by KD Holidayz: Kuta, Ubud and the Gili Islands, with temple tours, ATV rides and the Alas Harum swing."
 heroImage: /images/photos/bali-honey.jpg
 pdfFile: /pdfs/bali-honey.pdf
 heroImageCredit: "Photo via Pexels"
@@ -28,7 +28,7 @@ activities:
     image: "https://images.unsplash.com/photo-1576475706812-822620fc23ba?w=500&q=70"
 topPlaces:
   - name: "Gili Islands"
-    description: "Car-free islands ringed by turquoise water — the highlight of this itinerary, reached by boat transfer."
+    description: "Car-free islands ringed by turquoise water, the highlight of this itinerary, reached by boat transfer."
     image: "/images/photos/bali-honey.jpg"
   - name: "Ubud"
     description: "Rice terraces, art villages, and a calmer, cultural side of Bali."
@@ -72,6 +72,6 @@ itinerary:
     title: "Departure"
     description: "Boat transfer back to Bali, then onward to Denpasar airport."
 ---
-Bali Honey is our island-hopping package for guests who want more than just the mainland — two nights in Kuta, three in Ubud, and two on the Gili Islands, with hotel choices at each stop (Neo Plus Kuta, Golden Tulip, Harris or Ramada in Kuta; Dwarka The Royal Villas or Furama Ubud Villa in Ubud; Villa Ombak or Pink Coco on Gili).
+Bali Honey is our island-hopping package for guests who want more than just the mainland: two nights in Kuta, three in Ubud, and two on the Gili Islands, with hotel choices at each stop (Neo Plus Kuta, Golden Tulip, Harris or Ramada in Kuta; Dwarka The Royal Villas or Furama Ubud Villa in Ubud; Villa Ombak or Pink Coco on Gili).
 
-Priced at **₹47,000 per person**, it includes all inter-hotel and Gili boat transfers, daily breakfast, and the Bali eVisa, alongside the activities listed above. Hotels, activity mix, and day count are fully adjustable — this itinerary is a starting point for the conversation, not a fixed package.
+Priced at **₹47,000 per person**, it includes all inter-hotel and Gili boat transfers, daily breakfast, and the Bali eVisa, alongside the activities listed above. Hotels, activity mix, and day count are fully adjustable. This itinerary is a starting point for the conversation, not a fixed package.

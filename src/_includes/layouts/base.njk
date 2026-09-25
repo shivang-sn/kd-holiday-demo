@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% set siteUrl = company.website %}
   {% set pageTitle = title + " | " + company.name %}
-  {% set pageDescription = description or (company.tagline + " — Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.") %}
+  {% set pageDescription = description or (company.tagline + " Domestic and international travel consulting from Jamnagar, India, with a branch in Eldoret, Kenya.") %}
   {% set canonicalUrl = siteUrl + page.url %}
   {% set resolvedOgImage = ogImage or heroImage or "/images/brand/logo-full.png" %}
   {% set ogImageUrl = resolvedOgImage if "http" in resolvedOgImage else siteUrl + resolvedOgImage %}
